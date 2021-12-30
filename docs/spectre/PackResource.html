@@ -1,0 +1,301 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>PackResource class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="PackResource">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/PackResource.html">PackResource</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><div class="icon-class"></div><strong>PackResource</strong></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>PackResource</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+class PackResource extends ResourceBase {
+ List&lt;ResourceBase&gt; childResources;
+ PackResource(String url, ResourceManager rm) : super(url, rm) {
+   childResources = new List&lt;ResourceBase&gt;();
+ }
+
+ void load(_ResourceLoaderResult result) {
+   if (childResources.length &gt; 0) {
+     _rm.batchUnload(childResources);
+     childResources.clear();
+   }
+   if (result.success) {
+     List&lt;Future&lt;ResourceBase&gt;&gt; futures = new List&lt;Future&lt;ResourceBase&gt;&gt;();
+     if (result.data is String) {
+       Map pack = JSON.parse(result.data);
+       if (pack != null) {
+         for (String url in pack['packContents']) {
+           ResourceBase handle = _rm.registerResource(url);
+           childResources.add(handle);
+           if (handle != null) {
+             futures.add(_rm.loadResource(handle));
+           }
+         }
+       }
+     }
+     _fireUpdated();
+     Future allLoaded = Futures.wait(futures);
+     allLoaded.then((_unused) {
+       result.completer.complete(result.handle);
+     });
+   }
+ }
+
+ void unload() {
+   _rm.batchUnload(childResources);
+ }
+
+ void deregister() {
+   _rm.batchDeregister(childResources);
+ }
+}
+</pre>
+</div>
+<h3>Extends</h3>
+<p>
+<span class="type-box"><span class="icon-class"></span><a href="../spectre/ResourceBase.html">ResourceBase</a></span>&nbsp;&gt;&nbsp;<span class="type-box"><span class="icon-class"></span><strong>PackResource</strong></span></p>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="PackResource">
+<button class="show-code">Code</button>
+new <strong>PackResource</strong>(String url, <a href="../spectre/ResourceManager.html">ResourceManager</a> rm) <a class="anchor-link" href="#PackResource"
+              title="Permalink to PackResource.PackResource">#</a></h4>
+<div class="doc">
+<pre class="source">
+PackResource(String url, ResourceManager rm) : super(url, rm) {
+ childResources = new List&lt;ResourceBase&gt;();
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="childResources">
+<button class="show-code">Code</button>
+List&lt;<a href="../spectre/ResourceBase.html">ResourceBase</a>&gt;         <strong>childResources</strong> <a class="anchor-link"
+            href="#childResources"
+            title="Permalink to PackResource.childResources">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+List&lt;ResourceBase&gt; childResources;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="isLoaded">
+<button class="show-code">Code</button>
+final bool         <strong>isLoaded</strong> <a class="anchor-link"
+            href="#isLoaded"
+            title="Permalink to PackResource.isLoaded">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/ResourceBase.html">ResourceBase</a> </div><div class="doc">
+<pre class="source">
+bool get isLoaded =&gt; _isLoaded;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="on">
+<button class="show-code">Code</button>
+<a href="../spectre/ResourceEvents.html">ResourceEvents</a>         <strong>on</strong> <a class="anchor-link"
+            href="#on"
+            title="Permalink to PackResource.on">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/ResourceBase.html">ResourceBase</a> </div><div class="doc">
+<pre class="source">
+ResourceEvents on;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="url">
+<button class="show-code">Code</button>
+final String         <strong>url</strong> <a class="anchor-link"
+            href="#url"
+            title="Permalink to PackResource.url">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/ResourceBase.html">ResourceBase</a> </div><div class="doc">
+<pre class="source">
+String get url =&gt; _url;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="deregister">
+<button class="show-code">Code</button>
+void <strong>deregister</strong>() <a class="anchor-link" href="#deregister"
+              title="Permalink to PackResource.deregister">#</a></h4>
+<div class="doc">
+<pre class="source">
+void deregister() {
+ _rm.batchDeregister(childResources);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="load">
+<button class="show-code">Code</button>
+void <strong>load</strong>(<a href="../spectre/_ResourceLoaderResult.html">_ResourceLoaderResult</a> result) <a class="anchor-link" href="#load"
+              title="Permalink to PackResource.load">#</a></h4>
+<div class="doc">
+<pre class="source">
+void load(_ResourceLoaderResult result) {
+ if (childResources.length &gt; 0) {
+   _rm.batchUnload(childResources);
+   childResources.clear();
+ }
+ if (result.success) {
+   List&lt;Future&lt;ResourceBase&gt;&gt; futures = new List&lt;Future&lt;ResourceBase&gt;&gt;();
+   if (result.data is String) {
+     Map pack = JSON.parse(result.data);
+     if (pack != null) {
+       for (String url in pack['packContents']) {
+         ResourceBase handle = _rm.registerResource(url);
+         childResources.add(handle);
+         if (handle != null) {
+           futures.add(_rm.loadResource(handle));
+         }
+       }
+     }
+   }
+   _fireUpdated();
+   Future allLoaded = Futures.wait(futures);
+   allLoaded.then((_unused) {
+     result.completer.complete(result.handle);
+   });
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method inherited"><h4 id="notifyUpdate">
+<button class="show-code">Code</button>
+void <strong>notifyUpdate</strong>() <a class="anchor-link" href="#notifyUpdate"
+              title="Permalink to PackResource.notifyUpdate">#</a></h4>
+<div class="inherited-from">inherited from <a href="../spectre/ResourceBase.html">ResourceBase</a> </div><div class="doc">
+<pre class="source">
+void notifyUpdate() {
+ _fireUpdated();
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="unload">
+<button class="show-code">Code</button>
+void <strong>unload</strong>() <a class="anchor-link" href="#unload"
+              title="Permalink to PackResource.unload">#</a></h4>
+<div class="doc">
+<pre class="source">
+void unload() {
+ _rm.batchUnload(childResources);
+}
+</pre>
+</div>
+</div>
+<div class="method inherited"><h4 id="update">
+<button class="show-code">Code</button>
+void <strong>update</strong>(Map state) <a class="anchor-link" href="#update"
+              title="Permalink to PackResource.update">#</a></h4>
+<div class="inherited-from">inherited from <a href="../spectre/ResourceBase.html">ResourceBase</a> </div><div class="doc">
+<pre class="source">
+void update(Map state) {
+ _isLoaded = true;
+ _fireUpdated();
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.308</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

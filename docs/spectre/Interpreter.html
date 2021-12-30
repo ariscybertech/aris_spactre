@@ -1,0 +1,868 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>Interpreter class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="Interpreter">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/Interpreter.html">Interpreter</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><div class="icon-class"></div><strong>Interpreter</strong></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>Interpreter</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+class Interpreter {
+ static final int NumRegisters = 32;
+ List registers;
+
+ Interpreter() {
+   registers = new List(NumRegisters);
+ }
+
+ void clearRegisters() {
+   for (int i = 0; i &lt; NumRegisters; i++) {
+     registers[i] = null;
+   }
+ }
+
+ void setRegister(int register, dynamic value) {
+   registers[register] = value;
+ }
+
+ void run(List program, GraphicsDevice device, ResourceManager rm, GraphicsContext im) {
+   if (program == null) {
+     return;
+   }
+   final int last = program.length;
+   int i = 0;
+   int skip = 0;
+   while (i &lt; last) {
+     final int code = program[i];
+     if (code == null) {
+       break;
+     }
+     switch (code) {
+       case Ops.Null:
+         skip = 1;
+         break;
+       case Ops.SetRegister:
+         skip = 3;
+         {
+           final int regId = program[i+1];
+           final dynamic val = program[i+2];
+           registers[regId] = val;
+         }
+         break;
+       case Ops.SetRegisterFromList:
+         skip = 4;
+         {
+           final int regId = program[i+1];
+           final List table = program[i+2];
+           final int tableIndex = program[i+3];
+           registers[regId] = table[tableIndex];
+         }
+         break;
+       case Ops.CreateBlendState:
+         skip = 4;
+       {
+         final String name = program[i+1];
+         final Map options = program[i+2];
+         final List output = program[i+3];
+         DeviceChild handle = device.createBlendState(name, options);
+         if (output != null) {
+           output.add(handle);
+         }
+       }
+       break;
+       case Ops.CreateRasterizerState:
+         skip = 4;
+       {
+         final String name = program[i+1];
+         final Map options = program[i+2];
+         final List output = program[i+3];
+         DeviceChild handle = device.createRasterizerState(name, options);
+         if (output != null) {
+           output.add(handle);
+         }
+       }
+       break;
+       case Ops.CreateDepthState:
+         skip = 4;
+       {
+         final String name = program[i+1];
+         final Map options = program[i+2];
+         final List output = program[i+3];
+         DeviceChild handle = device.createDepthState(name, options);
+         if (output != null) {
+           output.add(handle);
+         }
+       }
+       break;
+       case Ops.CreateVertexShader:
+         skip = 4;
+       {
+         final String name = program[i+1];
+         final Map options = program[i+2];
+         final List output = program[i+3];
+         DeviceChild handle = device.createVertexShader(name, options);
+         if (output != null) {
+           output.add(handle);
+         }
+       }
+       break;
+       case Ops.CreateFragmentShader:
+         skip = 4;
+       {
+         final String name = program[i+1];
+         final Map options = program[i+2];
+         final List output = program[i+3];
+         DeviceChild handle = device.createFragmentShader(name, options);
+         if (output != null) {
+           output.add(handle);
+         }
+       }
+       break;
+       case Ops.CreateShaderProgram:
+         skip = 4;
+       {
+         final String name = program[i+1];
+         final Map options = program[i+2];
+         final List output = program[i+3];
+         DeviceChild handle = device.createShaderProgram(name, options);
+         if (output != null) {
+           output.add(handle);
+         }
+       }
+       break;
+       case Ops.CreateIndexedMesh:
+         skip = 4;
+       {
+         final String name = program[i+1];
+         final Map options = program[i+2];
+         final List output = program[i+3];
+         DeviceChild handle = device.createIndexedMesh(name, options);
+         if (output != null) {
+           output.add(handle);
+         }
+       }
+       break;
+       case Ops.CompileShaderFromResource:
+         skip = 3;
+       {
+         final Shader shaderHandle = program[i+1];
+         final ShaderResource resourceHandle = program[i+2];
+         im.compileShaderFromResource(shaderHandle, resourceHandle, rm);
+       }
+       break;
+       case Ops.CreateInputLayoutForMeshResource:
+         skip = 5;
+       {
+         final String name = program[i+1];
+         final MeshResource mr = program[i+2];
+         final ShaderProgram shaderProgramHandle = program[i+3];
+         final List&lt;InputLayoutDescription&gt; inputs = program[i+4];
+         final List output = program[i+5];
+         List&lt;InputElementDescription&gt; elements = new List&lt;InputElementDescription&gt;(inputs.length);
+         for (int j = 0; j &lt; inputs.length; j++) {
+           elements[j] = InputLayoutHelper.inputElementDescriptionFromMesh(inputs[j], mr);
+         }
+         DeviceChild handle = device.createInputLayout(name, {'elements':elements, 'shaderProgram':shaderProgramHandle});
+         if (output != null) {
+           output.add(handle);
+         }
+       }
+       break;
+       case Ops.LinkShaderProgram:
+         skip = 4;
+       {
+         final ShaderProgram shaderProgramHandle = program[i+1];
+         final VertexShader vertexShaderHandle = program[i+2];
+         final FragmentShader fragmentShaderHandle = program[i+3];
+         im.linkShaderProgram(shaderProgramHandle, vertexShaderHandle, fragmentShaderHandle);
+       }
+       break;
+       case Ops.SetBlendState:
+         skip = 2;
+         {
+           final BlendState handle = program[i+1];
+           im.setBlendState(handle);
+         }
+         break;
+       case Ops.SetRasterizerState:
+         skip = 2;
+         {
+           final RasterizerState handle = program[i+1];
+           im.setRasterizerState(handle);
+         }
+         break;
+       case Ops.SetDepthState:
+         skip = 2;
+         {
+           final DepthState handle = program[i+1];
+           im.setDepthState(handle);
+         }
+         break;
+       case Ops.SetShaderProgram:
+         skip = 2;
+         {
+           final ShaderProgram handle = program[i+1];
+           im.setShaderProgram(handle);
+         }
+         break;
+       case Ops.SetPrimitiveTopology:
+         skip = 2;
+         {
+           final int primTop = program[i+1];
+           im.setPrimitiveTopology(primTop);
+         }
+         break;
+       case Ops.SetVertexBuffers:
+         skip = 3;
+         {
+           final int vertexBufferOffset = program[i+1];
+           final List vertexBuffers = program[i+2];
+           im.setVertexBuffers(vertexBufferOffset, vertexBuffers);
+         }
+         break;
+       case Ops.SetIndexBuffer:
+         skip = 2;
+         {
+           final IndexBuffer handle = program[i+1];
+           im.setIndexBuffer(handle);
+         }
+         break;
+       case Ops.SetInputLayout:
+         skip = 2;
+         {
+           final InputLayout handle = program[i+1];
+           im.setInputLayout(handle);
+         }
+         break;
+       case Ops.SetTextures:
+         skip = 3;
+       {
+         final int textureUnitOffset = program[i+1];
+         final List&lt;Texture&gt; handles = program[i+2];
+         im.setTextures(textureUnitOffset, handles);
+       }
+       break;
+       case Ops.SetSamplers:
+         skip = 3;
+       {
+         final int textureUnitOffset = program[i+1];
+         final List&lt;SamplerState&gt; handles = program[i+2];
+         im.setSamplers(textureUnitOffset, handles);
+       }
+       break;
+       case Ops.SetIndexedMesh:
+         skip = 2;
+       {
+         final IndexedMesh indexedMeshHandle = program[i+1];
+         im.setIndexedMesh(indexedMeshHandle);
+       }
+       break;
+       case Ops.SetUniformMatrix4:
+         skip = 3;
+         {
+           final String name = program[i+1];
+           final Float32Array buf = program[i+2];
+           im.setUniformMatrix4(name, buf);
+         }
+         break;
+       case Ops.SetUniformVector4:
+         skip = 3;
+         {
+           final String name = program[i+1];
+           final Float32Array buf = program[i+2];
+           im.setUniformVector4(name, buf);
+         }
+         break;
+       case Ops.SetUniformVector3:
+         skip = 3;
+         {
+           final String name = program[i+1];
+           final Float32Array buf = program[i+2];
+           im.setUniformVector3(name, buf);
+         }
+         break;
+       case Ops.SetUniformVector2:
+         skip = 3;
+         {
+           final String name = program[i+1];
+           final Float32Array buf = program[i+2];
+           im.setUniformVector2(name, buf);
+         }
+         break;
+       case Ops.SetUniformInt:
+         skip = 3;
+         {
+           final String name = program[i+1];
+           final int buf = program[i+2];
+           im.setUniformInt(name, buf);
+         }
+         break;
+       case Ops.Draw:
+         skip = 3;
+         {
+           final int vertexCount = program[i+1];
+           final int vertexOffset = program[i+2];
+           im.draw(vertexCount, vertexOffset);
+         }
+         break;
+       case Ops.DrawIndirect:
+         skip = 3;
+         {
+           final int vertexCount = registers[program[i+1]];
+           final int vertexOffset = registers[program[i+2]];
+           im.draw(vertexCount, vertexOffset);
+         }
+         break;
+       case Ops.DrawIndexed:
+         skip = 3;
+         {
+           final int indexCount = program[i+1];
+           final int indexOffset = program[i+2];
+           im.drawIndexed(indexCount, indexOffset);
+         }
+         break;
+       case Ops.DrawIndexedMesh:
+         skip = 2;
+         {
+           final IndexedMesh indexedMeshHandle = program[i+1];
+           im.drawIndexedMesh(indexedMeshHandle);
+         }
+         break;
+       case Ops.DeregisterResources:
+         skip = 2;
+       {
+         final List&lt;ResourceBase&gt; handles = program[i+1];
+         rm.batchDeregister(handles);
+       }
+       break;
+       case Ops.DeleteDeviceChildren:
+         skip = 2;
+       {
+         final List&lt;DeviceChild&gt; handles = program[i+1];
+         device.batchDeleteDeviceChildren(handles);
+       }
+       break;
+       case Ops.Call:
+         skip = 2;
+       {
+         List subProgram = program[i+1];
+         run(subProgram, device, rm, im);
+       }
+         break;
+       case Ops.Return:
+       default:
+         return;
+     }
+     i += skip;
+   }
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Static Properties</h3>
+<div class="field"><h4 id="NumRegisters">
+<button class="show-code">Code</button>
+final int         <strong>NumRegisters</strong> <a class="anchor-link"
+            href="#NumRegisters"
+            title="Permalink to Interpreter.NumRegisters">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int NumRegisters = 32;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="Interpreter">
+<button class="show-code">Code</button>
+new <strong>Interpreter</strong>() <a class="anchor-link" href="#Interpreter"
+              title="Permalink to Interpreter.Interpreter">#</a></h4>
+<div class="doc">
+<pre class="source">
+Interpreter() {
+ registers = new List(NumRegisters);
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="registers">
+<button class="show-code">Code</button>
+List         <strong>registers</strong> <a class="anchor-link"
+            href="#registers"
+            title="Permalink to Interpreter.registers">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+List registers;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="clearRegisters">
+<button class="show-code">Code</button>
+void <strong>clearRegisters</strong>() <a class="anchor-link" href="#clearRegisters"
+              title="Permalink to Interpreter.clearRegisters">#</a></h4>
+<div class="doc">
+<pre class="source">
+void clearRegisters() {
+ for (int i = 0; i &lt; NumRegisters; i++) {
+   registers[i] = null;
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="run">
+<button class="show-code">Code</button>
+void <strong>run</strong>(List program, <a href="../spectre/GraphicsDevice.html">GraphicsDevice</a> device, <a href="../spectre/ResourceManager.html">ResourceManager</a> rm, <a href="../spectre/GraphicsContext.html">GraphicsContext</a> im) <a class="anchor-link" href="#run"
+              title="Permalink to Interpreter.run">#</a></h4>
+<div class="doc">
+<pre class="source">
+void run(List program, GraphicsDevice device, ResourceManager rm, GraphicsContext im) {
+ if (program == null) {
+   return;
+ }
+ final int last = program.length;
+ int i = 0;
+ int skip = 0;
+ while (i &lt; last) {
+   final int code = program[i];
+   if (code == null) {
+     break;
+   }
+   switch (code) {
+     case Ops.Null:
+       skip = 1;
+       break;
+     case Ops.SetRegister:
+       skip = 3;
+       {
+         final int regId = program[i+1];
+         final dynamic val = program[i+2];
+         registers[regId] = val;
+       }
+       break;
+     case Ops.SetRegisterFromList:
+       skip = 4;
+       {
+         final int regId = program[i+1];
+         final List table = program[i+2];
+         final int tableIndex = program[i+3];
+         registers[regId] = table[tableIndex];
+       }
+       break;
+     case Ops.CreateBlendState:
+       skip = 4;
+     {
+       final String name = program[i+1];
+       final Map options = program[i+2];
+       final List output = program[i+3];
+       DeviceChild handle = device.createBlendState(name, options);
+       if (output != null) {
+         output.add(handle);
+       }
+     }
+     break;
+     case Ops.CreateRasterizerState:
+       skip = 4;
+     {
+       final String name = program[i+1];
+       final Map options = program[i+2];
+       final List output = program[i+3];
+       DeviceChild handle = device.createRasterizerState(name, options);
+       if (output != null) {
+         output.add(handle);
+       }
+     }
+     break;
+     case Ops.CreateDepthState:
+       skip = 4;
+     {
+       final String name = program[i+1];
+       final Map options = program[i+2];
+       final List output = program[i+3];
+       DeviceChild handle = device.createDepthState(name, options);
+       if (output != null) {
+         output.add(handle);
+       }
+     }
+     break;
+     case Ops.CreateVertexShader:
+       skip = 4;
+     {
+       final String name = program[i+1];
+       final Map options = program[i+2];
+       final List output = program[i+3];
+       DeviceChild handle = device.createVertexShader(name, options);
+       if (output != null) {
+         output.add(handle);
+       }
+     }
+     break;
+     case Ops.CreateFragmentShader:
+       skip = 4;
+     {
+       final String name = program[i+1];
+       final Map options = program[i+2];
+       final List output = program[i+3];
+       DeviceChild handle = device.createFragmentShader(name, options);
+       if (output != null) {
+         output.add(handle);
+       }
+     }
+     break;
+     case Ops.CreateShaderProgram:
+       skip = 4;
+     {
+       final String name = program[i+1];
+       final Map options = program[i+2];
+       final List output = program[i+3];
+       DeviceChild handle = device.createShaderProgram(name, options);
+       if (output != null) {
+         output.add(handle);
+       }
+     }
+     break;
+     case Ops.CreateIndexedMesh:
+       skip = 4;
+     {
+       final String name = program[i+1];
+       final Map options = program[i+2];
+       final List output = program[i+3];
+       DeviceChild handle = device.createIndexedMesh(name, options);
+       if (output != null) {
+         output.add(handle);
+       }
+     }
+     break;
+     case Ops.CompileShaderFromResource:
+       skip = 3;
+     {
+       final Shader shaderHandle = program[i+1];
+       final ShaderResource resourceHandle = program[i+2];
+       im.compileShaderFromResource(shaderHandle, resourceHandle, rm);
+     }
+     break;
+     case Ops.CreateInputLayoutForMeshResource:
+       skip = 5;
+     {
+       final String name = program[i+1];
+       final MeshResource mr = program[i+2];
+       final ShaderProgram shaderProgramHandle = program[i+3];
+       final List&lt;InputLayoutDescription&gt; inputs = program[i+4];
+       final List output = program[i+5];
+       List&lt;InputElementDescription&gt; elements = new List&lt;InputElementDescription&gt;(inputs.length);
+       for (int j = 0; j &lt; inputs.length; j++) {
+         elements[j] = InputLayoutHelper.inputElementDescriptionFromMesh(inputs[j], mr);
+       }
+       DeviceChild handle = device.createInputLayout(name, {'elements':elements, 'shaderProgram':shaderProgramHandle});
+       if (output != null) {
+         output.add(handle);
+       }
+     }
+     break;
+     case Ops.LinkShaderProgram:
+       skip = 4;
+     {
+       final ShaderProgram shaderProgramHandle = program[i+1];
+       final VertexShader vertexShaderHandle = program[i+2];
+       final FragmentShader fragmentShaderHandle = program[i+3];
+       im.linkShaderProgram(shaderProgramHandle, vertexShaderHandle, fragmentShaderHandle);
+     }
+     break;
+     case Ops.SetBlendState:
+       skip = 2;
+       {
+         final BlendState handle = program[i+1];
+         im.setBlendState(handle);
+       }
+       break;
+     case Ops.SetRasterizerState:
+       skip = 2;
+       {
+         final RasterizerState handle = program[i+1];
+         im.setRasterizerState(handle);
+       }
+       break;
+     case Ops.SetDepthState:
+       skip = 2;
+       {
+         final DepthState handle = program[i+1];
+         im.setDepthState(handle);
+       }
+       break;
+     case Ops.SetShaderProgram:
+       skip = 2;
+       {
+         final ShaderProgram handle = program[i+1];
+         im.setShaderProgram(handle);
+       }
+       break;
+     case Ops.SetPrimitiveTopology:
+       skip = 2;
+       {
+         final int primTop = program[i+1];
+         im.setPrimitiveTopology(primTop);
+       }
+       break;
+     case Ops.SetVertexBuffers:
+       skip = 3;
+       {
+         final int vertexBufferOffset = program[i+1];
+         final List vertexBuffers = program[i+2];
+         im.setVertexBuffers(vertexBufferOffset, vertexBuffers);
+       }
+       break;
+     case Ops.SetIndexBuffer:
+       skip = 2;
+       {
+         final IndexBuffer handle = program[i+1];
+         im.setIndexBuffer(handle);
+       }
+       break;
+     case Ops.SetInputLayout:
+       skip = 2;
+       {
+         final InputLayout handle = program[i+1];
+         im.setInputLayout(handle);
+       }
+       break;
+     case Ops.SetTextures:
+       skip = 3;
+     {
+       final int textureUnitOffset = program[i+1];
+       final List&lt;Texture&gt; handles = program[i+2];
+       im.setTextures(textureUnitOffset, handles);
+     }
+     break;
+     case Ops.SetSamplers:
+       skip = 3;
+     {
+       final int textureUnitOffset = program[i+1];
+       final List&lt;SamplerState&gt; handles = program[i+2];
+       im.setSamplers(textureUnitOffset, handles);
+     }
+     break;
+     case Ops.SetIndexedMesh:
+       skip = 2;
+     {
+       final IndexedMesh indexedMeshHandle = program[i+1];
+       im.setIndexedMesh(indexedMeshHandle);
+     }
+     break;
+     case Ops.SetUniformMatrix4:
+       skip = 3;
+       {
+         final String name = program[i+1];
+         final Float32Array buf = program[i+2];
+         im.setUniformMatrix4(name, buf);
+       }
+       break;
+     case Ops.SetUniformVector4:
+       skip = 3;
+       {
+         final String name = program[i+1];
+         final Float32Array buf = program[i+2];
+         im.setUniformVector4(name, buf);
+       }
+       break;
+     case Ops.SetUniformVector3:
+       skip = 3;
+       {
+         final String name = program[i+1];
+         final Float32Array buf = program[i+2];
+         im.setUniformVector3(name, buf);
+       }
+       break;
+     case Ops.SetUniformVector2:
+       skip = 3;
+       {
+         final String name = program[i+1];
+         final Float32Array buf = program[i+2];
+         im.setUniformVector2(name, buf);
+       }
+       break;
+     case Ops.SetUniformInt:
+       skip = 3;
+       {
+         final String name = program[i+1];
+         final int buf = program[i+2];
+         im.setUniformInt(name, buf);
+       }
+       break;
+     case Ops.Draw:
+       skip = 3;
+       {
+         final int vertexCount = program[i+1];
+         final int vertexOffset = program[i+2];
+         im.draw(vertexCount, vertexOffset);
+       }
+       break;
+     case Ops.DrawIndirect:
+       skip = 3;
+       {
+         final int vertexCount = registers[program[i+1]];
+         final int vertexOffset = registers[program[i+2]];
+         im.draw(vertexCount, vertexOffset);
+       }
+       break;
+     case Ops.DrawIndexed:
+       skip = 3;
+       {
+         final int indexCount = program[i+1];
+         final int indexOffset = program[i+2];
+         im.drawIndexed(indexCount, indexOffset);
+       }
+       break;
+     case Ops.DrawIndexedMesh:
+       skip = 2;
+       {
+         final IndexedMesh indexedMeshHandle = program[i+1];
+         im.drawIndexedMesh(indexedMeshHandle);
+       }
+       break;
+     case Ops.DeregisterResources:
+       skip = 2;
+     {
+       final List&lt;ResourceBase&gt; handles = program[i+1];
+       rm.batchDeregister(handles);
+     }
+     break;
+     case Ops.DeleteDeviceChildren:
+       skip = 2;
+     {
+       final List&lt;DeviceChild&gt; handles = program[i+1];
+       device.batchDeleteDeviceChildren(handles);
+     }
+     break;
+     case Ops.Call:
+       skip = 2;
+     {
+       List subProgram = program[i+1];
+       run(subProgram, device, rm, im);
+     }
+       break;
+     case Ops.Return:
+     default:
+       return;
+   }
+   i += skip;
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setRegister">
+<button class="show-code">Code</button>
+void <strong>setRegister</strong>(int register, value) <a class="anchor-link" href="#setRegister"
+              title="Permalink to Interpreter.setRegister">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setRegister(int register, dynamic value) {
+ registers[register] = value;
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.228</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

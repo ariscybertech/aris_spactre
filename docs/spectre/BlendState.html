@@ -1,0 +1,783 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>BlendState class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="BlendState">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/BlendState.html">BlendState</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><div class="icon-class"></div><strong>BlendState</strong></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>BlendState</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<p>BlendState controls how output from your fragment shader is blended onto the framebuffer
+Create using <code>Device.createBlendState</code>
+Set using <code>ImmediateContext.setBlendState</code></p>
+<pre class="source">
+class BlendState extends DeviceChild {
+ static final int BlendSourceZero = WebGLRenderingContext.ZERO;
+ static final int BlendSourceOne = WebGLRenderingContext.ONE;
+ static final int BlendSourceShaderColor = WebGLRenderingContext.SRC_COLOR;
+ static final int BlendSourceShaderInverseColor = WebGLRenderingContext.ONE_MINUS_SRC_COLOR;
+ static final int BlendSourceShaderAlpha = WebGLRenderingContext.SRC_ALPHA;
+ static final int BlendSourceShaderInverseAlpha = WebGLRenderingContext.ONE_MINUS_SRC_ALPHA;
+ static final int BlendSourceTargetColor = WebGLRenderingContext.DST_COLOR;
+ static final int BlendSourceTargetInverseColor = WebGLRenderingContext.ONE_MINUS_DST_COLOR;
+ static final int BlendSourceTargetAlpha = WebGLRenderingContext.DST_ALPHA;
+ static final int BlendSourceTargetInverseAlpha = WebGLRenderingContext.ONE_MINUS_DST_ALPHA;
+ static final int BlendSourceBlendColor = WebGLRenderingContext.CONSTANT_COLOR;
+ static final int BlendSourceBlendAlpha = WebGLRenderingContext.CONSTANT_ALPHA;
+ static final int BlendSourceBlendInverseColor = WebGLRenderingContext.ONE_MINUS_CONSTANT_COLOR;
+ static final int BlendSourceBlendInverseAlpha = WebGLRenderingContext.ONE_MINUS_CONSTANT_ALPHA;
+
+ static final int BlendOpAdd = WebGLRenderingContext.FUNC_ADD;
+ static final int BlendOpSubtract = WebGLRenderingContext.FUNC_SUBTRACT;
+ static final int BlendOpReverseSubtract = WebGLRenderingContext.FUNC_REVERSE_SUBTRACT;
+
+ // Constant blend values
+ double blendColorRed;
+ double blendColorGreen;
+ double blendColorBlue;
+ double blendColorAlpha;
+
+ // off by default
+ bool blendEnable;
+ int blendSourceColorFunc; /* "Source" = "Shader" */
+ int blendDestColorFunc; /* "Destination" = "Render Target" */
+ int blendSourceAlphaFunc;
+ int blendDestAlphaFunc;
+
+ /* Destination = BlendSource&lt;Color|Alpha&gt;Func blend?Op BlendDest&lt;Color|Alpha&gt;Func */
+ int blendColorOp;
+ int blendAlphaOp;
+
+ // Render Target write flags
+ bool writeRenderTargetRed;
+ bool writeRenderTargetGreen;
+ bool writeRenderTargetBlue;
+ bool writeRenderTargetAlpha;
+
+ BlendState._internal(String name, GraphicsDevice device) : super._internal(name, device) {
+   // Default state
+   blendColorRed = 1.0;
+   blendColorGreen = 1.0;
+   blendColorBlue = 1.0;
+   blendColorAlpha = 1.0;
+
+   blendEnable = false;
+   blendSourceColorFunc = BlendSourceOne;
+   blendDestColorFunc = BlendSourceZero;
+   blendSourceAlphaFunc = BlendSourceOne;
+   blendDestAlphaFunc = BlendSourceZero;
+   blendColorOp = BlendOpAdd;
+   blendAlphaOp = BlendOpAdd;
+
+   writeRenderTargetRed = true;
+   writeRenderTargetGreen = true;
+   writeRenderTargetBlue = true;
+   writeRenderTargetAlpha = true;
+ }
+ void _createDeviceState() {
+ }
+
+ dynamic filter(dynamic o) {
+   if (o is String) {
+     var table = {
+      "BlendSourceZero": WebGLRenderingContext.ZERO,
+      "BlendSourceOne": WebGLRenderingContext.ONE,
+      "BlendSourceShaderColor": WebGLRenderingContext.SRC_COLOR,
+      "BlendSourceShaderInverseColor": WebGLRenderingContext.ONE_MINUS_SRC_COLOR,
+      "BlendSourceShaderAlpha": WebGLRenderingContext.SRC_ALPHA,
+      "BlendSourceShaderInverseAlpha": WebGLRenderingContext.ONE_MINUS_SRC_ALPHA,
+      "BlendSourceTargetColor": WebGLRenderingContext.DST_COLOR,
+      "BlendSourceTargetInverseColor": WebGLRenderingContext.ONE_MINUS_DST_COLOR,
+      "BlendSourceTargetAlpha": WebGLRenderingContext.DST_ALPHA,
+      "BlendSourceTargetInverseAlpha": WebGLRenderingContext.ONE_MINUS_DST_ALPHA,
+      "BlendSourceBlendColor": WebGLRenderingContext.CONSTANT_COLOR,
+      "BlendSourceBlendAlpha": WebGLRenderingContext.CONSTANT_ALPHA,
+      "BlendSourceBlendInverseColor": WebGLRenderingContext.ONE_MINUS_CONSTANT_COLOR,
+      "BlendSourceBlendInverseAlpha": WebGLRenderingContext.ONE_MINUS_CONSTANT_ALPHA,
+      "BlendOpAdd": WebGLRenderingContext.FUNC_ADD,
+      "BlendOpSubtract": WebGLRenderingContext.FUNC_SUBTRACT,
+      "BlendOpReverseSubtract": WebGLRenderingContext.FUNC_REVERSE_SUBTRACT
+     };
+     return table[o];
+   }
+   return o;
+ }
+ void _configDeviceState(dynamic props) {
+   if (props != null) {
+     dynamic o;
+     o = props['blendColorRed'];
+     blendColorRed = o != null ? filter(o) : blendColorRed;
+     o = props['blendColorGreen'];
+     blendColorGreen = o != null ? filter(o) : blendColorGreen;
+     o = props['blendColorBlue'];
+     blendColorBlue = o != null ? filter(o) : blendColorBlue;
+     o = props['blendColorAlpha'];
+     blendColorAlpha = o != null ? filter(o) : blendColorAlpha;
+
+     o = props['blendEnable'];
+     blendEnable = o != null ? filter(o) : blendEnable;
+     o = props['blendSourceColorFunc'];
+     blendSourceColorFunc = o != null ? filter(o) : blendSourceColorFunc;
+     o = props['blendDestColorFunc'];
+     blendDestColorFunc = o != null ? filter(o) : blendDestColorFunc;
+     o = props['blendSourceAlphaFunc'];
+     blendSourceAlphaFunc = o != null ? filter(o) : blendSourceAlphaFunc;
+     o = props['blendDestAlphaFunc'];
+     blendDestAlphaFunc = o != null ? filter(o) : blendDestAlphaFunc;
+
+     o = props['blendColorOp'];
+     blendColorOp = o != null ? filter(o) : blendColorOp;
+     o = props['blendAlphaOp'];
+     blendAlphaOp = o != null ? filter(o) : blendAlphaOp;
+
+     o = props['writeRenderTargetRed'];
+     writeRenderTargetRed = o != null ? filter(o) : writeRenderTargetRed;
+     o = props['writeRenderTargetGreen'];
+     writeRenderTargetGreen = o != null ? filter(o) : writeRenderTargetGreen;
+     o = props['writeRenderTargetBlue'];
+     writeRenderTargetBlue = o != null ? filter(o) : writeRenderTargetBlue;
+     o = props['writeRenderTargetAlpha'];
+     writeRenderTargetAlpha = o != null ? filter(o) : writeRenderTargetAlpha;
+   }
+ }
+
+ void _destroyDeviceState() {
+
+ }
+}
+</pre>
+</div>
+<h3>Extends</h3>
+<p>
+<span class="type-box"><span class="icon-class"></span><a href="../spectre/DeviceChild.html">DeviceChild</a></span>&nbsp;&gt;&nbsp;<span class="type-box"><span class="icon-class"></span><strong>BlendState</strong></span></p>
+<div>
+<h3>Static Properties</h3>
+<div class="field"><h4 id="BlendOpAdd">
+<button class="show-code">Code</button>
+final int         <strong>BlendOpAdd</strong> <a class="anchor-link"
+            href="#BlendOpAdd"
+            title="Permalink to BlendState.BlendOpAdd">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendOpAdd = WebGLRenderingContext.FUNC_ADD;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendOpReverseSubtract">
+<button class="show-code">Code</button>
+final int         <strong>BlendOpReverseSubtract</strong> <a class="anchor-link"
+            href="#BlendOpReverseSubtract"
+            title="Permalink to BlendState.BlendOpReverseSubtract">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendOpReverseSubtract = WebGLRenderingContext.FUNC_REVERSE_SUBTRACT;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendOpSubtract">
+<button class="show-code">Code</button>
+final int         <strong>BlendOpSubtract</strong> <a class="anchor-link"
+            href="#BlendOpSubtract"
+            title="Permalink to BlendState.BlendOpSubtract">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendOpSubtract = WebGLRenderingContext.FUNC_SUBTRACT;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceBlendAlpha">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceBlendAlpha</strong> <a class="anchor-link"
+            href="#BlendSourceBlendAlpha"
+            title="Permalink to BlendState.BlendSourceBlendAlpha">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceBlendAlpha = WebGLRenderingContext.CONSTANT_ALPHA;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceBlendColor">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceBlendColor</strong> <a class="anchor-link"
+            href="#BlendSourceBlendColor"
+            title="Permalink to BlendState.BlendSourceBlendColor">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceBlendColor = WebGLRenderingContext.CONSTANT_COLOR;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceBlendInverseAlpha">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceBlendInverseAlpha</strong> <a class="anchor-link"
+            href="#BlendSourceBlendInverseAlpha"
+            title="Permalink to BlendState.BlendSourceBlendInverseAlpha">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceBlendInverseAlpha = WebGLRenderingContext.ONE_MINUS_CONSTANT_ALPHA;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceBlendInverseColor">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceBlendInverseColor</strong> <a class="anchor-link"
+            href="#BlendSourceBlendInverseColor"
+            title="Permalink to BlendState.BlendSourceBlendInverseColor">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceBlendInverseColor = WebGLRenderingContext.ONE_MINUS_CONSTANT_COLOR;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceOne">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceOne</strong> <a class="anchor-link"
+            href="#BlendSourceOne"
+            title="Permalink to BlendState.BlendSourceOne">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceOne = WebGLRenderingContext.ONE;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceShaderAlpha">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceShaderAlpha</strong> <a class="anchor-link"
+            href="#BlendSourceShaderAlpha"
+            title="Permalink to BlendState.BlendSourceShaderAlpha">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceShaderAlpha = WebGLRenderingContext.SRC_ALPHA;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceShaderColor">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceShaderColor</strong> <a class="anchor-link"
+            href="#BlendSourceShaderColor"
+            title="Permalink to BlendState.BlendSourceShaderColor">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceShaderColor = WebGLRenderingContext.SRC_COLOR;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceShaderInverseAlpha">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceShaderInverseAlpha</strong> <a class="anchor-link"
+            href="#BlendSourceShaderInverseAlpha"
+            title="Permalink to BlendState.BlendSourceShaderInverseAlpha">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceShaderInverseAlpha = WebGLRenderingContext.ONE_MINUS_SRC_ALPHA;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceShaderInverseColor">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceShaderInverseColor</strong> <a class="anchor-link"
+            href="#BlendSourceShaderInverseColor"
+            title="Permalink to BlendState.BlendSourceShaderInverseColor">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceShaderInverseColor = WebGLRenderingContext.ONE_MINUS_SRC_COLOR;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceTargetAlpha">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceTargetAlpha</strong> <a class="anchor-link"
+            href="#BlendSourceTargetAlpha"
+            title="Permalink to BlendState.BlendSourceTargetAlpha">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceTargetAlpha = WebGLRenderingContext.DST_ALPHA;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceTargetColor">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceTargetColor</strong> <a class="anchor-link"
+            href="#BlendSourceTargetColor"
+            title="Permalink to BlendState.BlendSourceTargetColor">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceTargetColor = WebGLRenderingContext.DST_COLOR;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceTargetInverseAlpha">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceTargetInverseAlpha</strong> <a class="anchor-link"
+            href="#BlendSourceTargetInverseAlpha"
+            title="Permalink to BlendState.BlendSourceTargetInverseAlpha">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceTargetInverseAlpha = WebGLRenderingContext.ONE_MINUS_DST_ALPHA;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceTargetInverseColor">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceTargetInverseColor</strong> <a class="anchor-link"
+            href="#BlendSourceTargetInverseColor"
+            title="Permalink to BlendState.BlendSourceTargetInverseColor">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceTargetInverseColor = WebGLRenderingContext.ONE_MINUS_DST_COLOR;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BlendSourceZero">
+<button class="show-code">Code</button>
+final int         <strong>BlendSourceZero</strong> <a class="anchor-link"
+            href="#BlendSourceZero"
+            title="Permalink to BlendState.BlendSourceZero">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int BlendSourceZero = WebGLRenderingContext.ZERO;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="blendAlphaOp">
+<button class="show-code">Code</button>
+int         <strong>blendAlphaOp</strong> <a class="anchor-link"
+            href="#blendAlphaOp"
+            title="Permalink to BlendState.blendAlphaOp">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int blendAlphaOp;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="blendColorAlpha">
+<button class="show-code">Code</button>
+double         <strong>blendColorAlpha</strong> <a class="anchor-link"
+            href="#blendColorAlpha"
+            title="Permalink to BlendState.blendColorAlpha">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+double blendColorAlpha;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="blendColorBlue">
+<button class="show-code">Code</button>
+double         <strong>blendColorBlue</strong> <a class="anchor-link"
+            href="#blendColorBlue"
+            title="Permalink to BlendState.blendColorBlue">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+double blendColorBlue;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="blendColorGreen">
+<button class="show-code">Code</button>
+double         <strong>blendColorGreen</strong> <a class="anchor-link"
+            href="#blendColorGreen"
+            title="Permalink to BlendState.blendColorGreen">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+double blendColorGreen;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="blendColorOp">
+<button class="show-code">Code</button>
+int         <strong>blendColorOp</strong> <a class="anchor-link"
+            href="#blendColorOp"
+            title="Permalink to BlendState.blendColorOp">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int blendColorOp;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="blendColorRed">
+<button class="show-code">Code</button>
+double         <strong>blendColorRed</strong> <a class="anchor-link"
+            href="#blendColorRed"
+            title="Permalink to BlendState.blendColorRed">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+double blendColorRed;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="blendDestAlphaFunc">
+<button class="show-code">Code</button>
+int         <strong>blendDestAlphaFunc</strong> <a class="anchor-link"
+            href="#blendDestAlphaFunc"
+            title="Permalink to BlendState.blendDestAlphaFunc">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int blendDestAlphaFunc;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="blendDestColorFunc">
+<button class="show-code">Code</button>
+int         <strong>blendDestColorFunc</strong> <a class="anchor-link"
+            href="#blendDestColorFunc"
+            title="Permalink to BlendState.blendDestColorFunc">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int blendDestColorFunc;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="blendEnable">
+<button class="show-code">Code</button>
+bool         <strong>blendEnable</strong> <a class="anchor-link"
+            href="#blendEnable"
+            title="Permalink to BlendState.blendEnable">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+bool blendEnable;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="blendSourceAlphaFunc">
+<button class="show-code">Code</button>
+int         <strong>blendSourceAlphaFunc</strong> <a class="anchor-link"
+            href="#blendSourceAlphaFunc"
+            title="Permalink to BlendState.blendSourceAlphaFunc">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int blendSourceAlphaFunc;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="blendSourceColorFunc">
+<button class="show-code">Code</button>
+int         <strong>blendSourceColorFunc</strong> <a class="anchor-link"
+            href="#blendSourceColorFunc"
+            title="Permalink to BlendState.blendSourceColorFunc">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int blendSourceColorFunc;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="device">
+<button class="show-code">Code</button>
+<a href="../spectre/GraphicsDevice.html">GraphicsDevice</a>         <strong>device</strong> <a class="anchor-link"
+            href="#device"
+            title="Permalink to BlendState.device">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+GraphicsDevice device;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="dirty">
+<button class="show-code">Code</button>
+bool         <strong>dirty</strong> <a class="anchor-link"
+            href="#dirty"
+            title="Permalink to BlendState.dirty">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool get dirty =&gt; (_status &amp; StatusDirty) != 0;
+</pre>
+<pre class="source">
+void set dirty(bool r) {
+ if (r) {
+   _status |= StatusDirty;
+ } else {
+   _status &amp;= ~StatusDirty;
+ }
+}
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="fallback">
+<button class="show-code">Code</button>
+<a href="../spectre/DeviceChild.html">DeviceChild</a>         <strong>fallback</strong> <a class="anchor-link"
+            href="#fallback"
+            title="Permalink to BlendState.fallback">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+DeviceChild fallback;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="hashCode">
+<button class="show-code">Code</button>
+final int         <strong>hashCode</strong> <a class="anchor-link"
+            href="#hashCode"
+            title="Permalink to BlendState.hashCode">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<div class="inherited">
+<p>Get a hash code for this object.</p>
+<p>All objects have hash codes. Hash codes are guaranteed to be the
+same for objects that are equal when compared using the equality
+operator <code>==</code>. Other than that there are no guarantees about
+the hash codes. They will not be consistent between runs and
+there are no distribution guarantees.</p>
+<p>If a subclass overrides <code>hashCode</code> it should override the
+equality operator as well to maintain consistency.</p>
+<div class="docs-inherited-from">docs inherited from Object </div></div>
+<pre class="source">
+int get hashCode {
+ return name.hashCode;
+}
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="name">
+<button class="show-code">Code</button>
+String         <strong>name</strong> <a class="anchor-link"
+            href="#name"
+            title="Permalink to BlendState.name">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+String name;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="ready">
+<button class="show-code">Code</button>
+bool         <strong>ready</strong> <a class="anchor-link"
+            href="#ready"
+            title="Permalink to BlendState.ready">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool get ready =&gt; (_status &amp; StatusReady) != 0;
+</pre>
+<pre class="source">
+void set ready(bool r) {
+ if (r) {
+   _status |= StatusReady;
+ } else {
+   _status &amp;= ~StatusReady;
+ }
+}
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="writeRenderTargetAlpha">
+<button class="show-code">Code</button>
+bool         <strong>writeRenderTargetAlpha</strong> <a class="anchor-link"
+            href="#writeRenderTargetAlpha"
+            title="Permalink to BlendState.writeRenderTargetAlpha">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+bool writeRenderTargetAlpha;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="writeRenderTargetBlue">
+<button class="show-code">Code</button>
+bool         <strong>writeRenderTargetBlue</strong> <a class="anchor-link"
+            href="#writeRenderTargetBlue"
+            title="Permalink to BlendState.writeRenderTargetBlue">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+bool writeRenderTargetBlue;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="writeRenderTargetGreen">
+<button class="show-code">Code</button>
+bool         <strong>writeRenderTargetGreen</strong> <a class="anchor-link"
+            href="#writeRenderTargetGreen"
+            title="Permalink to BlendState.writeRenderTargetGreen">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+bool writeRenderTargetGreen;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="writeRenderTargetRed">
+<button class="show-code">Code</button>
+bool         <strong>writeRenderTargetRed</strong> <a class="anchor-link"
+            href="#writeRenderTargetRed"
+            title="Permalink to BlendState.writeRenderTargetRed">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+bool writeRenderTargetRed;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method inherited"><h4 id="equals">
+<button class="show-code">Code</button>
+bool <strong>equals</strong>(<a href="../spectre/DeviceChild.html">DeviceChild</a> b) <a class="anchor-link" href="#equals"
+              title="Permalink to BlendState.equals">#</a></h4>
+<div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool equals(DeviceChild b) =&gt; name == b.name &amp;&amp; device == b.device;
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="filter">
+<button class="show-code">Code</button>
+<strong>filter</strong>(o) <a class="anchor-link" href="#filter"
+              title="Permalink to BlendState.filter">#</a></h4>
+<div class="doc">
+<pre class="source">
+dynamic filter(dynamic o) {
+ if (o is String) {
+   var table = {
+    "BlendSourceZero": WebGLRenderingContext.ZERO,
+    "BlendSourceOne": WebGLRenderingContext.ONE,
+    "BlendSourceShaderColor": WebGLRenderingContext.SRC_COLOR,
+    "BlendSourceShaderInverseColor": WebGLRenderingContext.ONE_MINUS_SRC_COLOR,
+    "BlendSourceShaderAlpha": WebGLRenderingContext.SRC_ALPHA,
+    "BlendSourceShaderInverseAlpha": WebGLRenderingContext.ONE_MINUS_SRC_ALPHA,
+    "BlendSourceTargetColor": WebGLRenderingContext.DST_COLOR,
+    "BlendSourceTargetInverseColor": WebGLRenderingContext.ONE_MINUS_DST_COLOR,
+    "BlendSourceTargetAlpha": WebGLRenderingContext.DST_ALPHA,
+    "BlendSourceTargetInverseAlpha": WebGLRenderingContext.ONE_MINUS_DST_ALPHA,
+    "BlendSourceBlendColor": WebGLRenderingContext.CONSTANT_COLOR,
+    "BlendSourceBlendAlpha": WebGLRenderingContext.CONSTANT_ALPHA,
+    "BlendSourceBlendInverseColor": WebGLRenderingContext.ONE_MINUS_CONSTANT_COLOR,
+    "BlendSourceBlendInverseAlpha": WebGLRenderingContext.ONE_MINUS_CONSTANT_ALPHA,
+    "BlendOpAdd": WebGLRenderingContext.FUNC_ADD,
+    "BlendOpSubtract": WebGLRenderingContext.FUNC_SUBTRACT,
+    "BlendOpReverseSubtract": WebGLRenderingContext.FUNC_REVERSE_SUBTRACT
+   };
+   return table[o];
+ }
+ return o;
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.603</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

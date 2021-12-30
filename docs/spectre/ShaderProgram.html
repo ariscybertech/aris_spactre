@@ -1,0 +1,500 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>ShaderProgram class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="ShaderProgram">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/ShaderProgram.html">ShaderProgram</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><div class="icon-class"></div><strong>ShaderProgram</strong></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>ShaderProgram</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<p>A shader program defines how the programmable units of the GPU pipeline function
+Create using <code>Device.createShaderProgram</code>
+Set using <code>ImmediateContext.setShaderProgram</code></p>
+<pre class="source">
+class ShaderProgram extends DeviceChild {
+ VertexShader vertexShader;
+ FragmentShader fragmentShader;
+ WebGLProgram _program;
+ int numAttributes;
+ int numUniforms;
+
+ ShaderProgram._internal(String name, GraphicsDevice device) : super._internal(name, device) {
+   numUniforms = 0;
+   numAttributes = 0;
+   _program = null;
+ }
+
+ void _createDeviceState() {
+   _program = device.gl.createProgram();
+ }
+
+ void _detach(Shader shader) {
+   if (shader != null) {
+     device.gl.detachShader(_program, shader._shader);
+   }
+ }
+
+ void _attach(Shader shader) {
+   if (shader != null) {
+     device.gl.attachShader(_program, shader._shader);
+   }
+ }
+
+ void _configDeviceState(dynamic props) {
+   if (props != null) {
+     dynamic o;
+     o = props['VertexProgram'];
+     if (o != null &amp;&amp; o is VertexShader) {
+       _detach(vertexShader);
+       vertexShader = o;
+       _attach(vertexShader);
+     }
+
+     o = props['FragmentProgram'];
+     if (o != null &amp;&amp; o is FragmentShader) {
+       _detach(fragmentShader);
+       fragmentShader = o;
+       _attach(fragmentShader);
+     }
+
+     if (vertexShader != null &amp;&amp; fragmentShader != null) {
+       // relink
+       link();
+     }
+   }
+ }
+
+ void _destroyDeviceState() {
+   fragmentShader = null;
+   vertexShader = null;
+   device.gl.deleteProgram(_program);
+ }
+
+ void link() {
+   device.gl.linkProgram(_program);
+   String linkLog = device.gl.getProgramInfoLog(_program);
+   spectreLog.Info('Linked $name - $linkLog');
+   refreshUniforms();
+   refreshAttributes();
+ }
+
+ String _convertType(int type) {
+   switch (type) {
+     case WebGLRenderingContext.FLOAT:
+       return 'float';
+     case WebGLRenderingContext.FLOAT_VEC2:
+       return 'vec2';
+     case WebGLRenderingContext.FLOAT_VEC3:
+       return 'vec3';
+     case WebGLRenderingContext.FLOAT_VEC4:
+       return 'vec4';
+     case WebGLRenderingContext.FLOAT_MAT2:
+       return 'mat2';
+     case WebGLRenderingContext.FLOAT_MAT3:
+       return 'mat3';
+     case WebGLRenderingContext.FLOAT_MAT4:
+       return 'mat4';
+     case WebGLRenderingContext.BOOL:
+       return 'bool';
+     case WebGLRenderingContext.BOOL_VEC2:
+       return 'bvec2';
+     case WebGLRenderingContext.BOOL_VEC3:
+       return 'bvec3';
+     case WebGLRenderingContext.BOOL_VEC4:
+       return 'bvec4';
+     case WebGLRenderingContext.INT:
+       return 'int';
+     case WebGLRenderingContext.INT_VEC2:
+       return 'ivec2';
+     case WebGLRenderingContext.INT_VEC3:
+       return 'ivec3';
+     case WebGLRenderingContext.INT_VEC4:
+       return 'ivec4';
+     case WebGLRenderingContext.SAMPLER_2D:
+       return 'sampler2D';
+     default:
+       return 'unknown code: $type';
+   }
+ }
+
+ bool get linked {
+   if (_program != null) {
+     return device.gl.getProgramParameter(_program, WebGLRenderingContext.LINK_STATUS);
+   }
+   return false;
+ }
+
+ void refreshUniforms() {
+   numUniforms = device.gl.getProgramParameter(_program, WebGLRenderingContext.ACTIVE_UNIFORMS);
+   spectreLog.Info('$name has $numUniforms uniform variables');
+   for (int i = 0; i &lt; numUniforms; i++) {
+     WebGLActiveInfo activeUniform = device.gl.getActiveUniform(_program, i);
+     spectreLog.Info('$i - ${_convertType(activeUniform.type)} ${activeUniform.name} (${activeUniform.size})');
+   }
+ }
+
+ void refreshAttributes() {
+   numAttributes = device.gl.getProgramParameter(_program, WebGLRenderingContext.ACTIVE_ATTRIBUTES);
+   spectreLog.Info('$name has $numAttributes attributes');
+   for (int i = 0; i &lt; numAttributes; i++) {
+     WebGLActiveInfo activeUniform = device.gl.getActiveAttrib(_program, i);
+     spectreLog.Info('$i - ${_convertType(activeUniform.type)} ${activeUniform.name} (${activeUniform.size})');
+   }
+ }
+
+ void forEachUniforms(UniformCallback callback) {
+   numUniforms = device.gl.getProgramParameter(_program, WebGLRenderingContext.ACTIVE_UNIFORMS);
+   for (int i = 0; i &lt; numUniforms; i++) {
+     WebGLActiveInfo activeUniform = device.gl.getActiveUniform(_program, i);
+     var location = device.gl.getUniformLocation(_program, activeUniform.name);
+     callback(activeUniform.name, i, _convertType(activeUniform.type), activeUniform.size, location);
+   }
+ }
+}
+</pre>
+</div>
+<h3>Extends</h3>
+<p>
+<span class="type-box"><span class="icon-class"></span><a href="../spectre/DeviceChild.html">DeviceChild</a></span>&nbsp;&gt;&nbsp;<span class="type-box"><span class="icon-class"></span><strong>ShaderProgram</strong></span></p>
+<div>
+<h3>Properties</h3>
+<div class="field inherited"><h4 id="device">
+<button class="show-code">Code</button>
+<a href="../spectre/GraphicsDevice.html">GraphicsDevice</a>         <strong>device</strong> <a class="anchor-link"
+            href="#device"
+            title="Permalink to ShaderProgram.device">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+GraphicsDevice device;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="dirty">
+<button class="show-code">Code</button>
+bool         <strong>dirty</strong> <a class="anchor-link"
+            href="#dirty"
+            title="Permalink to ShaderProgram.dirty">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool get dirty =&gt; (_status &amp; StatusDirty) != 0;
+</pre>
+<pre class="source">
+void set dirty(bool r) {
+ if (r) {
+   _status |= StatusDirty;
+ } else {
+   _status &amp;= ~StatusDirty;
+ }
+}
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="fallback">
+<button class="show-code">Code</button>
+<a href="../spectre/DeviceChild.html">DeviceChild</a>         <strong>fallback</strong> <a class="anchor-link"
+            href="#fallback"
+            title="Permalink to ShaderProgram.fallback">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+DeviceChild fallback;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="fragmentShader">
+<button class="show-code">Code</button>
+<a href="../spectre/FragmentShader.html">FragmentShader</a>         <strong>fragmentShader</strong> <a class="anchor-link"
+            href="#fragmentShader"
+            title="Permalink to ShaderProgram.fragmentShader">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+FragmentShader fragmentShader;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="hashCode">
+<button class="show-code">Code</button>
+final int         <strong>hashCode</strong> <a class="anchor-link"
+            href="#hashCode"
+            title="Permalink to ShaderProgram.hashCode">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<div class="inherited">
+<p>Get a hash code for this object.</p>
+<p>All objects have hash codes. Hash codes are guaranteed to be the
+same for objects that are equal when compared using the equality
+operator <code>==</code>. Other than that there are no guarantees about
+the hash codes. They will not be consistent between runs and
+there are no distribution guarantees.</p>
+<p>If a subclass overrides <code>hashCode</code> it should override the
+equality operator as well to maintain consistency.</p>
+<div class="docs-inherited-from">docs inherited from Object </div></div>
+<pre class="source">
+int get hashCode {
+ return name.hashCode;
+}
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="linked">
+<button class="show-code">Code</button>
+final bool         <strong>linked</strong> <a class="anchor-link"
+            href="#linked"
+            title="Permalink to ShaderProgram.linked">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+bool get linked {
+ if (_program != null) {
+   return device.gl.getProgramParameter(_program, WebGLRenderingContext.LINK_STATUS);
+ }
+ return false;
+}
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="name">
+<button class="show-code">Code</button>
+String         <strong>name</strong> <a class="anchor-link"
+            href="#name"
+            title="Permalink to ShaderProgram.name">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+String name;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="numAttributes">
+<button class="show-code">Code</button>
+int         <strong>numAttributes</strong> <a class="anchor-link"
+            href="#numAttributes"
+            title="Permalink to ShaderProgram.numAttributes">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int numAttributes;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="numUniforms">
+<button class="show-code">Code</button>
+int         <strong>numUniforms</strong> <a class="anchor-link"
+            href="#numUniforms"
+            title="Permalink to ShaderProgram.numUniforms">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int numUniforms;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="ready">
+<button class="show-code">Code</button>
+bool         <strong>ready</strong> <a class="anchor-link"
+            href="#ready"
+            title="Permalink to ShaderProgram.ready">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool get ready =&gt; (_status &amp; StatusReady) != 0;
+</pre>
+<pre class="source">
+void set ready(bool r) {
+ if (r) {
+   _status |= StatusReady;
+ } else {
+   _status &amp;= ~StatusReady;
+ }
+}
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="vertexShader">
+<button class="show-code">Code</button>
+<a href="../spectre/VertexShader.html">VertexShader</a>         <strong>vertexShader</strong> <a class="anchor-link"
+            href="#vertexShader"
+            title="Permalink to ShaderProgram.vertexShader">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+VertexShader vertexShader;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method inherited"><h4 id="equals">
+<button class="show-code">Code</button>
+bool <strong>equals</strong>(<a href="../spectre/DeviceChild.html">DeviceChild</a> b) <a class="anchor-link" href="#equals"
+              title="Permalink to ShaderProgram.equals">#</a></h4>
+<div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool equals(DeviceChild b) =&gt; name == b.name &amp;&amp; device == b.device;
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="forEachUniforms">
+<button class="show-code">Code</button>
+void <strong>forEachUniforms</strong>(<a href="../spectre/UniformCallback.html">UniformCallback</a> callback) <a class="anchor-link" href="#forEachUniforms"
+              title="Permalink to ShaderProgram.forEachUniforms">#</a></h4>
+<div class="doc">
+<pre class="source">
+void forEachUniforms(UniformCallback callback) {
+ numUniforms = device.gl.getProgramParameter(_program, WebGLRenderingContext.ACTIVE_UNIFORMS);
+ for (int i = 0; i &lt; numUniforms; i++) {
+   WebGLActiveInfo activeUniform = device.gl.getActiveUniform(_program, i);
+   var location = device.gl.getUniformLocation(_program, activeUniform.name);
+   callback(activeUniform.name, i, _convertType(activeUniform.type), activeUniform.size, location);
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="link">
+<button class="show-code">Code</button>
+void <strong>link</strong>() <a class="anchor-link" href="#link"
+              title="Permalink to ShaderProgram.link">#</a></h4>
+<div class="doc">
+<pre class="source">
+void link() {
+ device.gl.linkProgram(_program);
+ String linkLog = device.gl.getProgramInfoLog(_program);
+ spectreLog.Info('Linked $name - $linkLog');
+ refreshUniforms();
+ refreshAttributes();
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="refreshAttributes">
+<button class="show-code">Code</button>
+void <strong>refreshAttributes</strong>() <a class="anchor-link" href="#refreshAttributes"
+              title="Permalink to ShaderProgram.refreshAttributes">#</a></h4>
+<div class="doc">
+<pre class="source">
+void refreshAttributes() {
+ numAttributes = device.gl.getProgramParameter(_program, WebGLRenderingContext.ACTIVE_ATTRIBUTES);
+ spectreLog.Info('$name has $numAttributes attributes');
+ for (int i = 0; i &lt; numAttributes; i++) {
+   WebGLActiveInfo activeUniform = device.gl.getActiveAttrib(_program, i);
+   spectreLog.Info('$i - ${_convertType(activeUniform.type)} ${activeUniform.name} (${activeUniform.size})');
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="refreshUniforms">
+<button class="show-code">Code</button>
+void <strong>refreshUniforms</strong>() <a class="anchor-link" href="#refreshUniforms"
+              title="Permalink to ShaderProgram.refreshUniforms">#</a></h4>
+<div class="doc">
+<pre class="source">
+void refreshUniforms() {
+ numUniforms = device.gl.getProgramParameter(_program, WebGLRenderingContext.ACTIVE_UNIFORMS);
+ spectreLog.Info('$name has $numUniforms uniform variables');
+ for (int i = 0; i &lt; numUniforms; i++) {
+   WebGLActiveInfo activeUniform = device.gl.getActiveUniform(_program, i);
+   spectreLog.Info('$i - ${_convertType(activeUniform.type)} ${activeUniform.name} (${activeUniform.size})');
+ }
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.535</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

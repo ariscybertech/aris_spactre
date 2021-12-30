@@ -1,0 +1,196 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>ProfilerEvent class / profiler Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="profiler" data-type="ProfilerEvent">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../profiler.html">profiler</a> &rsaquo; <a href="../profiler/ProfilerEvent.html">ProfilerEvent</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><ul class="icon">
+<li><a href="../profiler/Profiler.html"><div class="icon-class"></div>Profiler</a></li>
+<li><div class="icon-class"></div><strong>ProfilerEvent</strong></li>
+<li><a href="../profiler/ProfilerTree.html"><div class="icon-class"></div>ProfilerTree</a></li>
+<li><a href="../profiler/ProfilerTreeNode.html"><div class="icon-class"></div>ProfilerTreeNode</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>ProfilerEvent</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+class ProfilerEvent {
+ static const int Enter = 0x1;
+ static const int Exit = 0x2;
+ static const int FrameStart = 0x3;
+ static const int FrameEnd = 0x4;
+ int event;
+ String name;
+ int now;
+
+ ProfilerEvent(this.event, this.name, this.now);
+
+ Map serialize() {
+   var response = {
+                   'event':event,
+                   'name':name,
+                   'now':now,
+   };
+   return response;
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Static Properties</h3>
+<div class="field"><h4 id="Enter">
+<button class="show-code">Code</button>
+const int         <strong>Enter</strong> <a class="anchor-link"
+            href="#Enter"
+            title="Permalink to ProfilerEvent.Enter">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int Enter = 0x1;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="Exit">
+<button class="show-code">Code</button>
+const int         <strong>Exit</strong> <a class="anchor-link"
+            href="#Exit"
+            title="Permalink to ProfilerEvent.Exit">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int Exit = 0x2;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="FrameEnd">
+<button class="show-code">Code</button>
+const int         <strong>FrameEnd</strong> <a class="anchor-link"
+            href="#FrameEnd"
+            title="Permalink to ProfilerEvent.FrameEnd">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int FrameEnd = 0x4;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="FrameStart">
+<button class="show-code">Code</button>
+const int         <strong>FrameStart</strong> <a class="anchor-link"
+            href="#FrameStart"
+            title="Permalink to ProfilerEvent.FrameStart">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int FrameStart = 0x3;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="ProfilerEvent">
+<button class="show-code">Code</button>
+new <strong>ProfilerEvent</strong>(int event, String name, int now) <a class="anchor-link" href="#ProfilerEvent"
+              title="Permalink to ProfilerEvent.ProfilerEvent">#</a></h4>
+<div class="doc">
+<pre class="source">
+ProfilerEvent(this.event, this.name, this.now);
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="event">
+<button class="show-code">Code</button>
+int         <strong>event</strong> <a class="anchor-link"
+            href="#event"
+            title="Permalink to ProfilerEvent.event">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int event;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="name">
+<button class="show-code">Code</button>
+String         <strong>name</strong> <a class="anchor-link"
+            href="#name"
+            title="Permalink to ProfilerEvent.name">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+String name;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="now">
+<button class="show-code">Code</button>
+int         <strong>now</strong> <a class="anchor-link"
+            href="#now"
+            title="Permalink to ProfilerEvent.now">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int now;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="serialize">
+<button class="show-code">Code</button>
+Map <strong>serialize</strong>() <a class="anchor-link" href="#serialize"
+              title="Permalink to ProfilerEvent.serialize">#</a></h4>
+<div class="doc">
+<pre class="source">
+Map serialize() {
+ var response = {
+                 'event':event,
+                 'name':name,
+                 'now':now,
+ };
+ return response;
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.137</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

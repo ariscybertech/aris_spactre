@@ -1,0 +1,1201 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>GraphicsDevice class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="GraphicsDevice">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/GraphicsDevice.html">GraphicsDevice</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><div class="icon-class"></div><strong>GraphicsDevice</strong></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>GraphicsDevice</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<p>Spectre GPU Device
+All GPU resources are created and destroyed through a Device.
+Each resource requires a unique name.
+An existing resource can be looked up using its name.</p>
+<pre class="source">
+class GraphicsDevice {
+ static const DeviceFormat DeviceFormatFloat1 =
+                   const DeviceFormat(WebGLRenderingContext.FLOAT, 1, false);
+ static const DeviceFormat DeviceFormatFloat2 =
+                   const DeviceFormat(WebGLRenderingContext.FLOAT, 2, false);
+ static const DeviceFormat DeviceFormatFloat3 =
+                   const DeviceFormat(WebGLRenderingContext.FLOAT, 3, false);
+ static const DeviceFormat DeviceFormatFloat4 =
+                   const DeviceFormat(WebGLRenderingContext.FLOAT, 4, false);
+
+ static const int BufferHandleType = 1;
+ static const int RenderBufferHandleType = 2;
+ static const int RenderTargetHandleType = 3;
+ static const int TextureHandleType = 4;
+ static const int SamplerStateHandleType = 5;
+ static const int ShaderHandleType = 6;
+ static const int ShaderProgramHandleType = 7;
+ static const int ViewportHandleType = 8;
+ static const int DepthStateHandleType = 9;
+ static const int BlendStateHandleType = 10;
+ static const int RasterizerStateHandleType = 11;
+ static const int InputLayoutHandleType = 12;
+ static const int MeshHandleType = 13;
+
+ Map _getPropertyMap(dynamic props) {
+   if (props is String) {
+     props = JSON.parse(props);
+   }
+   if ((props is Map) == false) {
+     return null;
+   }
+   return props;
+ }
+
+ GraphicsContext _context;
+ GraphicsContext get context =&gt; _context;
+
+ GraphicsDeviceCapabilities _capabilities;
+ GraphicsDeviceCapabilities get capabilities =&gt; _capabilities;
+
+ WebGLRenderingContext _gl;
+ WebGLRenderingContext get gl =&gt; _gl;
+
+ Set&lt;DeviceChild&gt; _childrenObjects;
+
+ // Maps from child object name to handle
+ Map&lt;String, DeviceChild&gt; _nameMapping;
+
+ static const int MaxDeviceChildren = 2048;
+
+ Texture2D _fallbackTexture;
+
+ void _drawSquare(CanvasRenderingContext2D context2d, int x, int y, int w, int h) {
+   context2d.save();
+   context2d.beginPath();
+   context2d.translate(x, y);
+   context2d.fillStyle = "#656565";
+   context2d.fillRect(0, 0, w, h);
+   context2d.restore();
+ }
+
+ void _drawGrid(CanvasRenderingContext2D context2d, int width, int height, int horizSlices, int vertSlices) {
+   int sliceWidth = width ~/ horizSlices;
+   int sliceHeight = height ~/ vertSlices;
+   int sliceHalfWidth = sliceWidth ~/ 2;
+   for (int i = 0; i &lt; horizSlices; i++) {
+     for (int j = 0; j &lt; vertSlices; j++) {
+       if (j % 2 == 0) {
+         _drawSquare(context2d, i * sliceWidth, j * sliceHeight, sliceHalfWidth, sliceHeight);
+       } else {
+         _drawSquare(context2d, i * sliceWidth + sliceHalfWidth, j * sliceHeight, sliceHalfWidth, sliceHeight);
+       }
+     }
+   }
+ }
+
+ /// Constructs a GPU device
+ GraphicsDevice(WebGLRenderingContext gl) {
+   _gl = gl;
+   _childrenObjects = new Set&lt;DeviceChild&gt;();
+   _nameMapping = new Map&lt;String, DeviceChild&gt;();
+   _context = new GraphicsContext(this);
+   _capabilities = new GraphicsDeviceCapabilities._fromContext(gl);
+   _fallbackTexture = createTexture2D('Device.Fallback', {
+     'width': 512,
+     'height': 512,
+     'textureFormat' : Texture.TextureFormatRGBA,
+     'pixelFormat': Texture.PixelFormatUnsignedByte});
+   {
+     CanvasElement canvas = new CanvasElement();
+     canvas.width = 512;
+     canvas.height = 512;
+     CanvasRenderingContext2D context2d = canvas.getContext('2d');
+     _drawGrid(context2d, 512, 512, 8, 8);
+     configureDeviceChild(_fallbackTexture, {'pixels': canvas});
+     _context.generateMipmap(_fallbackTexture);
+   }
+ }
+
+ /// Returns the [DeviceChild] with [name].
+ DeviceChild getDeviceChild(String name) {
+   return _nameMapping[name];
+ }
+
+ bool _addChildObject(DeviceChild child) {
+   if (_nameMapping.containsKey(child.name)) {
+     return false;
+   }
+   _nameMapping[child.name] = child;
+ }
+
+ Map&lt;String, DeviceChild&gt; get children =&gt; _nameMapping;
+
+ /// Deletes the device child [handle]
+ void deleteDeviceChild(DeviceChild child) {
+   child._destroyDeviceState();
+   _nameMapping.remove(child.name);
+   _childrenObjects.remove(child);
+ }
+
+ void batchDeleteDeviceChildren(List&lt;DeviceChild&gt; children) {
+   for (DeviceChild dc in children) {
+     deleteDeviceChild(dc);
+   }
+ }
+
+ void configureDeviceChild(DeviceChild child, Map props) {
+   props = _getPropertyMap(props);
+   child._configDeviceState(props);
+ }
+
+ /// Create a [IndexBuffer] named [name]
+ ///
+ /// [props] is a [Map]
+ /// describing the IndexBuffer being created.
+ ///
+ IndexBuffer createIndexBuffer(String name, Map props) {
+   IndexBuffer ib = new IndexBuffer._internal(name, this);
+   if (_addChildObject(ib) == false) {
+     return null;
+   }
+   ib._createDeviceState();
+   ib._configDeviceState(props);
+   return ib;
+ }
+
+ /// Create a [VertexBuffer] named [name]
+ ///
+ /// [props] is a [Map]
+ /// describing the [VertexBuffer] being created
+ VertexBuffer createVertexBuffer(String name, Map props) {
+   VertexBuffer vb = new VertexBuffer._internal(name, this);
+   if (_addChildObject(vb) == false) {
+     return null;
+   }
+   vb._createDeviceState();
+   vb._configDeviceState(props);
+   return vb;
+ }
+
+ /// Create a [RenderBuffer] named [name]
+ ///
+ /// [props] is a [Map]
+ /// describing the [RenderBuffer] being created
+ RenderBuffer createRenderBuffer(String name, Map props) {
+   RenderBuffer rb = new RenderBuffer._internal(name, this);
+   if (_addChildObject(rb) == false) {
+     return null;
+   }
+   rb._createDeviceState();
+   rb._configDeviceState(props);
+   return rb;
+ }
+
+ /// Create a [RenderTarget] named [name]
+ ///
+ /// [props] a [Map]
+ /// describing the [RenderTarget] being created
+ RenderTarget createRenderTarget(String name, Map props) {
+   RenderTarget rt = new RenderTarget._internal(name, this);
+   if (_addChildObject(rt) == false) {
+     return null;
+   }
+   rt._createDeviceState();
+   rt._configDeviceState(props);
+   return rt;
+ }
+
+ /// Create a [Texture2D] named [name]
+ ///
+ /// [props] is a [Map]
+ /// describing the [Texture2D] being created
+ Texture2D createTexture2D(String name, Map props) {
+   Texture2D tex = new Texture2D._internal(name, this);
+   if (_addChildObject(tex) == false) {
+     return null;
+   }
+   tex._createDeviceState();
+   tex._configDeviceState(props);
+   if (_fallbackTexture != null) {
+     // If the fallback texture is ready we mark all textures unready.
+     tex.ready = false;
+     tex.fallback = _fallbackTexture;
+   }
+   return tex;
+ }
+
+ /// Create a [VertexShader] named [name]
+ ///
+ /// [props] is a JSON String or a [Map] containing a set of properties
+ /// describing the [VertexShader] being created
+ VertexShader createVertexShader(String name, Map props) {
+   VertexShader vertexShader = new VertexShader._internal(name, this);
+   if (_addChildObject(vertexShader) == false) {
+     return null;
+   }
+   vertexShader._createDeviceState();
+   vertexShader._configDeviceState(props);
+   return vertexShader;
+ }
+
+ /// Create a [FragmentShader] named [name]
+ ///
+ /// [props] is a [Map] containing a set of properties
+ /// describing the [FragmentShader] being created
+ FragmentShader createFragmentShader(String name, Map props) {
+   FragmentShader fragmentShader = new FragmentShader._internal(name, this);
+   if (_addChildObject(fragmentShader) == false) {
+     return null;
+   }
+   fragmentShader._createDeviceState();
+   fragmentShader._configDeviceState(props);
+   return fragmentShader;
+ }
+
+ /// Create a [ShaderProgram] named [name]
+ ///
+ /// [props] is a [Map] containing a set of properties
+ /// describing the [ShaderProgram] being created
+ ShaderProgram createShaderProgram(String name, Map props) {
+   ShaderProgram shaderProgram = new ShaderProgram._internal(name, this);
+   if (_addChildObject(shaderProgram) == false) {
+     return null;
+   }
+   shaderProgram._createDeviceState();
+   shaderProgram._configDeviceState(props);
+
+   return shaderProgram;
+ }
+
+ /// Create a [SamplerState] named [name]
+ ///
+ /// [props] is a JSON String or a [Map] containing a set of properties
+ /// describing the [SamplerState] being created
+ SamplerState createSamplerState(String name, dynamic props) {
+   SamplerState sampler = new SamplerState._internal(name, this);
+   if (_addChildObject(sampler) == false) {
+     return null;
+   }
+   sampler._createDeviceState();
+   sampler._configDeviceState(props);
+   return sampler;
+ }
+
+ /// Create a [Viewport] named [name]
+ ///
+ /// [props] is a JSON String or a [Map] containing a set of properties
+ /// describing the [Viewport] being created
+ Viewport createViewport(String name, Map props) {
+   Viewport viewport = new Viewport._internal(name, this);
+   if (_addChildObject(viewport) == false) {
+     return null;
+   }
+   viewport._createDeviceState();
+   viewport._configDeviceState(props);
+   return viewport;
+ }
+
+ /// Create a [DepthState] named [name]
+ ///
+ /// [props] is a JSON String or a [Map] containing a set of properties
+ /// describing the [DepthState] being created
+ DepthState createDepthState(String name, Map props) {
+   DepthState depthState = new DepthState._internal(name, this);
+   if (_addChildObject(depthState) == false) {
+     return null;
+   }
+   depthState._createDeviceState();
+   depthState._configDeviceState(props);
+   return depthState;
+ }
+
+ /// Create a [BlendState] named [name]
+ ///
+ /// [props] is a JSON String or a [Map] containing a set of properties
+ /// describing the [BlendState] being created
+ BlendState createBlendState(String name, Map props) {
+   BlendState blendState = new BlendState._internal(name, this);
+   if (_addChildObject(blendState) == false) {
+     return null;
+   }
+   blendState._createDeviceState();
+   blendState._configDeviceState(props);
+   return blendState;
+ }
+
+ /// Create a [RasterizerState] named [name]
+ ///
+ /// [props] is a JSON String or a [Map] containing a set of properties
+ /// describing the [RasterizerState] being created
+ RasterizerState createRasterizerState(String name, Object props) {
+   RasterizerState rasterizerState = new RasterizerState._internal(name, this);
+   if (_addChildObject(rasterizerState) == false) {
+     return null;
+   }
+   rasterizerState._createDeviceState();
+   rasterizerState._configDeviceState(props);
+   return rasterizerState;
+ }
+
+ /// Create an [InputLayout] named [name]
+ ///
+ /// [props] is a JSONS tring or a [Map] containing a set of properties
+ /// describing the [InputLayout] being created.
+ InputLayout createInputLayout(String name, Map props) {
+   InputLayout il = new InputLayout._internal(name, this);
+   if (_addChildObject(il) == false) {
+     return null;
+   }
+   il._createDeviceState();
+   il._configDeviceState(props);
+   return il;
+ }
+
+ /// Create an [IndexedMesh] named [name]
+ /// [props] is a JSON String or a [Map] containing a set of properties
+ IndexedMesh createIndexedMesh(String name, Map props) {
+   IndexedMesh indexedMesh = new IndexedMesh._internal(name, this);
+   if (_addChildObject(indexedMesh) == false) {
+     return null;
+   }
+   indexedMesh._createDeviceState();
+   indexedMesh._configDeviceState(props);
+   return indexedMesh;
+ }
+
+ /// Create an [ArrayMesh] name [name]
+ /// [props] is a JSON String or a [Map] containing a set of properties
+ ArrayMesh createArrayMesh(String name, Map props) {
+   ArrayMesh arrayMesh = new ArrayMesh._internal(name, this);
+   if (_addChildObject(arrayMesh) == false) {
+     return null;
+   }
+   arrayMesh._createDeviceState();
+   arrayMesh._configDeviceState(props);
+   return arrayMesh;
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Static Properties</h3>
+<div class="field"><h4 id="BlendStateHandleType">
+<button class="show-code">Code</button>
+const int         <strong>BlendStateHandleType</strong> <a class="anchor-link"
+            href="#BlendStateHandleType"
+            title="Permalink to GraphicsDevice.BlendStateHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int BlendStateHandleType = 10;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="BufferHandleType">
+<button class="show-code">Code</button>
+const int         <strong>BufferHandleType</strong> <a class="anchor-link"
+            href="#BufferHandleType"
+            title="Permalink to GraphicsDevice.BufferHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int BufferHandleType = 1;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DepthStateHandleType">
+<button class="show-code">Code</button>
+const int         <strong>DepthStateHandleType</strong> <a class="anchor-link"
+            href="#DepthStateHandleType"
+            title="Permalink to GraphicsDevice.DepthStateHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int DepthStateHandleType = 9;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DeviceFormatFloat1">
+<button class="show-code">Code</button>
+const <a href="../spectre/DeviceFormat.html">DeviceFormat</a>         <strong>DeviceFormatFloat1</strong> <a class="anchor-link"
+            href="#DeviceFormatFloat1"
+            title="Permalink to GraphicsDevice.DeviceFormatFloat1">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const DeviceFormat DeviceFormatFloat1 =
+                 const DeviceFormat(WebGLRenderingContext.FLOAT, 1, false);
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DeviceFormatFloat2">
+<button class="show-code">Code</button>
+const <a href="../spectre/DeviceFormat.html">DeviceFormat</a>         <strong>DeviceFormatFloat2</strong> <a class="anchor-link"
+            href="#DeviceFormatFloat2"
+            title="Permalink to GraphicsDevice.DeviceFormatFloat2">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const DeviceFormat DeviceFormatFloat2 =
+                 const DeviceFormat(WebGLRenderingContext.FLOAT, 2, false);
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DeviceFormatFloat3">
+<button class="show-code">Code</button>
+const <a href="../spectre/DeviceFormat.html">DeviceFormat</a>         <strong>DeviceFormatFloat3</strong> <a class="anchor-link"
+            href="#DeviceFormatFloat3"
+            title="Permalink to GraphicsDevice.DeviceFormatFloat3">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const DeviceFormat DeviceFormatFloat3 =
+                 const DeviceFormat(WebGLRenderingContext.FLOAT, 3, false);
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DeviceFormatFloat4">
+<button class="show-code">Code</button>
+const <a href="../spectre/DeviceFormat.html">DeviceFormat</a>         <strong>DeviceFormatFloat4</strong> <a class="anchor-link"
+            href="#DeviceFormatFloat4"
+            title="Permalink to GraphicsDevice.DeviceFormatFloat4">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const DeviceFormat DeviceFormatFloat4 =
+                 const DeviceFormat(WebGLRenderingContext.FLOAT, 4, false);
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="InputLayoutHandleType">
+<button class="show-code">Code</button>
+const int         <strong>InputLayoutHandleType</strong> <a class="anchor-link"
+            href="#InputLayoutHandleType"
+            title="Permalink to GraphicsDevice.InputLayoutHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int InputLayoutHandleType = 12;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="MaxDeviceChildren">
+<button class="show-code">Code</button>
+const int         <strong>MaxDeviceChildren</strong> <a class="anchor-link"
+            href="#MaxDeviceChildren"
+            title="Permalink to GraphicsDevice.MaxDeviceChildren">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int MaxDeviceChildren = 2048;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="MeshHandleType">
+<button class="show-code">Code</button>
+const int         <strong>MeshHandleType</strong> <a class="anchor-link"
+            href="#MeshHandleType"
+            title="Permalink to GraphicsDevice.MeshHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int MeshHandleType = 13;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="RasterizerStateHandleType">
+<button class="show-code">Code</button>
+const int         <strong>RasterizerStateHandleType</strong> <a class="anchor-link"
+            href="#RasterizerStateHandleType"
+            title="Permalink to GraphicsDevice.RasterizerStateHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int RasterizerStateHandleType = 11;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="RenderBufferHandleType">
+<button class="show-code">Code</button>
+const int         <strong>RenderBufferHandleType</strong> <a class="anchor-link"
+            href="#RenderBufferHandleType"
+            title="Permalink to GraphicsDevice.RenderBufferHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int RenderBufferHandleType = 2;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="RenderTargetHandleType">
+<button class="show-code">Code</button>
+const int         <strong>RenderTargetHandleType</strong> <a class="anchor-link"
+            href="#RenderTargetHandleType"
+            title="Permalink to GraphicsDevice.RenderTargetHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int RenderTargetHandleType = 3;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SamplerStateHandleType">
+<button class="show-code">Code</button>
+const int         <strong>SamplerStateHandleType</strong> <a class="anchor-link"
+            href="#SamplerStateHandleType"
+            title="Permalink to GraphicsDevice.SamplerStateHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int SamplerStateHandleType = 5;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="ShaderHandleType">
+<button class="show-code">Code</button>
+const int         <strong>ShaderHandleType</strong> <a class="anchor-link"
+            href="#ShaderHandleType"
+            title="Permalink to GraphicsDevice.ShaderHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int ShaderHandleType = 6;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="ShaderProgramHandleType">
+<button class="show-code">Code</button>
+const int         <strong>ShaderProgramHandleType</strong> <a class="anchor-link"
+            href="#ShaderProgramHandleType"
+            title="Permalink to GraphicsDevice.ShaderProgramHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int ShaderProgramHandleType = 7;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureHandleType">
+<button class="show-code">Code</button>
+const int         <strong>TextureHandleType</strong> <a class="anchor-link"
+            href="#TextureHandleType"
+            title="Permalink to GraphicsDevice.TextureHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int TextureHandleType = 4;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="ViewportHandleType">
+<button class="show-code">Code</button>
+const int         <strong>ViewportHandleType</strong> <a class="anchor-link"
+            href="#ViewportHandleType"
+            title="Permalink to GraphicsDevice.ViewportHandleType">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int ViewportHandleType = 8;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="GraphicsDevice">
+<button class="show-code">Code</button>
+new <strong>GraphicsDevice</strong>(WebGLRenderingContext gl) <a class="anchor-link" href="#GraphicsDevice"
+              title="Permalink to GraphicsDevice.GraphicsDevice">#</a></h4>
+<div class="doc">
+<p>Constructs a GPU device</p>
+<pre class="source">
+GraphicsDevice(WebGLRenderingContext gl) {
+ _gl = gl;
+ _childrenObjects = new Set&lt;DeviceChild&gt;();
+ _nameMapping = new Map&lt;String, DeviceChild&gt;();
+ _context = new GraphicsContext(this);
+ _capabilities = new GraphicsDeviceCapabilities._fromContext(gl);
+ _fallbackTexture = createTexture2D('Device.Fallback', {
+   'width': 512,
+   'height': 512,
+   'textureFormat' : Texture.TextureFormatRGBA,
+   'pixelFormat': Texture.PixelFormatUnsignedByte});
+ {
+   CanvasElement canvas = new CanvasElement();
+   canvas.width = 512;
+   canvas.height = 512;
+   CanvasRenderingContext2D context2d = canvas.getContext('2d');
+   _drawGrid(context2d, 512, 512, 8, 8);
+   configureDeviceChild(_fallbackTexture, {'pixels': canvas});
+   _context.generateMipmap(_fallbackTexture);
+ }
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="capabilities">
+<button class="show-code">Code</button>
+final <a href="../spectre/GraphicsDeviceCapabilities.html">GraphicsDeviceCapabilities</a>         <strong>capabilities</strong> <a class="anchor-link"
+            href="#capabilities"
+            title="Permalink to GraphicsDevice.capabilities">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+GraphicsDeviceCapabilities get capabilities =&gt; _capabilities;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="children">
+<button class="show-code">Code</button>
+final Map&lt;String, <a href="../spectre/DeviceChild.html">DeviceChild</a>&gt;         <strong>children</strong> <a class="anchor-link"
+            href="#children"
+            title="Permalink to GraphicsDevice.children">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+Map&lt;String, DeviceChild&gt; get children =&gt; _nameMapping;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="context">
+<button class="show-code">Code</button>
+final <a href="../spectre/GraphicsContext.html">GraphicsContext</a>         <strong>context</strong> <a class="anchor-link"
+            href="#context"
+            title="Permalink to GraphicsDevice.context">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+GraphicsContext get context =&gt; _context;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="gl">
+<button class="show-code">Code</button>
+final WebGLRenderingContext         <strong>gl</strong> <a class="anchor-link"
+            href="#gl"
+            title="Permalink to GraphicsDevice.gl">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+WebGLRenderingContext get gl =&gt; _gl;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="batchDeleteDeviceChildren">
+<button class="show-code">Code</button>
+void <strong>batchDeleteDeviceChildren</strong>(List&lt;<a href="../spectre/DeviceChild.html">DeviceChild</a>&gt; children) <a class="anchor-link" href="#batchDeleteDeviceChildren"
+              title="Permalink to GraphicsDevice.batchDeleteDeviceChildren">#</a></h4>
+<div class="doc">
+<pre class="source">
+void batchDeleteDeviceChildren(List&lt;DeviceChild&gt; children) {
+ for (DeviceChild dc in children) {
+   deleteDeviceChild(dc);
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="configureDeviceChild">
+<button class="show-code">Code</button>
+void <strong>configureDeviceChild</strong>(<a href="../spectre/DeviceChild.html">DeviceChild</a> child, Map props) <a class="anchor-link" href="#configureDeviceChild"
+              title="Permalink to GraphicsDevice.configureDeviceChild">#</a></h4>
+<div class="doc">
+<pre class="source">
+void configureDeviceChild(DeviceChild child, Map props) {
+ props = _getPropertyMap(props);
+ child._configDeviceState(props);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createArrayMesh">
+<button class="show-code">Code</button>
+<a href="../spectre/ArrayMesh.html">ArrayMesh</a> <strong>createArrayMesh</strong>(String name, Map props) <a class="anchor-link" href="#createArrayMesh"
+              title="Permalink to GraphicsDevice.createArrayMesh">#</a></h4>
+<div class="doc">
+<p>Create an <a class="crossref" href="../spectre/ArrayMesh.html">ArrayMesh</a> name [name]
+[props] is a JSON String or a <code>Map</code> containing a set of properties</p>
+<pre class="source">
+ArrayMesh createArrayMesh(String name, Map props) {
+ ArrayMesh arrayMesh = new ArrayMesh._internal(name, this);
+ if (_addChildObject(arrayMesh) == false) {
+   return null;
+ }
+ arrayMesh._createDeviceState();
+ arrayMesh._configDeviceState(props);
+ return arrayMesh;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createBlendState">
+<button class="show-code">Code</button>
+<a href="../spectre/BlendState.html">BlendState</a> <strong>createBlendState</strong>(String name, Map props) <a class="anchor-link" href="#createBlendState"
+              title="Permalink to GraphicsDevice.createBlendState">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/BlendState.html">BlendState</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a JSON String or a <code>Map</code> containing a set of properties
+describing the <a class="crossref" href="../spectre/BlendState.html">BlendState</a> being created</p>
+<pre class="source">
+BlendState createBlendState(String name, Map props) {
+ BlendState blendState = new BlendState._internal(name, this);
+ if (_addChildObject(blendState) == false) {
+   return null;
+ }
+ blendState._createDeviceState();
+ blendState._configDeviceState(props);
+ return blendState;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createDepthState">
+<button class="show-code">Code</button>
+<a href="../spectre/DepthState.html">DepthState</a> <strong>createDepthState</strong>(String name, Map props) <a class="anchor-link" href="#createDepthState"
+              title="Permalink to GraphicsDevice.createDepthState">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/DepthState.html">DepthState</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a JSON String or a <code>Map</code> containing a set of properties
+describing the <a class="crossref" href="../spectre/DepthState.html">DepthState</a> being created</p>
+<pre class="source">
+DepthState createDepthState(String name, Map props) {
+ DepthState depthState = new DepthState._internal(name, this);
+ if (_addChildObject(depthState) == false) {
+   return null;
+ }
+ depthState._createDeviceState();
+ depthState._configDeviceState(props);
+ return depthState;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createFragmentShader">
+<button class="show-code">Code</button>
+<a href="../spectre/FragmentShader.html">FragmentShader</a> <strong>createFragmentShader</strong>(String name, Map props) <a class="anchor-link" href="#createFragmentShader"
+              title="Permalink to GraphicsDevice.createFragmentShader">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/FragmentShader.html">FragmentShader</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a <code>Map</code> containing a set of properties
+describing the <a class="crossref" href="../spectre/FragmentShader.html">FragmentShader</a> being created</p>
+<pre class="source">
+FragmentShader createFragmentShader(String name, Map props) {
+ FragmentShader fragmentShader = new FragmentShader._internal(name, this);
+ if (_addChildObject(fragmentShader) == false) {
+   return null;
+ }
+ fragmentShader._createDeviceState();
+ fragmentShader._configDeviceState(props);
+ return fragmentShader;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createIndexBuffer">
+<button class="show-code">Code</button>
+<a href="../spectre/IndexBuffer.html">IndexBuffer</a> <strong>createIndexBuffer</strong>(String name, Map props) <a class="anchor-link" href="#createIndexBuffer"
+              title="Permalink to GraphicsDevice.createIndexBuffer">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/IndexBuffer.html">IndexBuffer</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a <code>Map</code>
+describing the IndexBuffer being created.</p>
+<pre class="source">
+IndexBuffer createIndexBuffer(String name, Map props) {
+ IndexBuffer ib = new IndexBuffer._internal(name, this);
+ if (_addChildObject(ib) == false) {
+   return null;
+ }
+ ib._createDeviceState();
+ ib._configDeviceState(props);
+ return ib;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createIndexedMesh">
+<button class="show-code">Code</button>
+<a href="../spectre/IndexedMesh.html">IndexedMesh</a> <strong>createIndexedMesh</strong>(String name, Map props) <a class="anchor-link" href="#createIndexedMesh"
+              title="Permalink to GraphicsDevice.createIndexedMesh">#</a></h4>
+<div class="doc">
+<p>Create an <a class="crossref" href="../spectre/IndexedMesh.html">IndexedMesh</a> named [name]
+[props] is a JSON String or a <code>Map</code> containing a set of properties</p>
+<pre class="source">
+IndexedMesh createIndexedMesh(String name, Map props) {
+ IndexedMesh indexedMesh = new IndexedMesh._internal(name, this);
+ if (_addChildObject(indexedMesh) == false) {
+   return null;
+ }
+ indexedMesh._createDeviceState();
+ indexedMesh._configDeviceState(props);
+ return indexedMesh;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createInputLayout">
+<button class="show-code">Code</button>
+<a href="../spectre/InputLayout.html">InputLayout</a> <strong>createInputLayout</strong>(String name, Map props) <a class="anchor-link" href="#createInputLayout"
+              title="Permalink to GraphicsDevice.createInputLayout">#</a></h4>
+<div class="doc">
+<p>Create an <a class="crossref" href="../spectre/InputLayout.html">InputLayout</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a JSONS tring or a <code>Map</code> containing a set of properties
+describing the <a class="crossref" href="../spectre/InputLayout.html">InputLayout</a> being created.</p>
+<pre class="source">
+InputLayout createInputLayout(String name, Map props) {
+ InputLayout il = new InputLayout._internal(name, this);
+ if (_addChildObject(il) == false) {
+   return null;
+ }
+ il._createDeviceState();
+ il._configDeviceState(props);
+ return il;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createRasterizerState">
+<button class="show-code">Code</button>
+<a href="../spectre/RasterizerState.html">RasterizerState</a> <strong>createRasterizerState</strong>(String name, Object props) <a class="anchor-link" href="#createRasterizerState"
+              title="Permalink to GraphicsDevice.createRasterizerState">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/RasterizerState.html">RasterizerState</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a JSON String or a <code>Map</code> containing a set of properties
+describing the <a class="crossref" href="../spectre/RasterizerState.html">RasterizerState</a> being created</p>
+<pre class="source">
+RasterizerState createRasterizerState(String name, Object props) {
+ RasterizerState rasterizerState = new RasterizerState._internal(name, this);
+ if (_addChildObject(rasterizerState) == false) {
+   return null;
+ }
+ rasterizerState._createDeviceState();
+ rasterizerState._configDeviceState(props);
+ return rasterizerState;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createRenderBuffer">
+<button class="show-code">Code</button>
+<a href="../spectre/RenderBuffer.html">RenderBuffer</a> <strong>createRenderBuffer</strong>(String name, Map props) <a class="anchor-link" href="#createRenderBuffer"
+              title="Permalink to GraphicsDevice.createRenderBuffer">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/RenderBuffer.html">RenderBuffer</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a <code>Map</code>
+describing the <a class="crossref" href="../spectre/RenderBuffer.html">RenderBuffer</a> being created</p>
+<pre class="source">
+RenderBuffer createRenderBuffer(String name, Map props) {
+ RenderBuffer rb = new RenderBuffer._internal(name, this);
+ if (_addChildObject(rb) == false) {
+   return null;
+ }
+ rb._createDeviceState();
+ rb._configDeviceState(props);
+ return rb;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createRenderTarget">
+<button class="show-code">Code</button>
+<a href="../spectre/RenderTarget.html">RenderTarget</a> <strong>createRenderTarget</strong>(String name, Map props) <a class="anchor-link" href="#createRenderTarget"
+              title="Permalink to GraphicsDevice.createRenderTarget">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/RenderTarget.html">RenderTarget</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> a <code>Map</code>
+describing the <a class="crossref" href="../spectre/RenderTarget.html">RenderTarget</a> being created</p>
+<pre class="source">
+RenderTarget createRenderTarget(String name, Map props) {
+ RenderTarget rt = new RenderTarget._internal(name, this);
+ if (_addChildObject(rt) == false) {
+   return null;
+ }
+ rt._createDeviceState();
+ rt._configDeviceState(props);
+ return rt;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createSamplerState">
+<button class="show-code">Code</button>
+<a href="../spectre/SamplerState.html">SamplerState</a> <strong>createSamplerState</strong>(String name, props) <a class="anchor-link" href="#createSamplerState"
+              title="Permalink to GraphicsDevice.createSamplerState">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/SamplerState.html">SamplerState</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a JSON String or a <code>Map</code> containing a set of properties
+describing the <a class="crossref" href="../spectre/SamplerState.html">SamplerState</a> being created</p>
+<pre class="source">
+SamplerState createSamplerState(String name, dynamic props) {
+ SamplerState sampler = new SamplerState._internal(name, this);
+ if (_addChildObject(sampler) == false) {
+   return null;
+ }
+ sampler._createDeviceState();
+ sampler._configDeviceState(props);
+ return sampler;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createShaderProgram">
+<button class="show-code">Code</button>
+<a href="../spectre/ShaderProgram.html">ShaderProgram</a> <strong>createShaderProgram</strong>(String name, Map props) <a class="anchor-link" href="#createShaderProgram"
+              title="Permalink to GraphicsDevice.createShaderProgram">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a <code>Map</code> containing a set of properties
+describing the <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a> being created</p>
+<pre class="source">
+ShaderProgram createShaderProgram(String name, Map props) {
+ ShaderProgram shaderProgram = new ShaderProgram._internal(name, this);
+ if (_addChildObject(shaderProgram) == false) {
+   return null;
+ }
+ shaderProgram._createDeviceState();
+ shaderProgram._configDeviceState(props);
+
+ return shaderProgram;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createTexture2D">
+<button class="show-code">Code</button>
+<a href="../spectre/Texture2D.html">Texture2D</a> <strong>createTexture2D</strong>(String name, Map props) <a class="anchor-link" href="#createTexture2D"
+              title="Permalink to GraphicsDevice.createTexture2D">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/Texture2D.html">Texture2D</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a <code>Map</code>
+describing the <a class="crossref" href="../spectre/Texture2D.html">Texture2D</a> being created</p>
+<pre class="source">
+Texture2D createTexture2D(String name, Map props) {
+ Texture2D tex = new Texture2D._internal(name, this);
+ if (_addChildObject(tex) == false) {
+   return null;
+ }
+ tex._createDeviceState();
+ tex._configDeviceState(props);
+ if (_fallbackTexture != null) {
+   // If the fallback texture is ready we mark all textures unready.
+   tex.ready = false;
+   tex.fallback = _fallbackTexture;
+ }
+ return tex;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createVertexBuffer">
+<button class="show-code">Code</button>
+<a href="../spectre/VertexBuffer.html">VertexBuffer</a> <strong>createVertexBuffer</strong>(String name, Map props) <a class="anchor-link" href="#createVertexBuffer"
+              title="Permalink to GraphicsDevice.createVertexBuffer">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/VertexBuffer.html">VertexBuffer</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a <code>Map</code>
+describing the <a class="crossref" href="../spectre/VertexBuffer.html">VertexBuffer</a> being created</p>
+<pre class="source">
+VertexBuffer createVertexBuffer(String name, Map props) {
+ VertexBuffer vb = new VertexBuffer._internal(name, this);
+ if (_addChildObject(vb) == false) {
+   return null;
+ }
+ vb._createDeviceState();
+ vb._configDeviceState(props);
+ return vb;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createVertexShader">
+<button class="show-code">Code</button>
+<a href="../spectre/VertexShader.html">VertexShader</a> <strong>createVertexShader</strong>(String name, Map props) <a class="anchor-link" href="#createVertexShader"
+              title="Permalink to GraphicsDevice.createVertexShader">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/VertexShader.html">VertexShader</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a JSON String or a <code>Map</code> containing a set of properties
+describing the <a class="crossref" href="../spectre/VertexShader.html">VertexShader</a> being created</p>
+<pre class="source">
+VertexShader createVertexShader(String name, Map props) {
+ VertexShader vertexShader = new VertexShader._internal(name, this);
+ if (_addChildObject(vertexShader) == false) {
+   return null;
+ }
+ vertexShader._createDeviceState();
+ vertexShader._configDeviceState(props);
+ return vertexShader;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createViewport">
+<button class="show-code">Code</button>
+<a href="../spectre/Viewport.html">Viewport</a> <strong>createViewport</strong>(String name, Map props) <a class="anchor-link" href="#createViewport"
+              title="Permalink to GraphicsDevice.createViewport">#</a></h4>
+<div class="doc">
+<p>Create a <a class="crossref" href="../spectre/Viewport.html">Viewport</a> named 
+<span class="param">name</span></p>
+<p>
+<span class="param">props</span> is a JSON String or a <code>Map</code> containing a set of properties
+describing the <a class="crossref" href="../spectre/Viewport.html">Viewport</a> being created</p>
+<pre class="source">
+Viewport createViewport(String name, Map props) {
+ Viewport viewport = new Viewport._internal(name, this);
+ if (_addChildObject(viewport) == false) {
+   return null;
+ }
+ viewport._createDeviceState();
+ viewport._configDeviceState(props);
+ return viewport;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="deleteDeviceChild">
+<button class="show-code">Code</button>
+void <strong>deleteDeviceChild</strong>(<a href="../spectre/DeviceChild.html">DeviceChild</a> child) <a class="anchor-link" href="#deleteDeviceChild"
+              title="Permalink to GraphicsDevice.deleteDeviceChild">#</a></h4>
+<div class="doc">
+<p>Deletes the device child <code>handle</code></p>
+<pre class="source">
+void deleteDeviceChild(DeviceChild child) {
+ child._destroyDeviceState();
+ _nameMapping.remove(child.name);
+ _childrenObjects.remove(child);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="getDeviceChild">
+<button class="show-code">Code</button>
+<a href="../spectre/DeviceChild.html">DeviceChild</a> <strong>getDeviceChild</strong>(String name) <a class="anchor-link" href="#getDeviceChild"
+              title="Permalink to GraphicsDevice.getDeviceChild">#</a></h4>
+<div class="doc">
+<p>Returns the <a class="crossref" href="../spectre/DeviceChild.html">DeviceChild</a> with 
+<span class="param">name</span>.</p>
+<pre class="source">
+DeviceChild getDeviceChild(String name) {
+ return _nameMapping[name];
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.408</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

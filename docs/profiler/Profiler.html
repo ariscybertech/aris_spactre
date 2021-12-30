@@ -1,0 +1,262 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>Profiler class / profiler Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="profiler" data-type="Profiler">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../profiler.html">profiler</a> &rsaquo; <a href="../profiler/Profiler.html">Profiler</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><ul class="icon">
+<li><div class="icon-class"></div><strong>Profiler</strong></li>
+<li><a href="../profiler/ProfilerEvent.html"><div class="icon-class"></div>ProfilerEvent</a></li>
+<li><a href="../profiler/ProfilerTree.html"><div class="icon-class"></div>ProfilerTree</a></li>
+<li><a href="../profiler/ProfilerTreeNode.html"><div class="icon-class"></div>ProfilerTreeNode</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>Profiler</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+class Profiler {
+ static Stopwatch _watch;
+ static init() {
+   _watch = new Stopwatch();
+   _watch.start();
+   events = new Queue&lt;ProfilerEvent&gt;();
+   frameCounter = 0;
+ }
+
+ static int frameCounter;
+ static Queue&lt;ProfilerEvent&gt; events;
+
+ static int get frequency =&gt; _watch.frequency;
+
+ static enter(String name) {
+   if (_watch == null) {
+     return;
+   }
+   ProfilerEvent event = new ProfilerEvent(ProfilerEvent.Enter, name, _watch.elapsedTicks);
+   events.add(event);
+ }
+
+ static exit() {
+   if (_watch == null) {
+     return;
+   }
+   ProfilerEvent event = new ProfilerEvent(ProfilerEvent.Exit, null, _watch.elapsedTicks);
+   events.add(event);
+ }
+
+ static frameStart() {
+   if (_watch == null) {
+     return;
+   }
+   ProfilerEvent event = new ProfilerEvent(ProfilerEvent.FrameStart, 'Frame $frameCounter', _watch.elapsedTicks);
+   events.add(event);
+ }
+
+ static frameEnd() {
+   if (_watch == null) {
+     return;
+   }
+   ProfilerEvent event = new ProfilerEvent(ProfilerEvent.FrameEnd, 'Frame $frameCounter', _watch.elapsedTicks);
+   events.add(event);
+   frameCounter++;
+ }
+
+ static List makeCapture() {
+   List&lt;Map&gt; capture = new List&lt;Map&gt;();
+   for (ProfilerEvent pe in events) {
+     capture.add(pe.serialize());
+   }
+   return capture;
+ }
+
+ static clear() {
+   events.clear();
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Static Properties</h3>
+<div class="field"><h4 id="events">
+<button class="show-code">Code</button>
+Queue&lt;<a href="../profiler/ProfilerEvent.html">ProfilerEvent</a>&gt;         <strong>events</strong> <a class="anchor-link"
+            href="#events"
+            title="Permalink to Profiler.events">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static Queue&lt;ProfilerEvent&gt; events;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="frameCounter">
+<button class="show-code">Code</button>
+int         <strong>frameCounter</strong> <a class="anchor-link"
+            href="#frameCounter"
+            title="Permalink to Profiler.frameCounter">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static int frameCounter;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="frequency">
+<button class="show-code">Code</button>
+final int         <strong>frequency</strong> <a class="anchor-link"
+            href="#frequency"
+            title="Permalink to Profiler.frequency">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static int get frequency =&gt; _watch.frequency;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Static Methods</h3>
+<div class="method"><h4 id="init">
+<button class="show-code">Code</button>
+<strong>init</strong>() <a class="anchor-link" href="#init"
+              title="Permalink to Profiler.init">#</a></h4>
+<div class="doc">
+<pre class="source">
+static init() {
+ _watch = new Stopwatch();
+ _watch.start();
+ events = new Queue&lt;ProfilerEvent&gt;();
+ frameCounter = 0;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="enter">
+<button class="show-code">Code</button>
+<strong>enter</strong>(String name) <a class="anchor-link" href="#enter"
+              title="Permalink to Profiler.enter">#</a></h4>
+<div class="doc">
+<pre class="source">
+static enter(String name) {
+ if (_watch == null) {
+   return;
+ }
+ ProfilerEvent event = new ProfilerEvent(ProfilerEvent.Enter, name, _watch.elapsedTicks);
+ events.add(event);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="exit">
+<button class="show-code">Code</button>
+<strong>exit</strong>() <a class="anchor-link" href="#exit"
+              title="Permalink to Profiler.exit">#</a></h4>
+<div class="doc">
+<pre class="source">
+static exit() {
+ if (_watch == null) {
+   return;
+ }
+ ProfilerEvent event = new ProfilerEvent(ProfilerEvent.Exit, null, _watch.elapsedTicks);
+ events.add(event);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="frameStart">
+<button class="show-code">Code</button>
+<strong>frameStart</strong>() <a class="anchor-link" href="#frameStart"
+              title="Permalink to Profiler.frameStart">#</a></h4>
+<div class="doc">
+<pre class="source">
+static frameStart() {
+ if (_watch == null) {
+   return;
+ }
+ ProfilerEvent event = new ProfilerEvent(ProfilerEvent.FrameStart, 'Frame $frameCounter', _watch.elapsedTicks);
+ events.add(event);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="frameEnd">
+<button class="show-code">Code</button>
+<strong>frameEnd</strong>() <a class="anchor-link" href="#frameEnd"
+              title="Permalink to Profiler.frameEnd">#</a></h4>
+<div class="doc">
+<pre class="source">
+static frameEnd() {
+ if (_watch == null) {
+   return;
+ }
+ ProfilerEvent event = new ProfilerEvent(ProfilerEvent.FrameEnd, 'Frame $frameCounter', _watch.elapsedTicks);
+ events.add(event);
+ frameCounter++;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="makeCapture">
+<button class="show-code">Code</button>
+List <strong>makeCapture</strong>() <a class="anchor-link" href="#makeCapture"
+              title="Permalink to Profiler.makeCapture">#</a></h4>
+<div class="doc">
+<pre class="source">
+static List makeCapture() {
+ List&lt;Map&gt; capture = new List&lt;Map&gt;();
+ for (ProfilerEvent pe in events) {
+   capture.add(pe.serialize());
+ }
+ return capture;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="clear">
+<button class="show-code">Code</button>
+<strong>clear</strong>() <a class="anchor-link" href="#clear"
+              title="Permalink to Profiler.clear">#</a></h4>
+<div class="doc">
+<pre class="source">
+static clear() {
+ events.clear();
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.133</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

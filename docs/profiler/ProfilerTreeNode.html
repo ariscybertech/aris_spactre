@@ -1,0 +1,244 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>ProfilerTreeNode class / profiler Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="profiler" data-type="ProfilerTreeNode">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../profiler.html">profiler</a> &rsaquo; <a href="../profiler/ProfilerTreeNode.html">ProfilerTreeNode</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><ul class="icon">
+<li><a href="../profiler/Profiler.html"><div class="icon-class"></div>Profiler</a></li>
+<li><a href="../profiler/ProfilerEvent.html"><div class="icon-class"></div>ProfilerEvent</a></li>
+<li><a href="../profiler/ProfilerTree.html"><div class="icon-class"></div>ProfilerTree</a></li>
+<li><div class="icon-class"></div><strong>ProfilerTreeNode</strong></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>ProfilerTreeNode</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+class ProfilerTreeNode {
+ ProfilerTreeNode parent;
+ List&lt;ProfilerTreeNode&gt; children;
+ String name;
+ int enterCount;
+ int inclusiveTicks;
+ int exclusiveTicks;
+
+ ProfilerTreeNode(this.parent, this.name) {
+   this.enterCount = 0;
+   this.inclusiveTicks = 0;
+   this.exclusiveTicks = 0;
+   children = new List&lt;ProfilerTreeNode&gt;();
+ }
+
+ ProfilerTreeNode findChild(String childName) {
+   for (ProfilerTreeNode child in children) {
+     if (child.name == childName) {
+       return child;
+     }
+   }
+   return null;
+ }
+
+ ProfilerTreeNode findOrAddChild(String childName) {
+   ProfilerTreeNode child = findChild(childName);
+   if (child != null) {
+     return child;
+   }
+   child = new ProfilerTreeNode(this, childName);
+   children.add(child);
+   return child;
+ }
+
+ void resetStatistics() {
+   enterCount = 0;
+   inclusiveTicks = 0;
+   exclusiveTicks = 0;
+   for (ProfilerTreeNode child in children) {
+     child.resetStatistics();
+   }
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="ProfilerTreeNode">
+<button class="show-code">Code</button>
+new <strong>ProfilerTreeNode</strong>(<a href="../profiler/ProfilerTreeNode.html">ProfilerTreeNode</a> parent, String name) <a class="anchor-link" href="#ProfilerTreeNode"
+              title="Permalink to ProfilerTreeNode.ProfilerTreeNode">#</a></h4>
+<div class="doc">
+<pre class="source">
+ProfilerTreeNode(this.parent, this.name) {
+ this.enterCount = 0;
+ this.inclusiveTicks = 0;
+ this.exclusiveTicks = 0;
+ children = new List&lt;ProfilerTreeNode&gt;();
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="children">
+<button class="show-code">Code</button>
+List&lt;<a href="../profiler/ProfilerTreeNode.html">ProfilerTreeNode</a>&gt;         <strong>children</strong> <a class="anchor-link"
+            href="#children"
+            title="Permalink to ProfilerTreeNode.children">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+List&lt;ProfilerTreeNode&gt; children;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="enterCount">
+<button class="show-code">Code</button>
+int         <strong>enterCount</strong> <a class="anchor-link"
+            href="#enterCount"
+            title="Permalink to ProfilerTreeNode.enterCount">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int enterCount;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="exclusiveTicks">
+<button class="show-code">Code</button>
+int         <strong>exclusiveTicks</strong> <a class="anchor-link"
+            href="#exclusiveTicks"
+            title="Permalink to ProfilerTreeNode.exclusiveTicks">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int exclusiveTicks;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="inclusiveTicks">
+<button class="show-code">Code</button>
+int         <strong>inclusiveTicks</strong> <a class="anchor-link"
+            href="#inclusiveTicks"
+            title="Permalink to ProfilerTreeNode.inclusiveTicks">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int inclusiveTicks;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="name">
+<button class="show-code">Code</button>
+String         <strong>name</strong> <a class="anchor-link"
+            href="#name"
+            title="Permalink to ProfilerTreeNode.name">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+String name;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="parent">
+<button class="show-code">Code</button>
+<a href="../profiler/ProfilerTreeNode.html">ProfilerTreeNode</a>         <strong>parent</strong> <a class="anchor-link"
+            href="#parent"
+            title="Permalink to ProfilerTreeNode.parent">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+ProfilerTreeNode parent;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="findChild">
+<button class="show-code">Code</button>
+<a href="../profiler/ProfilerTreeNode.html">ProfilerTreeNode</a> <strong>findChild</strong>(String childName) <a class="anchor-link" href="#findChild"
+              title="Permalink to ProfilerTreeNode.findChild">#</a></h4>
+<div class="doc">
+<pre class="source">
+ProfilerTreeNode findChild(String childName) {
+ for (ProfilerTreeNode child in children) {
+   if (child.name == childName) {
+     return child;
+   }
+ }
+ return null;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="findOrAddChild">
+<button class="show-code">Code</button>
+<a href="../profiler/ProfilerTreeNode.html">ProfilerTreeNode</a> <strong>findOrAddChild</strong>(String childName) <a class="anchor-link" href="#findOrAddChild"
+              title="Permalink to ProfilerTreeNode.findOrAddChild">#</a></h4>
+<div class="doc">
+<pre class="source">
+ProfilerTreeNode findOrAddChild(String childName) {
+ ProfilerTreeNode child = findChild(childName);
+ if (child != null) {
+   return child;
+ }
+ child = new ProfilerTreeNode(this, childName);
+ children.add(child);
+ return child;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="resetStatistics">
+<button class="show-code">Code</button>
+void <strong>resetStatistics</strong>() <a class="anchor-link" href="#resetStatistics"
+              title="Permalink to ProfilerTreeNode.resetStatistics">#</a></h4>
+<div class="doc">
+<pre class="source">
+void resetStatistics() {
+ enterCount = 0;
+ inclusiveTicks = 0;
+ exclusiveTicks = 0;
+ for (ProfilerTreeNode child in children) {
+   child.resetStatistics();
+ }
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.129</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

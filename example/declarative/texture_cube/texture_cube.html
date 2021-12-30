@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Spectre Declarative Example: Texture Cube</title>
+  <link rel="stylesheet" href="packages/spectre/src/spectre_declarative/css/bootstrap.min.css">
+  <link rel="stylesheet" href="packages/spectre/src/spectre_declarative/style.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="import" href="packages/spectre/spectre_elements.html">
+  <script src="packages/polymer/boot.js"></script>
+</head>
+<body>
+<s-spectre id="spectre">
+  <s-material id="simpleMaterial"
+              shader-program-path="assetpack://base.simpleShader">
+    <s-material-constant name="diffuse" texture-path="assetpack://base.wood">
+    </s-material-constant>
+  </s-material>
+  <s-material-program id="simpleCubeProgram">
+    <s-vertex-shader>
+attribute vec3 POSITION;
+attribute vec3 TEXCOORD0;
+uniform mat4 cameraProjectionView;
+uniform mat4 objectTransform;
+varying vec3 texCoord;
+void main() {
+  texCoord = TEXCOORD0;
+  gl_Position = cameraProjectionView * objectTransform * vec4(POSITION, 1.0);
+}
+    </s-vertex-shader>
+    <s-fragment-shader>
+precision mediump float;
+uniform samplerCube diffuse;
+varying vec3 texCoord;
+void main()
+{
+  vec4 color = textureCube(diffuse, texCoord);
+  gl_FragColor = vec4(color.xyz, 1.0);
+}
+    </s-fragment-shader>
+  </s-material-program>
+  <s-material id="simpleCubeMaterial" material-program-id="#simpleCubeProgram">
+    <s-material-constant name="diffuse" texture-id="#space-cube">
+    </s-material-constant>
+  </s-material>
+  <s-texture id="redTexture" color="#ff0000ff"></s-texture>
+  <s-texture id="bad-2d" src="nope.png"></s-texture>
+  <s-texture id="bad-cube" src="nope.png" type="cube"></s-texture>
+  <!-- Create a cube map texture. -->
+  <s-texture id="space-cube"
+             src-cube-positive-x="positiveX.png"
+             src-cube-positive-y="positiveY.png"
+             src-cube-positive-z="positiveZ.png"
+             src-cube-negative-x="negativeX.png"
+             src-cube-negative-y="negativeY.png"
+             src-cube-negative-z="negativeZ.png">
+  </s-texture>
+  <s-texture id="color-cube"
+             color-cube-positive-x="#ff0000ff"
+             color-cube-positive-y="#00ff00ff"
+             color-cube-positive-z="#0000ffff"
+             color-cube-negative-x="#00ffffff"
+             color-cube-negative-y="#ff00ffff"
+             color-cube-negative-z="#ffff00ff">
+  </s-texture>
+  <s-scene>
+    <s-line-primitive type="sphere" radius="4.0"></s-line-primitive>
+    <s-transform>
+      <s-mesh material-id="#simpleMaterial"
+              geometry-path="assetpack://base.unitCube"></s-mesh>
+      <s-transform translate="[0.0, 2.0, 0.0]">
+        <s-mesh material-id="#simpleMaterial"
+                geometry-path="assetpack://base.unitCube">
+          <s-material-constant name="diffuse"
+                     texture-id="#bad-2d">
+          </s-material-constant>
+        </s-mesh>
+      </s-transform>
+      <s-transform translate="[5.0, 0.0, 0.0]">
+        <s-mesh material-id="#simpleMaterial"
+                geometry-path="assetpack://base.unitCube">
+        </s-mesh>
+      </s-transform>
+    </s-transform>
+    <s-transform translate="[0.0, 0.0, 5.0]">
+      <!-- Draw a single triangle that when drawn with the identity view
+           matrix would fill the screen. -->
+      <s-mesh material-id="#simpleMaterial"
+              geometry-path="assetpack://base.fullscreen">
+        <s-material-constant name="diffuse"
+                             texture-path="assetpack://base.wood"
+                             address-u="TextureAddressMode.Clamp"
+                             address-v="TextureAddressMode.Clamp">
+        </s-material-constant>
+      </s-mesh>
+    </s-transform>
+    <s-transform translate="[0.0, 0.0, 10.0]">
+      <!-- Draw a skybox with a cube map texture. -->
+      <s-mesh material-id="#simpleCubeMaterial"
+              geometry-path="assetpack://base.skybox">
+        <s-material-constant name="diffuse"
+                             texture-id="#space-cube"
+                             address-u="TextureAddressMode.Clamp"
+                             address-v="TextureAddressMode.Clamp">
+        </s-material-constant>
+        <s-material-constant name="cullMode" value="CullMode.None">
+        </s-material-constant>
+      </s-mesh>
+    </s-transform>
+
+    <s-transform translate="[0.0, 0.0, 15.0]">
+      <!-- Draw a skybox with a cube map texture. -->
+      <s-mesh material-id="#simpleCubeMaterial"
+              geometry-path="assetpack://base.skybox">
+        <s-material-constant name="diffuse"
+                             texture-id="#color-cube"
+                             address-u="TextureAddressMode.Clamp"
+                             address-v="TextureAddressMode.Clamp">
+        </s-material-constant>
+        <s-material-constant name="cullMode" value="CullMode.None">
+        </s-material-constant>
+      </s-mesh>
+    </s-transform>
+
+    <s-transform translate="[0.0, 0.0, 20.0]">
+      <!-- Draw a skybox with a cube map texture. -->
+      <s-mesh material-id="#simpleCubeMaterial"
+              geometry-path="assetpack://base.skybox">
+        <s-material-constant name="diffuse"
+                             texture-id="#bad-cube"
+                             address-u="TextureAddressMode.Clamp"
+                             address-v="TextureAddressMode.Clamp">
+        </s-material-constant>
+        <s-material-constant name="cullMode" value="CullMode.None">
+        </s-material-constant>
+      </s-mesh>
+    </s-transform>
+  </s-scene>
+</s-spectre>
+<script type="application/dart" src="texture_cube_main.dart"></script>
+</body>
+</html>

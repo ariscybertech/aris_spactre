@@ -1,0 +1,1005 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>DebugDrawManager class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="DebugDrawManager">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/DebugDrawManager.html">DebugDrawManager</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><div class="icon-class"></div><strong>DebugDrawManager</strong></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>DebugDrawManager</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<p>DebugDrawManager allows you to draw the following primitives:</p><ul><li>Lines</li><li>Crosses</li><li>Spheres</li><li>Circles</li><li>Transformations (coordinate axes)</li><li>Triangles</li><li>AABB (Axis Aligned Bounding Boxes)</li></ul>
+<p>Each of the above primitives can be displayed for a specific time period, for example, 1.5 seconds</p>
+<p>Each of the above primitives can have depth testing enabled or disabled</p>
+<p>Most of the above primitives can be configured with size and / or color</p>
+<p>You will have to call update, prepareForRender, and render once per frame</p>
+<pre class="source">
+class DebugDrawManager {
+ static final int _depthEnabledStateHandleIndex = 0;
+ static final int _depthDisabledStateHandleIndex = 1;
+ static final int _blendStateHandleIndex = 2;
+ static final int _rasterizerStateHandleIndex = 3;
+ static final int _lineVertexShaderHandleIndex = 4;
+ static final int _lineFragmentShaderHandleIndex = 5;
+ static final int _lineShaderProgramHandleIndex = 6;
+ static final int _sphereVertexShaderHandleIndex = 7;
+ static final int _sphereFragmentShaderHandleIndex = 8;
+ static final int _sphereShaderProgramHandleIndex = 9;
+ static final int _sphereIndexedMeshHandleIndex = 10;
+
+ static final String _depthStateEnabledName = 'Debug Depth Enabled State';
+ static final String _depthStateDisabledName = 'Debug Depth Disabled State';
+ static final String _blendStateName = 'Debug Blend State';
+ static final String _rasterizerStateName = 'Debug Rasterizer State';
+ static final String _lineVertexShaderName = 'Debug Line Vertex Shader';
+ static final String _lineFragmentShaderName = 'Debug Line Fragment Shader';
+ static final String _lineShaderProgramName = 'Debug Line Program';
+ static final String _depthEnabledLineVBOName = 'Debug Draw Depth Enabled VBO';
+ static final String _depthDisabledLineVBOName = 'Debug Draw Depth Disabled VBO';
+ static final String _cameraTransformUniformName = 'cameraTransform';
+ static final String _sphereVertexShaderName = 'Debug Sphere Vertex Shader';
+ static final String _sphereFragmentShaderName = 'Debug Sphere Fragment Shader';
+ static final String _sphereShaderProgramName = 'Debug Sphere Shader Program';
+ static final String _sphereIndexedMeshName = 'Debug Sphere Indexed Mesh';
+
+ List&lt;DeviceChild&gt; _handles;
+
+ List _startupCommands;
+ List _drawCommands;
+
+ _DebugDrawLineManager _depthEnabledLines;
+ _DebugDrawLineManager _depthDisabledLines;
+ _DebugDrawSphereManager _depthEnabledSpheres;
+ _DebugDrawSphereManager _depthDisabledSpheres;
+ Float32Array _cameraMatrix;
+
+ GraphicsDevice _device;
+ GraphicsContext _context;
+
+ DebugDrawManager() {
+   _handles = new List&lt;DeviceChild&gt;();
+   _cameraMatrix = new Float32Array(16);
+ }
+
+ // ResourceManager rm
+ // int lineVSResourceHandle
+ // int lineFSResourceHandle
+ // int sphereVSResourceHandle
+ // int sphereFSResourceHandle
+ // int sphereMeshResourceHandle,
+
+ void init(GraphicsDevice device, [int vboSize=4096, int maxSpheres=1024]) {
+   _device = device;
+   _context = device.context;
+
+   DeviceChild handle;
+
+   handle = _device.createDepthState(_depthStateEnabledName, {'depthTestEnabled': true, 'depthWriteEnabled': true, 'depthComparisonOp': DepthState.DepthComparisonOpLess});
+   _handles.add(handle);
+   handle = _device.createDepthState(_depthStateDisabledName, {'depthTestEnabled': false, 'depthWriteEnabled': false});
+   _handles.add(handle);
+   handle = _device.createBlendState(_blendStateName, {});
+   _handles.add(handle);
+   handle = _device.createRasterizerState(_rasterizerStateName, {'cullEnabled': true, 'lineWidth': 1.0});
+   _handles.add(handle);
+
+   handle = _device.createVertexShader(_lineVertexShaderName, {});
+   _handles.add(handle);
+   handle = _device.createFragmentShader(_lineFragmentShaderName, {});
+   _handles.add(handle);
+   handle = _device.createShaderProgram(_lineShaderProgramName, {});
+   _handles.add(handle);
+
+   _context.compileShader(_handles[_lineVertexShaderHandleIndex],
+                          _debugLineVertexShader);
+   _context.compileShader(_handles[_lineFragmentShaderHandleIndex],
+                          _debugLineFragmentShader);
+   _context.linkShaderProgram(_handles[_lineShaderProgramHandleIndex],
+                              _handles[_lineVertexShaderHandleIndex],
+                              _handles[_lineFragmentShaderHandleIndex]);
+
+   handle = _device.createVertexShader(_sphereVertexShaderName, {});
+   _handles.add(handle);
+   handle = _device.createFragmentShader(_sphereFragmentShaderName, {});
+   _handles.add(handle);
+   handle = _device.createShaderProgram(_sphereShaderProgramName, {});
+   _handles.add(handle);
+
+   _context.compileShader(_handles[_sphereVertexShaderHandleIndex],
+                          _debugSphereVertexShader);
+   _context.compileShader(_handles[_sphereFragmentShaderHandleIndex],
+                          _debugSphereFragmentShader);
+   _context.linkShaderProgram(_handles[_sphereShaderProgramHandleIndex],
+                              _handles[_sphereVertexShaderHandleIndex],
+                              _handles[_sphereFragmentShaderHandleIndex]);
+
+   handle = device.createIndexedMesh(_sphereIndexedMeshName, {
+     'UpdateFromMeshMap': _debugSphereMesh
+   });
+   _handles.add(handle);
+
+   // Sphere startup
+   InputLayout sphereInputLayout;
+   {
+     var elements = [InputLayoutHelper.inputElementDescriptionFromMeshMap(new InputLayoutDescription('vPosition', 0, 'POSITION'), _debugSphereMesh)];
+     sphereInputLayout = device.createInputLayout('Debug Sphere Input', {'elements':elements, 'shaderProgram':_handles[_sphereShaderProgramHandleIndex]});
+   }
+
+   _depthEnabledLines = new _DebugDrawLineManager(device, _depthEnabledLineVBOName, vboSize, _handles[_lineShaderProgramHandleIndex]);
+   _depthDisabledLines = new _DebugDrawLineManager(device, _depthDisabledLineVBOName, vboSize, _handles[_lineShaderProgramHandleIndex]);
+   _depthEnabledSpheres = new _DebugDrawSphereManager(_handles[_sphereShaderProgramHandleIndex], _handles[_sphereIndexedMeshHandleIndex], sphereInputLayout, maxSpheres);
+   _depthDisabledSpheres = new _DebugDrawSphereManager(_handles[_sphereShaderProgramHandleIndex], _handles[_sphereIndexedMeshHandleIndex], sphereInputLayout, maxSpheres);
+
+   // Build the program
+   CommandListBuilder clb = new CommandListBuilder();
+   // General
+   clb.setBlendState(_handles[_blendStateHandleIndex]);
+   clb.setRasterizerState(_handles[_rasterizerStateHandleIndex]);
+   clb.setShaderProgram(_handles[_lineShaderProgramHandleIndex]);
+   clb.setUniformMatrix4('cameraTransform', _cameraMatrix);
+   clb.setPrimitiveTopology(GraphicsContext.PrimitiveTopologyLines);
+   clb.setIndexBuffer(null);
+   // Depth enabled lines
+   clb.setDepthState(_handles[_depthEnabledStateHandleIndex]);
+   clb.setVertexBuffers(0, [_depthEnabledLines._vbo]);
+   clb.setInputLayout(_depthEnabledLines._vboLayout);
+   // draw Indirect takes vertexCount from register 0
+   // draw Indirect takes vertexOffset from register 1
+   clb.drawIndirect(0, 1);
+   // Depth disabled lines
+   clb.setDepthState(_handles[_depthDisabledStateHandleIndex]);
+   clb.setVertexBuffers(0, [_depthDisabledLines._vbo]);
+   clb.setInputLayout(_depthDisabledLines._vboLayout);
+   // draw Indirect takes vertexCount from register 2
+   // draw Indirect takes vertexOffset from register 3
+   clb.drawIndirect(2, 3);
+   // Save built program
+   _drawCommands = clb.ops;
+ }
+
+ /// Add a line segment from [start] to [finish] with [color]
+ ///
+ /// Options: [duration] and [depthEnabled]
+ void _addLine(vec3 start, vec3 finish, bool depthEnabled) {
+   if (depthEnabled) {
+     _depthEnabledLines._lines.addVertex(finish.x, finish.y, finish.z);
+     _depthEnabledLines._lines.addVertex(start.x, start.y, start.z);
+   } else {
+     _depthDisabledLines._lines.addVertex(finish.x, finish.y, finish.z);
+     _depthDisabledLines._lines.addVertex(start.x, start.y, start.z);
+   }
+ }
+
+ /// Add a line segment from [start] to [finish] with [color]
+ ///
+ /// Options: [duration] and [depthEnabled]
+ void addLine(vec3 start, vec3 finish, vec4 color, [num duration = 0.0, bool depthEnabled=true]) {
+   if (depthEnabled) {
+     _depthEnabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+   } else {
+     _depthDisabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+   }
+   _addLine(start, finish, depthEnabled);
+ }
+
+ /// Add a cross at [point] with [color]
+ ///
+ /// Options: [size], [duration], and [depthEnabled]
+ void addCross(vec3 point, vec4 color, [num size = 1.0, num duration = 0.0, bool depthEnabled=true]) {
+   if (depthEnabled) {
+     _depthEnabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+   } else {
+     _depthDisabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+   }
+   num half_size = size * 0.5;
+   _addLine(point, point + new vec3(half_size, 0.0, 0.0), depthEnabled);
+   _addLine(point, point + new vec3(-half_size, 0.0, 0.0), depthEnabled);
+   _addLine(point, point + new vec3(0.0, half_size, 0.0), depthEnabled);
+   _addLine(point, point + new vec3(0.0, -half_size, 0.0), depthEnabled);
+   _addLine(point, point + new vec3(0.0, 0.0, half_size), depthEnabled);
+   _addLine(point, point + new vec3(0.0, 0.0, -half_size), depthEnabled);
+ }
+
+ /// Add a sphere located at [center] with [radius] and [color]
+ ///
+ /// Options: [duration] and [depthEnabled]
+ void addSphere(vec3 center, num radius, vec4 color, [num duration = 0.0, bool depthEnabled = true]) {
+   _DebugDrawSphere sphere = new _DebugDrawSphere(center, color, radius);
+   sphere.duration = duration;
+   if (depthEnabled) {
+     _depthEnabledSpheres.add(sphere);
+   } else {
+     _depthDisabledSpheres.add(sphere);
+   }
+ }
+
+ vec3 _circle_u = new vec3.zero();
+ vec3 _circle_v = new vec3.zero();
+
+ /// Add a circle located at [center] perpindicular to [planeNormal] with [radius] and [color]
+ ///
+ /// Options: [duration] and [depthEnabled]
+ void addCircle(vec3 center, vec3 planeNormal, num radius, vec4 color, [num duration = 0.0, bool depthEnabled = true, int numSegments = 12]) {
+   buildPlaneVectors(planeNormal, _circle_u, _circle_v);
+   num alpha = 0.0;
+   num twoPi = (2.0 * 3.141592653589793238462643);
+   num _step = twoPi/numSegments;
+
+   vec3 last = center + _circle_u * radius;
+
+   if (depthEnabled) {
+     _depthEnabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+   } else {
+     _depthDisabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+   }
+
+   for (alpha = _step; alpha &lt;= twoPi; alpha += _step) {
+     vec3 p = center + (_circle_u * (radius * cos(alpha))) + (_circle_v * (radius * sin(alpha)));
+     _addLine(last, p, depthEnabled);
+     last = p;
+   }
+   _addLine(last, center + _circle_u * radius, depthEnabled);
+ }
+
+ /// Add a transformation (rotation &amp; translation) from [xform]. Size is controlled with [size]
+ ///
+ /// X,Y, and Z axes are colored Red,Green, and Blue
+ ///
+ /// Options: [duration] and [depthEnabled]
+ void addAxes(mat4 xform, num size, [num duration = 0.0, bool depthEnabled = true]) {
+   vec4 origin = new vec4.raw(0.0, 0.0, 0.0, 1.0);
+   num size_90p = 0.9 * size;
+   num size_10p = 0.1 * size;
+
+   vec4 color;
+
+   vec4 X = new vec4.raw(size, 0.0, 0.0, 1.0);
+   vec4 X_head_0 = new vec4.raw(size_90p, size_10p, 0.0, 1.0);
+   vec4 X_head_1 = new vec4.raw(size_90p, -size_10p, 0.0, 1.0);
+   vec4 X_head_2 = new vec4.raw(size_90p, 0.0, size_10p, 1.0);
+   vec4 X_head_3 = new vec4.raw(size_90p, 0.0, -size_10p, 1.0);
+
+   vec4 Y = new vec4.raw(0.0, size, 0.0, 1.0);
+   vec4 Y_head_0 = new vec4.raw(size_10p, size_90p, 0.0, 1.0);
+   vec4 Y_head_1 = new vec4.raw(-size_10p, size_90p, 0.0, 1.0);
+   vec4 Y_head_2 = new vec4.raw(0.0, size_90p, size_10p, 1.0);
+   vec4 Y_head_3 = new vec4.raw(0.0, size_90p, -size_10p, 1.0);
+
+
+   vec4 Z = new vec4.raw(0.0, 0.0, size, 1.0);
+   vec4 Z_head_0 = new vec4.raw(size_10p, 0.0, size_90p, 1.0);
+   vec4 Z_head_1 = new vec4.raw(-size_10p, 0.0, size_90p, 1.0);
+   vec4 Z_head_2 = new vec4.raw(0.0, size_10p, size_90p, 1.0);
+   vec4 Z_head_3 = new vec4.raw(0.0, -size_10p, size_90p, 1.0);
+
+   origin = xform * origin;
+
+   X = xform * X;
+   X_head_0 = xform * X_head_0;
+   X_head_1 = xform * X_head_1;
+   X_head_2 = xform * X_head_2;
+   X_head_3 = xform * X_head_3;
+
+   color = new vec4.raw(1.0, 0.0, 0.0, 1.0);
+   addLine(origin.xyz, X.xyz, color, duration, depthEnabled);
+   addLine(X.xyz, X_head_0.xyz, color,duration, depthEnabled);
+   addLine(X.xyz, X_head_1.xyz, color, duration, depthEnabled);
+   addLine(X.xyz, X_head_2.xyz, color, duration, depthEnabled);
+   addLine(X.xyz, X_head_3.xyz, color, duration, depthEnabled);
+
+   Y = xform * Y;
+   Y_head_0 = xform * Y_head_0;
+   Y_head_1 = xform * Y_head_1;
+   Y_head_2 = xform * Y_head_2;
+   Y_head_3 = xform * Y_head_3;
+
+   color = new vec4.raw(0.0, 1.0, 0.0, 1.0);
+   addLine(origin.xyz, Y.xyz, color, duration, depthEnabled);
+   addLine(Y.xyz, Y_head_0.xyz, color, duration, depthEnabled);
+   addLine(Y.xyz, Y_head_1.xyz, color, duration, depthEnabled);
+   addLine(Y.xyz, Y_head_2.xyz, color, duration, depthEnabled);
+   addLine(Y.xyz, Y_head_3.xyz, color, duration, depthEnabled);
+
+   Z = xform * Z;
+   Z_head_0 = xform * Z_head_0;
+   Z_head_1 = xform * Z_head_1;
+   Z_head_2 = xform * Z_head_2;
+   Z_head_3 = xform * Z_head_3;
+
+   color = new vec4.raw(0.0, 0.0, 1.0, 1.0);
+   addLine(origin.xyz, Z.xyz, color, duration, depthEnabled);
+   addLine(Z.xyz, Z_head_0.xyz, color, duration, depthEnabled);
+   addLine(Z.xyz, Z_head_1.xyz, color, duration, depthEnabled);
+   addLine(Z.xyz, Z_head_2.xyz, color, duration, depthEnabled);
+   addLine(Z.xyz, Z_head_3.xyz, color, duration, depthEnabled);
+ }
+
+ /// Add a triangle with vertices [vertex0], [vertex1], and [vertex2]. Color [color]
+ ///
+ /// Options: [duration] and [depthEnabled]
+ void addTriangle(vec3 vertex0, vec3 vertex1, vec3 vertex2, vec4 color, [num duration = 0.0, bool depthEnabled = true]) {
+   addLine(vertex0, vertex1, color, duration, depthEnabled);
+   addLine(vertex1, vertex2, color, duration, depthEnabled);
+   addLine(vertex2, vertex0, color, duration, depthEnabled);
+ }
+
+ /// Add an AABB from [boxMin] to [boxMax] with [color].
+ ///
+ /// Options: [duration] and [depthEnabled]
+ void addAABB(vec3 boxMin, vec3 boxMax, vec4 color, [num duration = 0.0, bool depthEnabled = true]) {
+   vec3 vertex_a;
+   vec3 vertex_b;
+
+   vertex_a = new vec3.copy(boxMin);
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[0] = boxMax[0];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[1] = boxMax[1];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[2] = boxMax[2];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_a[1] = boxMax[1];
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[0] = boxMax[0];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[2] = boxMax[2];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_a = new vec3.copy(boxMin);
+   vertex_a[0] = boxMax[0];
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[1] = boxMax[1];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_a = new vec3.copy(boxMax);
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[0] = boxMin[0];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[1] = boxMin[1];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[2] = boxMin[2];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_a[1] = boxMin[1];
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[0] = boxMin[0];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[2] = boxMin[2];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+   vertex_a = new vec3.copy(boxMin);
+   vertex_a[2] = boxMax[2];
+   vertex_b = new vec3.copy(vertex_a);
+   vertex_b[1] = boxMax[1];
+   addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ }
+
+ /// Prepare to render debug primitives
+ void prepareForRender() {
+   Profiler.enter('DebugDrawManager.prepareForRender');
+   _depthEnabledLines._prepareForRender(_context);
+   _depthDisabledLines._prepareForRender(_context);
+   _depthEnabledSpheres._prepareForRender(_context, _cameraMatrix);
+   _depthDisabledSpheres._prepareForRender(_context, _cameraMatrix);
+   Profiler.exit();
+ }
+
+ /// Render debug primitives for [Camera] [cam]
+ void render(Camera cam) {
+   Profiler.enter('DebugDrawManager.render');
+   {
+     mat4 pm = cam.projectionMatrix;
+     mat4 la = cam.lookAtMatrix;
+     pm.multiply(la);
+     pm.copyIntoArray(_cameraMatrix);
+   }
+   {
+     Interpreter interpreter = new Interpreter();
+     // Set registers
+     interpreter.setRegister(0, _depthEnabledLines.vertexCount);
+     interpreter.setRegister(1, 0);
+     interpreter.setRegister(2, _depthDisabledLines.vertexCount);
+     interpreter.setRegister(3, 0);
+     interpreter.run(_drawCommands, _device, null, _context);
+   }
+   _device.context.setDepthState(_handles[_depthEnabledStateHandleIndex]);
+   _depthEnabledSpheres._render(_device, _cameraMatrix);
+   _depthDisabledSpheres._render(_device, _cameraMatrix);
+   Profiler.exit();
+ }
+
+ /// Update time [seconds], removing any dead debug primitives
+ void update(num seconds) {
+   Profiler.enter('DebugDrawManager.update');
+   {
+     Profiler.enter('lines');
+     Profiler.enter('depth enabled');
+     _depthEnabledLines.update(seconds);
+     Profiler.exit();
+     Profiler.enter('depth disabled');
+     _depthDisabledLines.update(seconds);
+     Profiler.exit();
+     Profiler.exit();
+   }
+
+   _depthEnabledSpheres.update(seconds);
+   _depthDisabledSpheres.update(seconds);
+   Profiler.exit();
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="DebugDrawManager">
+<button class="show-code">Code</button>
+new <strong>DebugDrawManager</strong>() <a class="anchor-link" href="#DebugDrawManager"
+              title="Permalink to DebugDrawManager.DebugDrawManager">#</a></h4>
+<div class="doc">
+<pre class="source">
+DebugDrawManager() {
+ _handles = new List&lt;DeviceChild&gt;();
+ _cameraMatrix = new Float32Array(16);
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="addAABB">
+<button class="show-code">Code</button>
+void <strong>addAABB</strong>(<a href="../vector_math_browser/vec3.html">vec3</a> boxMin, <a href="../vector_math_browser/vec3.html">vec3</a> boxMax, <a href="../vector_math_browser/vec4.html">vec4</a> color, [num duration = 0.0, bool depthEnabled = true]) <a class="anchor-link" href="#addAABB"
+              title="Permalink to DebugDrawManager.addAABB">#</a></h4>
+<div class="doc">
+<p>Add an AABB from 
+<span class="param">boxMin</span> to 
+<span class="param">boxMax</span> with 
+<span class="param">color</span>.</p>
+<p>Options: 
+<span class="param">duration</span> and 
+<span class="param">depthEnabled</span></p>
+<pre class="source">
+void addAABB(vec3 boxMin, vec3 boxMax, vec4 color, [num duration = 0.0, bool depthEnabled = true]) {
+ vec3 vertex_a;
+ vec3 vertex_b;
+
+ vertex_a = new vec3.copy(boxMin);
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[0] = boxMax[0];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[1] = boxMax[1];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[2] = boxMax[2];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_a[1] = boxMax[1];
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[0] = boxMax[0];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[2] = boxMax[2];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_a = new vec3.copy(boxMin);
+ vertex_a[0] = boxMax[0];
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[1] = boxMax[1];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_a = new vec3.copy(boxMax);
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[0] = boxMin[0];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[1] = boxMin[1];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[2] = boxMin[2];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_a[1] = boxMin[1];
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[0] = boxMin[0];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[2] = boxMin[2];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+ vertex_a = new vec3.copy(boxMin);
+ vertex_a[2] = boxMax[2];
+ vertex_b = new vec3.copy(vertex_a);
+ vertex_b[1] = boxMax[1];
+ addLine(vertex_a, vertex_b, color, duration, depthEnabled);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="addAxes">
+<button class="show-code">Code</button>
+void <strong>addAxes</strong>(<a href="../vector_math_browser/mat4.html">mat4</a> xform, num size, [num duration = 0.0, bool depthEnabled = true]) <a class="anchor-link" href="#addAxes"
+              title="Permalink to DebugDrawManager.addAxes">#</a></h4>
+<div class="doc">
+<p>Add a transformation (rotation &amp; translation) from 
+<span class="param">xform</span>. Size is controlled with 
+<span class="param">size</span></p>
+<p>X,Y, and Z axes are colored Red,Green, and Blue</p>
+<p>Options: 
+<span class="param">duration</span> and 
+<span class="param">depthEnabled</span></p>
+<pre class="source">
+void addAxes(mat4 xform, num size, [num duration = 0.0, bool depthEnabled = true]) {
+ vec4 origin = new vec4.raw(0.0, 0.0, 0.0, 1.0);
+ num size_90p = 0.9 * size;
+ num size_10p = 0.1 * size;
+
+ vec4 color;
+
+ vec4 X = new vec4.raw(size, 0.0, 0.0, 1.0);
+ vec4 X_head_0 = new vec4.raw(size_90p, size_10p, 0.0, 1.0);
+ vec4 X_head_1 = new vec4.raw(size_90p, -size_10p, 0.0, 1.0);
+ vec4 X_head_2 = new vec4.raw(size_90p, 0.0, size_10p, 1.0);
+ vec4 X_head_3 = new vec4.raw(size_90p, 0.0, -size_10p, 1.0);
+
+ vec4 Y = new vec4.raw(0.0, size, 0.0, 1.0);
+ vec4 Y_head_0 = new vec4.raw(size_10p, size_90p, 0.0, 1.0);
+ vec4 Y_head_1 = new vec4.raw(-size_10p, size_90p, 0.0, 1.0);
+ vec4 Y_head_2 = new vec4.raw(0.0, size_90p, size_10p, 1.0);
+ vec4 Y_head_3 = new vec4.raw(0.0, size_90p, -size_10p, 1.0);
+
+
+ vec4 Z = new vec4.raw(0.0, 0.0, size, 1.0);
+ vec4 Z_head_0 = new vec4.raw(size_10p, 0.0, size_90p, 1.0);
+ vec4 Z_head_1 = new vec4.raw(-size_10p, 0.0, size_90p, 1.0);
+ vec4 Z_head_2 = new vec4.raw(0.0, size_10p, size_90p, 1.0);
+ vec4 Z_head_3 = new vec4.raw(0.0, -size_10p, size_90p, 1.0);
+
+ origin = xform * origin;
+
+ X = xform * X;
+ X_head_0 = xform * X_head_0;
+ X_head_1 = xform * X_head_1;
+ X_head_2 = xform * X_head_2;
+ X_head_3 = xform * X_head_3;
+
+ color = new vec4.raw(1.0, 0.0, 0.0, 1.0);
+ addLine(origin.xyz, X.xyz, color, duration, depthEnabled);
+ addLine(X.xyz, X_head_0.xyz, color,duration, depthEnabled);
+ addLine(X.xyz, X_head_1.xyz, color, duration, depthEnabled);
+ addLine(X.xyz, X_head_2.xyz, color, duration, depthEnabled);
+ addLine(X.xyz, X_head_3.xyz, color, duration, depthEnabled);
+
+ Y = xform * Y;
+ Y_head_0 = xform * Y_head_0;
+ Y_head_1 = xform * Y_head_1;
+ Y_head_2 = xform * Y_head_2;
+ Y_head_3 = xform * Y_head_3;
+
+ color = new vec4.raw(0.0, 1.0, 0.0, 1.0);
+ addLine(origin.xyz, Y.xyz, color, duration, depthEnabled);
+ addLine(Y.xyz, Y_head_0.xyz, color, duration, depthEnabled);
+ addLine(Y.xyz, Y_head_1.xyz, color, duration, depthEnabled);
+ addLine(Y.xyz, Y_head_2.xyz, color, duration, depthEnabled);
+ addLine(Y.xyz, Y_head_3.xyz, color, duration, depthEnabled);
+
+ Z = xform * Z;
+ Z_head_0 = xform * Z_head_0;
+ Z_head_1 = xform * Z_head_1;
+ Z_head_2 = xform * Z_head_2;
+ Z_head_3 = xform * Z_head_3;
+
+ color = new vec4.raw(0.0, 0.0, 1.0, 1.0);
+ addLine(origin.xyz, Z.xyz, color, duration, depthEnabled);
+ addLine(Z.xyz, Z_head_0.xyz, color, duration, depthEnabled);
+ addLine(Z.xyz, Z_head_1.xyz, color, duration, depthEnabled);
+ addLine(Z.xyz, Z_head_2.xyz, color, duration, depthEnabled);
+ addLine(Z.xyz, Z_head_3.xyz, color, duration, depthEnabled);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="addCircle">
+<button class="show-code">Code</button>
+void <strong>addCircle</strong>(<a href="../vector_math_browser/vec3.html">vec3</a> center, <a href="../vector_math_browser/vec3.html">vec3</a> planeNormal, num radius, <a href="../vector_math_browser/vec4.html">vec4</a> color, [num duration = 0.0, bool depthEnabled = true, int numSegments = 12]) <a class="anchor-link" href="#addCircle"
+              title="Permalink to DebugDrawManager.addCircle">#</a></h4>
+<div class="doc">
+<p>Add a circle located at 
+<span class="param">center</span> perpindicular to 
+<span class="param">planeNormal</span> with 
+<span class="param">radius</span> and 
+<span class="param">color</span></p>
+<p>Options: 
+<span class="param">duration</span> and 
+<span class="param">depthEnabled</span></p>
+<pre class="source">
+void addCircle(vec3 center, vec3 planeNormal, num radius, vec4 color, [num duration = 0.0, bool depthEnabled = true, int numSegments = 12]) {
+ buildPlaneVectors(planeNormal, _circle_u, _circle_v);
+ num alpha = 0.0;
+ num twoPi = (2.0 * 3.141592653589793238462643);
+ num _step = twoPi/numSegments;
+
+ vec3 last = center + _circle_u * radius;
+
+ if (depthEnabled) {
+   _depthEnabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+ } else {
+   _depthDisabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+ }
+
+ for (alpha = _step; alpha &lt;= twoPi; alpha += _step) {
+   vec3 p = center + (_circle_u * (radius * cos(alpha))) + (_circle_v * (radius * sin(alpha)));
+   _addLine(last, p, depthEnabled);
+   last = p;
+ }
+ _addLine(last, center + _circle_u * radius, depthEnabled);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="addCross">
+<button class="show-code">Code</button>
+void <strong>addCross</strong>(<a href="../vector_math_browser/vec3.html">vec3</a> point, <a href="../vector_math_browser/vec4.html">vec4</a> color, [num size = 1.0, num duration = 0.0, bool depthEnabled = true]) <a class="anchor-link" href="#addCross"
+              title="Permalink to DebugDrawManager.addCross">#</a></h4>
+<div class="doc">
+<p>Add a cross at 
+<span class="param">point</span> with 
+<span class="param">color</span></p>
+<p>Options: 
+<span class="param">size</span>, 
+<span class="param">duration</span>, and 
+<span class="param">depthEnabled</span></p>
+<pre class="source">
+void addCross(vec3 point, vec4 color, [num size = 1.0, num duration = 0.0, bool depthEnabled=true]) {
+ if (depthEnabled) {
+   _depthEnabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+ } else {
+   _depthDisabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+ }
+ num half_size = size * 0.5;
+ _addLine(point, point + new vec3(half_size, 0.0, 0.0), depthEnabled);
+ _addLine(point, point + new vec3(-half_size, 0.0, 0.0), depthEnabled);
+ _addLine(point, point + new vec3(0.0, half_size, 0.0), depthEnabled);
+ _addLine(point, point + new vec3(0.0, -half_size, 0.0), depthEnabled);
+ _addLine(point, point + new vec3(0.0, 0.0, half_size), depthEnabled);
+ _addLine(point, point + new vec3(0.0, 0.0, -half_size), depthEnabled);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="addLine">
+<button class="show-code">Code</button>
+void <strong>addLine</strong>(<a href="../vector_math_browser/vec3.html">vec3</a> start, <a href="../vector_math_browser/vec3.html">vec3</a> finish, <a href="../vector_math_browser/vec4.html">vec4</a> color, [num duration = 0.0, bool depthEnabled = true]) <a class="anchor-link" href="#addLine"
+              title="Permalink to DebugDrawManager.addLine">#</a></h4>
+<div class="doc">
+<p>Add a line segment from 
+<span class="param">start</span> to 
+<span class="param">finish</span> with 
+<span class="param">color</span></p>
+<p>Options: 
+<span class="param">duration</span> and 
+<span class="param">depthEnabled</span></p>
+<pre class="source">
+void addLine(vec3 start, vec3 finish, vec4 color, [num duration = 0.0, bool depthEnabled=true]) {
+ if (depthEnabled) {
+   _depthEnabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+ } else {
+   _depthDisabledLines._lines.startLineObject(color.r, color.g, color.b, color.a, duration);
+ }
+ _addLine(start, finish, depthEnabled);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="addSphere">
+<button class="show-code">Code</button>
+void <strong>addSphere</strong>(<a href="../vector_math_browser/vec3.html">vec3</a> center, num radius, <a href="../vector_math_browser/vec4.html">vec4</a> color, [num duration = 0.0, bool depthEnabled = true]) <a class="anchor-link" href="#addSphere"
+              title="Permalink to DebugDrawManager.addSphere">#</a></h4>
+<div class="doc">
+<p>Add a sphere located at 
+<span class="param">center</span> with 
+<span class="param">radius</span> and 
+<span class="param">color</span></p>
+<p>Options: 
+<span class="param">duration</span> and 
+<span class="param">depthEnabled</span></p>
+<pre class="source">
+void addSphere(vec3 center, num radius, vec4 color, [num duration = 0.0, bool depthEnabled = true]) {
+ _DebugDrawSphere sphere = new _DebugDrawSphere(center, color, radius);
+ sphere.duration = duration;
+ if (depthEnabled) {
+   _depthEnabledSpheres.add(sphere);
+ } else {
+   _depthDisabledSpheres.add(sphere);
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="addTriangle">
+<button class="show-code">Code</button>
+void <strong>addTriangle</strong>(<a href="../vector_math_browser/vec3.html">vec3</a> vertex0, <a href="../vector_math_browser/vec3.html">vec3</a> vertex1, <a href="../vector_math_browser/vec3.html">vec3</a> vertex2, <a href="../vector_math_browser/vec4.html">vec4</a> color, [num duration = 0.0, bool depthEnabled = true]) <a class="anchor-link" href="#addTriangle"
+              title="Permalink to DebugDrawManager.addTriangle">#</a></h4>
+<div class="doc">
+<p>Add a triangle with vertices 
+<span class="param">vertex0</span>, 
+<span class="param">vertex1</span>, and 
+<span class="param">vertex2</span>. Color 
+<span class="param">color</span></p>
+<p>Options: 
+<span class="param">duration</span> and 
+<span class="param">depthEnabled</span></p>
+<pre class="source">
+void addTriangle(vec3 vertex0, vec3 vertex1, vec3 vertex2, vec4 color, [num duration = 0.0, bool depthEnabled = true]) {
+ addLine(vertex0, vertex1, color, duration, depthEnabled);
+ addLine(vertex1, vertex2, color, duration, depthEnabled);
+ addLine(vertex2, vertex0, color, duration, depthEnabled);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="init">
+<button class="show-code">Code</button>
+void <strong>init</strong>(<a href="../spectre/GraphicsDevice.html">GraphicsDevice</a> device, [int vboSize = 4096, int maxSpheres = 1024]) <a class="anchor-link" href="#init"
+              title="Permalink to DebugDrawManager.init">#</a></h4>
+<div class="doc">
+<pre class="source">
+void init(GraphicsDevice device, [int vboSize=4096, int maxSpheres=1024]) {
+ _device = device;
+ _context = device.context;
+
+ DeviceChild handle;
+
+ handle = _device.createDepthState(_depthStateEnabledName, {'depthTestEnabled': true, 'depthWriteEnabled': true, 'depthComparisonOp': DepthState.DepthComparisonOpLess});
+ _handles.add(handle);
+ handle = _device.createDepthState(_depthStateDisabledName, {'depthTestEnabled': false, 'depthWriteEnabled': false});
+ _handles.add(handle);
+ handle = _device.createBlendState(_blendStateName, {});
+ _handles.add(handle);
+ handle = _device.createRasterizerState(_rasterizerStateName, {'cullEnabled': true, 'lineWidth': 1.0});
+ _handles.add(handle);
+
+ handle = _device.createVertexShader(_lineVertexShaderName, {});
+ _handles.add(handle);
+ handle = _device.createFragmentShader(_lineFragmentShaderName, {});
+ _handles.add(handle);
+ handle = _device.createShaderProgram(_lineShaderProgramName, {});
+ _handles.add(handle);
+
+ _context.compileShader(_handles[_lineVertexShaderHandleIndex],
+                        _debugLineVertexShader);
+ _context.compileShader(_handles[_lineFragmentShaderHandleIndex],
+                        _debugLineFragmentShader);
+ _context.linkShaderProgram(_handles[_lineShaderProgramHandleIndex],
+                            _handles[_lineVertexShaderHandleIndex],
+                            _handles[_lineFragmentShaderHandleIndex]);
+
+ handle = _device.createVertexShader(_sphereVertexShaderName, {});
+ _handles.add(handle);
+ handle = _device.createFragmentShader(_sphereFragmentShaderName, {});
+ _handles.add(handle);
+ handle = _device.createShaderProgram(_sphereShaderProgramName, {});
+ _handles.add(handle);
+
+ _context.compileShader(_handles[_sphereVertexShaderHandleIndex],
+                        _debugSphereVertexShader);
+ _context.compileShader(_handles[_sphereFragmentShaderHandleIndex],
+                        _debugSphereFragmentShader);
+ _context.linkShaderProgram(_handles[_sphereShaderProgramHandleIndex],
+                            _handles[_sphereVertexShaderHandleIndex],
+                            _handles[_sphereFragmentShaderHandleIndex]);
+
+ handle = device.createIndexedMesh(_sphereIndexedMeshName, {
+   'UpdateFromMeshMap': _debugSphereMesh
+ });
+ _handles.add(handle);
+
+ // Sphere startup
+ InputLayout sphereInputLayout;
+ {
+   var elements = [InputLayoutHelper.inputElementDescriptionFromMeshMap(new InputLayoutDescription('vPosition', 0, 'POSITION'), _debugSphereMesh)];
+   sphereInputLayout = device.createInputLayout('Debug Sphere Input', {'elements':elements, 'shaderProgram':_handles[_sphereShaderProgramHandleIndex]});
+ }
+
+ _depthEnabledLines = new _DebugDrawLineManager(device, _depthEnabledLineVBOName, vboSize, _handles[_lineShaderProgramHandleIndex]);
+ _depthDisabledLines = new _DebugDrawLineManager(device, _depthDisabledLineVBOName, vboSize, _handles[_lineShaderProgramHandleIndex]);
+ _depthEnabledSpheres = new _DebugDrawSphereManager(_handles[_sphereShaderProgramHandleIndex], _handles[_sphereIndexedMeshHandleIndex], sphereInputLayout, maxSpheres);
+ _depthDisabledSpheres = new _DebugDrawSphereManager(_handles[_sphereShaderProgramHandleIndex], _handles[_sphereIndexedMeshHandleIndex], sphereInputLayout, maxSpheres);
+
+ // Build the program
+ CommandListBuilder clb = new CommandListBuilder();
+ // General
+ clb.setBlendState(_handles[_blendStateHandleIndex]);
+ clb.setRasterizerState(_handles[_rasterizerStateHandleIndex]);
+ clb.setShaderProgram(_handles[_lineShaderProgramHandleIndex]);
+ clb.setUniformMatrix4('cameraTransform', _cameraMatrix);
+ clb.setPrimitiveTopology(GraphicsContext.PrimitiveTopologyLines);
+ clb.setIndexBuffer(null);
+ // Depth enabled lines
+ clb.setDepthState(_handles[_depthEnabledStateHandleIndex]);
+ clb.setVertexBuffers(0, [_depthEnabledLines._vbo]);
+ clb.setInputLayout(_depthEnabledLines._vboLayout);
+ // draw Indirect takes vertexCount from register 0
+ // draw Indirect takes vertexOffset from register 1
+ clb.drawIndirect(0, 1);
+ // Depth disabled lines
+ clb.setDepthState(_handles[_depthDisabledStateHandleIndex]);
+ clb.setVertexBuffers(0, [_depthDisabledLines._vbo]);
+ clb.setInputLayout(_depthDisabledLines._vboLayout);
+ // draw Indirect takes vertexCount from register 2
+ // draw Indirect takes vertexOffset from register 3
+ clb.drawIndirect(2, 3);
+ // Save built program
+ _drawCommands = clb.ops;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="prepareForRender">
+<button class="show-code">Code</button>
+void <strong>prepareForRender</strong>() <a class="anchor-link" href="#prepareForRender"
+              title="Permalink to DebugDrawManager.prepareForRender">#</a></h4>
+<div class="doc">
+<p>Prepare to render debug primitives</p>
+<pre class="source">
+void prepareForRender() {
+ Profiler.enter('DebugDrawManager.prepareForRender');
+ _depthEnabledLines._prepareForRender(_context);
+ _depthDisabledLines._prepareForRender(_context);
+ _depthEnabledSpheres._prepareForRender(_context, _cameraMatrix);
+ _depthDisabledSpheres._prepareForRender(_context, _cameraMatrix);
+ Profiler.exit();
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="render">
+<button class="show-code">Code</button>
+void <strong>render</strong>(<a href="../spectre/Camera.html">Camera</a> cam) <a class="anchor-link" href="#render"
+              title="Permalink to DebugDrawManager.render">#</a></h4>
+<div class="doc">
+<p>Render debug primitives for [Camera] [cam]</p>
+<pre class="source">
+void render(Camera cam) {
+ Profiler.enter('DebugDrawManager.render');
+ {
+   mat4 pm = cam.projectionMatrix;
+   mat4 la = cam.lookAtMatrix;
+   pm.multiply(la);
+   pm.copyIntoArray(_cameraMatrix);
+ }
+ {
+   Interpreter interpreter = new Interpreter();
+   // Set registers
+   interpreter.setRegister(0, _depthEnabledLines.vertexCount);
+   interpreter.setRegister(1, 0);
+   interpreter.setRegister(2, _depthDisabledLines.vertexCount);
+   interpreter.setRegister(3, 0);
+   interpreter.run(_drawCommands, _device, null, _context);
+ }
+ _device.context.setDepthState(_handles[_depthEnabledStateHandleIndex]);
+ _depthEnabledSpheres._render(_device, _cameraMatrix);
+ _depthDisabledSpheres._render(_device, _cameraMatrix);
+ Profiler.exit();
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="update">
+<button class="show-code">Code</button>
+void <strong>update</strong>(num seconds) <a class="anchor-link" href="#update"
+              title="Permalink to DebugDrawManager.update">#</a></h4>
+<div class="doc">
+<p>Update time 
+<span class="param">seconds</span>, removing any dead debug primitives</p>
+<pre class="source">
+void update(num seconds) {
+ Profiler.enter('DebugDrawManager.update');
+ {
+   Profiler.enter('lines');
+   Profiler.enter('depth enabled');
+   _depthEnabledLines.update(seconds);
+   Profiler.exit();
+   Profiler.enter('depth disabled');
+   _depthDisabledLines.update(seconds);
+   Profiler.exit();
+   Profiler.exit();
+ }
+
+ _depthEnabledSpheres.update(seconds);
+ _depthDisabledSpheres.update(seconds);
+ Profiler.exit();
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.209</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

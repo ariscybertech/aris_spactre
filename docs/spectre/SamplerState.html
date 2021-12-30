@@ -1,0 +1,460 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>SamplerState class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="SamplerState">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/SamplerState.html">SamplerState</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><div class="icon-class"></div><strong>SamplerState</strong></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>SamplerState</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<p>SamplerState defines how a texture is sampled
+Create using <code>Device.createSamplerState</code>
+Set using <code>immediateContext.setSamplerStates</code></p>
+<pre class="source">
+class SamplerState extends DeviceChild {
+ static final int TextureWrapClampToEdge = WebGLRenderingContext.CLAMP_TO_EDGE;
+ static final int TextureWrapMirroredRepeat = WebGLRenderingContext.MIRRORED_REPEAT;
+ static final int TextureWrapRepeat = WebGLRenderingContext.REPEAT;
+
+ static final int TextureMagFilterLinear = WebGLRenderingContext.LINEAR;
+ static final int TextureMagFilterNearest = WebGLRenderingContext.NEAREST;
+
+ static final int TextureMinFilterLinear = WebGLRenderingContext.LINEAR;
+ static final int TextureMinFilterNearest = WebGLRenderingContext.NEAREST;
+ static final int TextureMinFilterNearestMipmapNearest = WebGLRenderingContext.NEAREST_MIPMAP_NEAREST;
+ static final int TextureMinFilterNearestMipmapLinear = WebGLRenderingContext.NEAREST_MIPMAP_LINEAR;
+ static final int TextureMinFilterLinearMipmapNearest = WebGLRenderingContext.LINEAR_MIPMAP_NEAREST;
+ static final int TextureMinFilterLinearMipmapLinear = WebGLRenderingContext.LINEAR_MIPMAP_LINEAR;
+
+ int _wrapS;
+ int _wrapT;
+ int _magFilter;
+ int _minFilter;
+
+ SamplerState._internal(String name, GraphicsDevice device) : super._internal(name, device) {
+   _wrapS = TextureWrapRepeat;
+   _wrapT = TextureWrapRepeat;
+   _minFilter = TextureMinFilterNearestMipmapLinear;
+   _magFilter = TextureMagFilterLinear;
+ }
+
+ void _createDeviceState() {
+   super._createDeviceState();
+ }
+
+ dynamic filter(dynamic o) {
+   if (o is String) {
+     var table = {
+       "TextureWrapClampToEdge": WebGLRenderingContext.CLAMP_TO_EDGE,
+       "TextureWrapMirroredRepeat": WebGLRenderingContext.MIRRORED_REPEAT,
+       "TextureWrapRepeat": WebGLRenderingContext.REPEAT,
+       "TextureMagFilterLinear": WebGLRenderingContext.LINEAR,
+       "TextureMagFilterNearest": WebGLRenderingContext.NEAREST,
+       "TextureMinFilterLinear": WebGLRenderingContext.LINEAR,
+       "TextureMinFilterNearest": WebGLRenderingContext.NEAREST,
+       "TextureMinFilterNearestMipmapNearest": WebGLRenderingContext.NEAREST_MIPMAP_NEAREST,
+       "TextureMinFilterNearestMipmapLinear": WebGLRenderingContext.NEAREST_MIPMAP_LINEAR,
+       "TextureMinFilterLinearMipmapNearest": WebGLRenderingContext.LINEAR_MIPMAP_NEAREST,
+       "TextureMinFilterLinearMipmapLinear": WebGLRenderingContext.LINEAR_MIPMAP_LINEAR
+     };
+     return table[o];
+   }
+   return o;
+ }
+
+ void _configDeviceState(dynamic props) {
+   if (props != null) {
+     dynamic o;
+     o = props['wrapS'];
+     _wrapS = o != null ? filter(o) : _wrapS;
+     o = props['wrapT'];
+     _wrapT = o != null ? filter(o) : _wrapT;
+     o = props['minFilter'];
+     _minFilter = o != null ? filter(o) : _minFilter;
+     o = props['magFilter'];
+     _magFilter = o != null ? filter(o) : _magFilter;
+   }
+
+ }
+
+ void _destroyDeviceState() {
+ }
+}
+</pre>
+</div>
+<h3>Extends</h3>
+<p>
+<span class="type-box"><span class="icon-class"></span><a href="../spectre/DeviceChild.html">DeviceChild</a></span>&nbsp;&gt;&nbsp;<span class="type-box"><span class="icon-class"></span><strong>SamplerState</strong></span></p>
+<div>
+<h3>Static Properties</h3>
+<div class="field"><h4 id="TextureMagFilterLinear">
+<button class="show-code">Code</button>
+final int         <strong>TextureMagFilterLinear</strong> <a class="anchor-link"
+            href="#TextureMagFilterLinear"
+            title="Permalink to SamplerState.TextureMagFilterLinear">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureMagFilterLinear = WebGLRenderingContext.LINEAR;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureMagFilterNearest">
+<button class="show-code">Code</button>
+final int         <strong>TextureMagFilterNearest</strong> <a class="anchor-link"
+            href="#TextureMagFilterNearest"
+            title="Permalink to SamplerState.TextureMagFilterNearest">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureMagFilterNearest = WebGLRenderingContext.NEAREST;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureMinFilterLinear">
+<button class="show-code">Code</button>
+final int         <strong>TextureMinFilterLinear</strong> <a class="anchor-link"
+            href="#TextureMinFilterLinear"
+            title="Permalink to SamplerState.TextureMinFilterLinear">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureMinFilterLinear = WebGLRenderingContext.LINEAR;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureMinFilterLinearMipmapLinear">
+<button class="show-code">Code</button>
+final int         <strong>TextureMinFilterLinearMipmapLinear</strong> <a class="anchor-link"
+            href="#TextureMinFilterLinearMipmapLinear"
+            title="Permalink to SamplerState.TextureMinFilterLinearMipmapLinear">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureMinFilterLinearMipmapLinear = WebGLRenderingContext.LINEAR_MIPMAP_LINEAR;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureMinFilterLinearMipmapNearest">
+<button class="show-code">Code</button>
+final int         <strong>TextureMinFilterLinearMipmapNearest</strong> <a class="anchor-link"
+            href="#TextureMinFilterLinearMipmapNearest"
+            title="Permalink to SamplerState.TextureMinFilterLinearMipmapNearest">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureMinFilterLinearMipmapNearest = WebGLRenderingContext.LINEAR_MIPMAP_NEAREST;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureMinFilterNearest">
+<button class="show-code">Code</button>
+final int         <strong>TextureMinFilterNearest</strong> <a class="anchor-link"
+            href="#TextureMinFilterNearest"
+            title="Permalink to SamplerState.TextureMinFilterNearest">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureMinFilterNearest = WebGLRenderingContext.NEAREST;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureMinFilterNearestMipmapLinear">
+<button class="show-code">Code</button>
+final int         <strong>TextureMinFilterNearestMipmapLinear</strong> <a class="anchor-link"
+            href="#TextureMinFilterNearestMipmapLinear"
+            title="Permalink to SamplerState.TextureMinFilterNearestMipmapLinear">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureMinFilterNearestMipmapLinear = WebGLRenderingContext.NEAREST_MIPMAP_LINEAR;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureMinFilterNearestMipmapNearest">
+<button class="show-code">Code</button>
+final int         <strong>TextureMinFilterNearestMipmapNearest</strong> <a class="anchor-link"
+            href="#TextureMinFilterNearestMipmapNearest"
+            title="Permalink to SamplerState.TextureMinFilterNearestMipmapNearest">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureMinFilterNearestMipmapNearest = WebGLRenderingContext.NEAREST_MIPMAP_NEAREST;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureWrapClampToEdge">
+<button class="show-code">Code</button>
+final int         <strong>TextureWrapClampToEdge</strong> <a class="anchor-link"
+            href="#TextureWrapClampToEdge"
+            title="Permalink to SamplerState.TextureWrapClampToEdge">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureWrapClampToEdge = WebGLRenderingContext.CLAMP_TO_EDGE;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureWrapMirroredRepeat">
+<button class="show-code">Code</button>
+final int         <strong>TextureWrapMirroredRepeat</strong> <a class="anchor-link"
+            href="#TextureWrapMirroredRepeat"
+            title="Permalink to SamplerState.TextureWrapMirroredRepeat">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureWrapMirroredRepeat = WebGLRenderingContext.MIRRORED_REPEAT;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TextureWrapRepeat">
+<button class="show-code">Code</button>
+final int         <strong>TextureWrapRepeat</strong> <a class="anchor-link"
+            href="#TextureWrapRepeat"
+            title="Permalink to SamplerState.TextureWrapRepeat">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TextureWrapRepeat = WebGLRenderingContext.REPEAT;
+</pre>
+</div>
+</div>
+</div>
+<div class="inherited">
+<h3>Properties</h3>
+<div class="field inherited"><h4 id="device">
+<button class="show-code">Code</button>
+<a href="../spectre/GraphicsDevice.html">GraphicsDevice</a>         <strong>device</strong> <a class="anchor-link"
+            href="#device"
+            title="Permalink to SamplerState.device">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+GraphicsDevice device;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="dirty">
+<button class="show-code">Code</button>
+bool         <strong>dirty</strong> <a class="anchor-link"
+            href="#dirty"
+            title="Permalink to SamplerState.dirty">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool get dirty =&gt; (_status &amp; StatusDirty) != 0;
+</pre>
+<pre class="source">
+void set dirty(bool r) {
+ if (r) {
+   _status |= StatusDirty;
+ } else {
+   _status &amp;= ~StatusDirty;
+ }
+}
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="fallback">
+<button class="show-code">Code</button>
+<a href="../spectre/DeviceChild.html">DeviceChild</a>         <strong>fallback</strong> <a class="anchor-link"
+            href="#fallback"
+            title="Permalink to SamplerState.fallback">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+DeviceChild fallback;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="hashCode">
+<button class="show-code">Code</button>
+final int         <strong>hashCode</strong> <a class="anchor-link"
+            href="#hashCode"
+            title="Permalink to SamplerState.hashCode">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<div class="inherited">
+<p>Get a hash code for this object.</p>
+<p>All objects have hash codes. Hash codes are guaranteed to be the
+same for objects that are equal when compared using the equality
+operator <code>==</code>. Other than that there are no guarantees about
+the hash codes. They will not be consistent between runs and
+there are no distribution guarantees.</p>
+<p>If a subclass overrides <code>hashCode</code> it should override the
+equality operator as well to maintain consistency.</p>
+<div class="docs-inherited-from">docs inherited from Object </div></div>
+<pre class="source">
+int get hashCode {
+ return name.hashCode;
+}
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="name">
+<button class="show-code">Code</button>
+String         <strong>name</strong> <a class="anchor-link"
+            href="#name"
+            title="Permalink to SamplerState.name">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+String name;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="ready">
+<button class="show-code">Code</button>
+bool         <strong>ready</strong> <a class="anchor-link"
+            href="#ready"
+            title="Permalink to SamplerState.ready">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool get ready =&gt; (_status &amp; StatusReady) != 0;
+</pre>
+<pre class="source">
+void set ready(bool r) {
+ if (r) {
+   _status |= StatusReady;
+ } else {
+   _status &amp;= ~StatusReady;
+ }
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method inherited"><h4 id="equals">
+<button class="show-code">Code</button>
+bool <strong>equals</strong>(<a href="../spectre/DeviceChild.html">DeviceChild</a> b) <a class="anchor-link" href="#equals"
+              title="Permalink to SamplerState.equals">#</a></h4>
+<div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool equals(DeviceChild b) =&gt; name == b.name &amp;&amp; device == b.device;
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="filter">
+<button class="show-code">Code</button>
+<strong>filter</strong>(o) <a class="anchor-link" href="#filter"
+              title="Permalink to SamplerState.filter">#</a></h4>
+<div class="doc">
+<pre class="source">
+dynamic filter(dynamic o) {
+ if (o is String) {
+   var table = {
+     "TextureWrapClampToEdge": WebGLRenderingContext.CLAMP_TO_EDGE,
+     "TextureWrapMirroredRepeat": WebGLRenderingContext.MIRRORED_REPEAT,
+     "TextureWrapRepeat": WebGLRenderingContext.REPEAT,
+     "TextureMagFilterLinear": WebGLRenderingContext.LINEAR,
+     "TextureMagFilterNearest": WebGLRenderingContext.NEAREST,
+     "TextureMinFilterLinear": WebGLRenderingContext.LINEAR,
+     "TextureMinFilterNearest": WebGLRenderingContext.NEAREST,
+     "TextureMinFilterNearestMipmapNearest": WebGLRenderingContext.NEAREST_MIPMAP_NEAREST,
+     "TextureMinFilterNearestMipmapLinear": WebGLRenderingContext.NEAREST_MIPMAP_LINEAR,
+     "TextureMinFilterLinearMipmapNearest": WebGLRenderingContext.LINEAR_MIPMAP_NEAREST,
+     "TextureMinFilterLinearMipmapLinear": WebGLRenderingContext.LINEAR_MIPMAP_LINEAR
+   };
+   return table[o];
+ }
+ return o;
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.509</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

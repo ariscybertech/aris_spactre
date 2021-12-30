@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Spectre Declarative Example: Texture Color</title>
+  <link rel="stylesheet" href="packages/spectre/src/spectre_declarative/css/bootstrap.min.css">
+  <link rel="stylesheet" href="packages/spectre/src/spectre_declarative/style.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="import" href="packages/spectre/spectre_elements.html">
+  <script src="packages/polymer/boot.js"></script>
+</head>
+<body>
+<s-spectre id="spectre">
+  <s-material id="simpleMaterial"
+              shader-program-path="assetpack://base.simpleShader">
+    <s-material-constant name="diffuse" texture-id="#alphaGreenTexture">
+    </s-material-constant>
+  </s-material>
+  <s-texture id="redTexture" color="#ff0000ff"></s-texture>
+  <s-texture id="alphaGreenTexture" color="#00ff0077"></s-texture>
+  <s-scene>
+    <s-line-primitive type="sphere" radius="4.0"></s-line-primitive>
+    <s-transform>
+      <s-mesh material-id="#simpleMaterial"
+              geometry-path="assetpack://base.unitCube"></s-mesh>
+      <s-transform translate="[0.0, 2.0, 0.0]">
+        <s-mesh material-id="#simpleMaterial"
+                geometry-path="assetpack://base.unitCube">
+          <s-material-constant name="diffuse"
+                               texture-id="#redTexture">
+          </s-material-constant>
+        </s-mesh>
+      </s-transform>
+      <s-transform translate="[5.0, 0.0, 0.0]">
+        <s-mesh material-id="#simpleMaterial"
+                geometry-path="assetpack://base.unitCube"></s-mesh>
+      </s-transform>
+    </s-transform>
+  </s-scene>
+</s-spectre>
+<script type="application/dart" src="texture_color_main.dart"></script>
+</body>
+</html>

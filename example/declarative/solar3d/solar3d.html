@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Spectre Declarative 3D Solar System</title>
+  <link rel="stylesheet" href="packages/spectre/src/spectre_declarative/css/bootstrap.min.css">
+  <link rel="stylesheet" href="packages/spectre/src/spectre_declarative/style.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="import" href="packages/spectre/spectre_elements.html">
+</head>
+<body>
+<s-spectre id="spectre">
+<s-material-program id="spectre-material-program-planet">
+    <s-vertex-shader>
+precision highp float;
+
+attribute vec3 POSITION;
+attribute vec3 NORMAL;
+attribute vec2 TEXCOORD0;
+
+uniform mat4 objectTransform;
+uniform vec4 objectScale;
+uniform mat4 cameraView;
+uniform mat4 cameraProjectionView;
+  
+varying vec2 samplePoint;
+varying vec3 normal;
+varying vec3 lightDir;
+varying float lightDistance;
+
+void main() {
+  // modelView goes from model space to view space.
+  mat4 modelView = cameraView*objectTransform;
+  // Transform light position into view space.
+  vec4 lightPosition = cameraView * vec4(0.0, 0.0, 0.0, 1.0);
+  vec4 vPosition4 = vec4(POSITION.x*objectScale.x*2.0,
+                         POSITION.y*objectScale.y*2.0,
+                         POSITION.z*objectScale.z*2.0, 1.0);
+  // Vertex position in view space.
+  vec4 ecPos = modelView*vPosition4;
+  // Vector from light position to vertex position (both in view space).
+  vec3 aux = vec3(lightPosition-ecPos);
+  lightDistance = length(aux);
+  lightDir = normalize(aux);
+  // Translate normal by object's transformation.
+  vec4 vNormal4 = vec4(NORMAL.x, NORMAL.y, NORMAL.z, 0.0);
+  normal = (modelView*vNormal4).xyz;
+  samplePoint = TEXCOORD0;
+  gl_Position = cameraProjectionView*objectTransform*vPosition4;
+}
+    </s-vertex-shader>
+    <s-fragment-shader>
+precision mediump float;
+
+varying vec2 samplePoint;
+varying vec3 normal;
+varying vec3 lightDir;
+
+uniform sampler2D diffuse;
+
+void main() {
+  vec4 mix = texture2D(diffuse, samplePoint);
+  vec3 n = normalize(normal);
+  vec3 ldn = normalize(lightDir);
+  float NdotL = max(dot(n, ldn), 0.0);
+  if (NdotL > 0.0) {
+    mix += NdotL * vec4(1.0, 0.5, 0.0, 0.0);
+  }
+  gl_FragColor = mix;
+}
+    </s-fragment-shader>
+  </s-material-program>
+  <s-texture id="sunTexture" src="packages/spectre/asset/base/texture/sun_diffuse.jpg"></s-texture>
+  <s-texture id="mercuryTexture" src="packages/spectre/asset/base/texture/mercury_diffuse.jpg"></s-texture>
+  <s-texture id="venusTexture" src="packages/spectre/asset/base/texture/venus_diffuse.jpg"></s-texture>
+  <s-texture id="earthTexture" src="packages/spectre/asset/base/texture/earth_diffuse.jpg"></s-texture>
+  <s-texture id="moonTexture" src="packages/spectre/asset/base/texture/moon_diffuse.jpg"></s-texture>
+  <s-texture id="marsTexture" src="packages/spectre/asset/base/texture/mars_diffuse.jpg"></s-texture>
+  <s-texture id="jupiterTexture" src="packages/spectre/asset/base/texture/jupiter_diffuse.jpg"></s-texture>
+  <s-texture id="saturnTexture" src="packages/spectre/asset/base/texture/saturn_diffuse.jpg"></s-texture>
+  <s-texture id="uranusTexture" src="packages/spectre/asset/base/texture/uranus_diffuse.jpg"></s-texture>
+  <s-texture id="neptuneTexture" src="packages/spectre/asset/base/texture/neptune_diffuse.jpg"></s-texture>
+  <s-texture id="saturnRingTexture" src="packages/spectre/asset/base/texture/saturn_ring.jpg"></s-texture>
+  <s-texture id="spaceCubeTexture"
+             srcCubePositiveX="packages/spectre/asset/base/texture/positiveX.jpg"
+             srcCubePositiveY="packages/spectre/asset/base/texture/positiveY.jpg"
+             srcCubePositiveZ="packages/spectre/asset/base/texture/positiveZ.jpg"
+             srcCubeNegativeX="packages/spectre/asset/base/texture/negativeX.jpg"
+             srcCubeNegativeY="packages/spectre/asset/base/texture/negativeY.jpg"
+             srcCubeNegativeZ="packages/spectre/asset/base/texture/negativeZ.jpg">
+  </s-texture>
+  <s-material id="sunMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#sunTexture">
+    </s-material-sampler>
+    <s-material-uniform name="objectScale" value="[25.0, 25.0, 25.0, 1.0]">
+    </s-material-uniform>
+  </s-material>
+  <s-material id="mercuryMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#mercuryTexture">
+    </s-material-sampler>
+    <s-material-uniform name="objectScale" value="[4.0, 4.0, 4.0, 1.0]">
+    </s-material-uniform>
+  </s-material>
+  <s-material id="venusMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#venusTexture">
+    </s-material-sampler>
+    <s-material-uniform name="objectScale" value="[8.0, 8.0, 8.0, 1.0]">
+    </s-material-uniform>
+  </s-material>
+  <s-material id="earthMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#earthTexture">
+    </s-material-sampler>
+    <s-material-uniform name="objectScale" value="[15.0, 15.0, 15.0, 1.0]">
+    </s-material-uniform>
+  </s-material>
+  <s-material id="moonMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#moonTexture">
+    </s-material-sampler>
+    <s-material-uniform name="objectScale" value="[1.0, 1.0, 1.0, 1.0]">
+    </s-material-uniform>
+  </s-material>
+  <s-material id="marsMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#marsTexture">
+    </s-material-sampler>
+    <s-material-uniform name="objectScale" value="[6.0, 6.0, 6.0, 1.0]">
+    </s-material-uniform>
+  </s-material>
+  <s-material id="jupiterMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#jupiterTexture">
+    </s-material-sampler>
+    <s-material-uniform name="objectScale" value="[20.0, 20.0, 20.0, 1.0]">
+    </s-material-uniform>
+  </s-material>
+  <s-material id="saturnMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#saturnTexture">
+    </s-material-sampler>
+    <s-material-uniform name="objectScale" value="[17.0, 17.0, 17.0, 1.0]">
+    </s-material-uniform>
+  </s-material>
+  <s-material id="uranusMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#uranusTexture">
+    </s-material-sampler>
+    <s-material-uniform name="objectScale" value="[10.0, 10.0, 10.0, 1.0]">
+    </s-material-uniform>
+  </s-material>
+  <s-material id="neptuneMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#neptuneTexture">
+    </s-material-sampler>
+    <s-material-uniform name="objectScale" value="[10.0, 10.0, 10.0, 1.0]">
+    </s-material-uniform>
+  </s-material>
+  <s-material id="saturnRingMaterial"
+              materialProgramId="#spectre-material-program-planet">
+    <s-material-sampler name="diffuse" textureId="#saturnRingTexture"></s-material-sampler>
+    <s-material-state name="cullMode" value="CullMode.None"></s-material-state>
+  </s-material>
+  <s-geometry id="spectre-geometry-sphere"
+              src="packages/spectre/asset/base/mesh/sphere.mesh"></s-geometry>
+  <s-geometry id="spectre-geometry-ring"
+              src="packages/spectre/asset/base/mesh/ring.mesh"></s-geometry>
+  <s-scene id="scene">
+    <s-skybox textureId="#spaceCubeTexture"></s-skybox>
+    <s-mesh materialId="#sunMaterial" geometryId="#spectre-geometry-sphere">
+    </s-mesh>
+    <s-line-sphere id="sun" color="[1.0, 1.0, 0.0, 1.0]" radius="25.0">
+    </s-line-sphere>
+    <s-line-circle color="[1.0, 1.0, 0.8, 1.0]" radius="57.0"></s-line-circle>
+    <s-orbit-transform radius="57.0" period="0.241">
+    <s-mesh materialId="#mercuryMaterial" geometryId="#spectre-geometry-sphere"></s-mesh>
+      <s-line-sphere id="mercury" color="[1.0, 0.0, 0.0, 1.0]" radius="2.0"></s-line-sphere>
+    </s-orbit-transform>
+    <s-line-circle color="[1.0, 1.0, 0.8, 1.0]" radius="100.0"></s-line-circle>
+	<s-orbit-transform radius="100.0" period="0.615">
+      <s-mesh materialId="#venusMaterial" geometryId="#spectre-geometry-sphere"></s-mesh>
+      <s-line-sphere id="venus" color="[0.39, 0.39, 0.39, 1.0]" radius="2.0"></s-line-sphere>
+    </s-orbit-transform>
+    <s-line-circle color="[1.0, 1.0, 0.8, 1.0]" radius="130.0"></s-line-circle>
+    <s-orbit-transform radius="130.0" period="1.0">
+      <s-mesh materialId="#earthMaterial" geometryId="#spectre-geometry-sphere"></s-mesh>
+      <s-line-sphere id="earth" color="[0.0, 0.0, 1.0, 1.0]" radius="15.0"></s-line-sphere>
+      <s-line-circle color="[1.0, 1.0, 0.8, 1.0]" radius="20.0"></s-line-circle>
+      <s-orbit-transform radius="20.0" period="0.075">
+        <s-mesh materialId="#moonMaterial" geometryId="#spectre-geometry-sphere"></s-mesh>
+        <s-line-sphere id="moon" color="[0.39, 0.39, 0.39, 1.0]" radius="0.5"></s-line-sphere>
+      </s-orbit-transform>
+    </s-orbit-transform>
+    <s-line-circle color="[1.0, 1.0, 0.8, 1.0]" radius="180.0"></s-line-circle>
+    <s-orbit-transform radius="180.0" period="1.88">
+      <s-mesh materialId="#marsMaterial" geometryId="#spectre-geometry-sphere"></s-mesh>
+      <s-line-sphere id="mars" color="[1.0, 0.0, 0.0, 1.0]" radius="3.0"></s-line-sphere>
+    </s-orbit-transform>
+    <s-line-circle color="[1.0, 1.0, 0.8, 1.0]" radius="300.0"></s-line-circle>
+    <s-orbit-transform radius="300.0" period="11.86">
+      <s-mesh materialId="#jupiterMaterial" geometryId="#spectre-geometry-sphere"></s-mesh>
+      <s-line-sphere id="jupiter" color="[1.0, 0.0, 0.0, 1.0]" radius="20.0"></s-line-sphere>
+    </s-orbit-transform>
+    <s-line-circle color="[1.0, 1.0, 0.8, 1.0]" radius="400.0"></s-line-circle>
+    <s-orbit-transform radius="400.0" period="9.86">
+      <s-mesh materialId="#saturnMaterial" geometryId="#spectre-geometry-sphere"></s-mesh>
+      <s-line-sphere id="saturn" color="[1.0, 0.0, 0.0, 1.0]" radius="8.5"></s-line-sphere>
+      <s-mesh materialId="#saturnRingMaterial" geometryId="#spectre-geometry-ring"></s-mesh>
+    </s-orbit-transform>
+    <s-line-circle color="[1.0, 1.0, 0.8, 1.0]" radius="450.0"></s-line-circle>
+    <s-orbit-transform radius="450.0" period="15.86">
+      <s-mesh materialId="#uranusMaterial" geometryId="#spectre-geometry-sphere"></s-mesh>
+      <s-line-sphere id="uranus" color="[1.0, 0.0, 0.0, 1.0]" radius="5.0"></s-line-sphere>
+    </s-orbit-transform>
+    <s-line-circle color="[1.0, 1.0, 0.8, 1.0]" radius="500.0"></s-line-circle>
+    <s-orbit-transform radius="500.0" period="8.86">
+      <s-mesh materialId="#neptuneMaterial" geometryId="#spectre-geometry-sphere"></s-mesh>
+      <s-line-sphere id="neptune" color="[1.0, 0.0, 0.0, 1.0]" radius="5.0"></s-line-sphere>
+    </s-orbit-transform>
+  </s-scene>
+</s-spectre>
+<script type="application/dart" src="solar3d_main.dart"></script>
+<script src="packages/browser/dart.js"></script>
+</body>
+</html>

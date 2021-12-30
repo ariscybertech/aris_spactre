@@ -1,0 +1,837 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>CommandListBuilder class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="CommandListBuilder">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/CommandListBuilder.html">CommandListBuilder</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><div class="icon-class"></div><strong>CommandListBuilder</strong></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>CommandListBuilder</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+class CommandListBuilder {
+ List ops;
+
+ CommandListBuilder() {
+   ops = new List();
+ }
+ CommandListBuilder.append(this.ops);
+
+ void setRegister(int register, dynamic value) {
+   ops.add(Ops.SetRegister);
+   ops.add(register);
+   ops.add(value);
+ }
+
+ void setRegisterFromList(int register, List table, int index) {
+   ops.add(Ops.SetRegisterFromList);
+   ops.add(register);
+   ops.add(table);
+   ops.add(index);
+ }
+
+ void createBlendState(String name, Map options, List output) {
+   ops.add(Ops.CreateBlendState);
+   ops.add(name);
+   ops.add(options);
+   ops.add(output);
+ }
+
+ void createDepthState(String name, Map options, List output) {
+   ops.add(Ops.CreateDepthState);
+   ops.add(name);
+   ops.add(options);
+   ops.add(output);
+ }
+
+ void createRasterizerState(String name, Map options, List output) {
+   ops.add(Ops.CreateRasterizerState);
+   ops.add(name);
+   ops.add(options);
+   ops.add(output);
+ }
+
+ void createVertexShader(String name, Map options, List output) {
+   ops.add(Ops.CreateVertexShader);
+   ops.add(name);
+   ops.add(options);
+   ops.add(output);
+ }
+
+ void createFragmentShader(String name, Map options, List output) {
+   ops.add(Ops.CreateFragmentShader);
+   ops.add(name);
+   ops.add(options);
+   ops.add(output);
+ }
+
+ void createShaderProgram(String name, Map options, List output) {
+   ops.add(Ops.CreateShaderProgram);
+   ops.add(name);
+   ops.add(options);
+   ops.add(output);
+ }
+
+ void createIndexedMesh(String name, Map options, List output) {
+   ops.add(Ops.CreateIndexedMesh);
+   ops.add(name);
+   ops.add(options);
+   ops.add(output);
+ }
+
+ void createInputLayoutForMesh(String name, int meshResourceHandle, int shaderProgramHandle, List&lt;InputLayoutDescription&gt; inputs, List output) {
+   ops.add(Ops.CreateInputLayoutForMeshResource);
+   ops.add(name);
+   ops.add(meshResourceHandle);
+   ops.add(shaderProgramHandle);
+   ops.add(inputs);
+   ops.add(output);
+ }
+
+ void compileShaderFromResource(int shaderHandle, int resourceHandle) {
+   ops.add(Ops.CompileShaderFromResource);
+   ops.add(shaderHandle);
+   ops.add(resourceHandle);
+ }
+
+ void linkShaderProgram(int shaderProgramHandle, int vertexShaderHandle, int fragmentShaderHandle) {
+   ops.add(Ops.LinkShaderProgram);
+   ops.add(shaderProgramHandle);
+   ops.add(vertexShaderHandle);
+   ops.add(fragmentShaderHandle);
+ }
+
+ void setPrimitiveTopology(int topology) {
+   ops.add(Ops.SetPrimitiveTopology);
+   ops.add(topology);
+ }
+
+ void setIndexBuffer(IndexBuffer handle) {
+   ops.add(Ops.SetIndexBuffer);
+   ops.add(handle);
+ }
+
+ void setBlendState(BlendState handle) {
+   ops.add(Ops.SetBlendState);
+   ops.add(handle);
+ }
+
+ void setRasterizerState(RasterizerState handle) {
+   ops.add(Ops.SetRasterizerState);
+   ops.add(handle);
+ }
+
+ void setDepthState(DepthState handle) {
+   ops.add(Ops.SetDepthState);
+   ops.add(handle);
+ }
+
+ void setShaderProgram(ShaderProgram handle) {
+   ops.add(Ops.SetShaderProgram);
+   ops.add(handle);
+ }
+
+ void setVertexBuffers(int offset, List&lt;VertexBuffer&gt; handles) {
+   ops.add(Ops.SetVertexBuffers);
+   ops.add(offset);
+   ops.add(handles);
+ }
+
+ void setInputLayout(InputLayout handle) {
+   ops.add(Ops.SetInputLayout);
+   ops.add(handle);
+ }
+
+ void setTextures(int textureUnitOffset, List&lt;Texture&gt; handles) {
+   ops.add(Ops.SetTextures);
+   ops.add(textureUnitOffset);
+   ops.add(handles);
+ }
+
+ void setSamplers(int textureUnitOffset, List&lt;SamplerState&gt; handles) {
+   ops.add(Ops.SetSamplers);
+   ops.add(textureUnitOffset);
+   ops.add(handles);
+ }
+
+ void setUniformMatrix4(String name, Float32Array buf) {
+   ops.add(Ops.SetUniformMatrix4);
+   ops.add(name);
+   ops.add(buf);
+ }
+
+ void setUniformVector4(String name, Float32Array buf) {
+   ops.add(Ops.SetUniformVector4);
+   ops.add(name);
+   ops.add(buf);
+ }
+
+ void setUniformVector3(String name, Float32Array buf) {
+   ops.add(Ops.SetUniformVector3);
+   ops.add(name);
+   ops.add(buf);
+ }
+
+ void setUniformInt(String name, int i) {
+   ops.add(Ops.SetUniformInt);
+   ops.add(name);
+   ops.add(i);
+ }
+
+ void setUniformVector2(String name, Float32Array buf) {
+   ops.add(Ops.SetUniformVector2);
+   ops.add(name);
+   ops.add(buf);
+ }
+
+ void setIndexedMesh(IndexedMesh indexedMeshHandle) {
+   ops.add(Ops.SetIndexedMesh);
+   ops.add(indexedMeshHandle);
+ }
+
+ void draw(int vertexCount, int vertexOffset) {
+   ops.add(Ops.Draw);
+   ops.add(vertexCount);
+   ops.add(vertexOffset);
+ }
+
+ void drawIndirect(int vertexCountHandle, int vertexOffsetHandle) {
+   ops.add(Ops.DrawIndirect);
+   ops.add(vertexCountHandle);
+   ops.add(vertexOffsetHandle);
+ }
+
+ void drawIndexed(int numIndices, int indexOffset) {
+   ops.add(Ops.DrawIndexed);
+   ops.add(numIndices);
+   ops.add(indexOffset);
+ }
+
+ void drawIndexedMesh(IndexedMesh indexedMeshHandle) {
+   ops.add(Ops.DrawIndexedMesh);
+   ops.add(indexedMeshHandle);
+ }
+
+ void deregisterResources(List&lt;int&gt; handles) {
+   ops.add(Ops.DeregisterResources);
+   ops.add(handles);
+ }
+
+ void deleteDeviceChildren(List&lt;int&gt; handles) {
+   ops.add(Ops.DeleteDeviceChildren);
+   ops.add(handles);
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="CommandListBuilder">
+<button class="show-code">Code</button>
+new <strong>CommandListBuilder</strong>() <a class="anchor-link" href="#CommandListBuilder"
+              title="Permalink to CommandListBuilder.CommandListBuilder">#</a></h4>
+<div class="doc">
+<pre class="source">
+CommandListBuilder() {
+ ops = new List();
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="CommandListBuilder.append">
+<button class="show-code">Code</button>
+new <strong>CommandListBuilder.append</strong>(List ops) <a class="anchor-link" href="#CommandListBuilder.append"
+              title="Permalink to CommandListBuilder.CommandListBuilder.append">#</a></h4>
+<div class="doc">
+<pre class="source">
+CommandListBuilder.append(this.ops);
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="ops">
+<button class="show-code">Code</button>
+List         <strong>ops</strong> <a class="anchor-link"
+            href="#ops"
+            title="Permalink to CommandListBuilder.ops">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+List ops;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="compileShaderFromResource">
+<button class="show-code">Code</button>
+void <strong>compileShaderFromResource</strong>(int shaderHandle, int resourceHandle) <a class="anchor-link" href="#compileShaderFromResource"
+              title="Permalink to CommandListBuilder.compileShaderFromResource">#</a></h4>
+<div class="doc">
+<pre class="source">
+void compileShaderFromResource(int shaderHandle, int resourceHandle) {
+ ops.add(Ops.CompileShaderFromResource);
+ ops.add(shaderHandle);
+ ops.add(resourceHandle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createBlendState">
+<button class="show-code">Code</button>
+void <strong>createBlendState</strong>(String name, Map options, List output) <a class="anchor-link" href="#createBlendState"
+              title="Permalink to CommandListBuilder.createBlendState">#</a></h4>
+<div class="doc">
+<pre class="source">
+void createBlendState(String name, Map options, List output) {
+ ops.add(Ops.CreateBlendState);
+ ops.add(name);
+ ops.add(options);
+ ops.add(output);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createDepthState">
+<button class="show-code">Code</button>
+void <strong>createDepthState</strong>(String name, Map options, List output) <a class="anchor-link" href="#createDepthState"
+              title="Permalink to CommandListBuilder.createDepthState">#</a></h4>
+<div class="doc">
+<pre class="source">
+void createDepthState(String name, Map options, List output) {
+ ops.add(Ops.CreateDepthState);
+ ops.add(name);
+ ops.add(options);
+ ops.add(output);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createFragmentShader">
+<button class="show-code">Code</button>
+void <strong>createFragmentShader</strong>(String name, Map options, List output) <a class="anchor-link" href="#createFragmentShader"
+              title="Permalink to CommandListBuilder.createFragmentShader">#</a></h4>
+<div class="doc">
+<pre class="source">
+void createFragmentShader(String name, Map options, List output) {
+ ops.add(Ops.CreateFragmentShader);
+ ops.add(name);
+ ops.add(options);
+ ops.add(output);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createIndexedMesh">
+<button class="show-code">Code</button>
+void <strong>createIndexedMesh</strong>(String name, Map options, List output) <a class="anchor-link" href="#createIndexedMesh"
+              title="Permalink to CommandListBuilder.createIndexedMesh">#</a></h4>
+<div class="doc">
+<pre class="source">
+void createIndexedMesh(String name, Map options, List output) {
+ ops.add(Ops.CreateIndexedMesh);
+ ops.add(name);
+ ops.add(options);
+ ops.add(output);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createInputLayoutForMesh">
+<button class="show-code">Code</button>
+void <strong>createInputLayoutForMesh</strong>(String name, int meshResourceHandle, int shaderProgramHandle, List&lt;<a href="../spectre/InputLayoutDescription.html">InputLayoutDescription</a>&gt; inputs, List output) <a class="anchor-link" href="#createInputLayoutForMesh"
+              title="Permalink to CommandListBuilder.createInputLayoutForMesh">#</a></h4>
+<div class="doc">
+<pre class="source">
+void createInputLayoutForMesh(String name, int meshResourceHandle, int shaderProgramHandle, List&lt;InputLayoutDescription&gt; inputs, List output) {
+ ops.add(Ops.CreateInputLayoutForMeshResource);
+ ops.add(name);
+ ops.add(meshResourceHandle);
+ ops.add(shaderProgramHandle);
+ ops.add(inputs);
+ ops.add(output);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createRasterizerState">
+<button class="show-code">Code</button>
+void <strong>createRasterizerState</strong>(String name, Map options, List output) <a class="anchor-link" href="#createRasterizerState"
+              title="Permalink to CommandListBuilder.createRasterizerState">#</a></h4>
+<div class="doc">
+<pre class="source">
+void createRasterizerState(String name, Map options, List output) {
+ ops.add(Ops.CreateRasterizerState);
+ ops.add(name);
+ ops.add(options);
+ ops.add(output);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createShaderProgram">
+<button class="show-code">Code</button>
+void <strong>createShaderProgram</strong>(String name, Map options, List output) <a class="anchor-link" href="#createShaderProgram"
+              title="Permalink to CommandListBuilder.createShaderProgram">#</a></h4>
+<div class="doc">
+<pre class="source">
+void createShaderProgram(String name, Map options, List output) {
+ ops.add(Ops.CreateShaderProgram);
+ ops.add(name);
+ ops.add(options);
+ ops.add(output);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="createVertexShader">
+<button class="show-code">Code</button>
+void <strong>createVertexShader</strong>(String name, Map options, List output) <a class="anchor-link" href="#createVertexShader"
+              title="Permalink to CommandListBuilder.createVertexShader">#</a></h4>
+<div class="doc">
+<pre class="source">
+void createVertexShader(String name, Map options, List output) {
+ ops.add(Ops.CreateVertexShader);
+ ops.add(name);
+ ops.add(options);
+ ops.add(output);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="deleteDeviceChildren">
+<button class="show-code">Code</button>
+void <strong>deleteDeviceChildren</strong>(List&lt;int&gt; handles) <a class="anchor-link" href="#deleteDeviceChildren"
+              title="Permalink to CommandListBuilder.deleteDeviceChildren">#</a></h4>
+<div class="doc">
+<pre class="source">
+void deleteDeviceChildren(List&lt;int&gt; handles) {
+ ops.add(Ops.DeleteDeviceChildren);
+ ops.add(handles);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="deregisterResources">
+<button class="show-code">Code</button>
+void <strong>deregisterResources</strong>(List&lt;int&gt; handles) <a class="anchor-link" href="#deregisterResources"
+              title="Permalink to CommandListBuilder.deregisterResources">#</a></h4>
+<div class="doc">
+<pre class="source">
+void deregisterResources(List&lt;int&gt; handles) {
+ ops.add(Ops.DeregisterResources);
+ ops.add(handles);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="draw">
+<button class="show-code">Code</button>
+void <strong>draw</strong>(int vertexCount, int vertexOffset) <a class="anchor-link" href="#draw"
+              title="Permalink to CommandListBuilder.draw">#</a></h4>
+<div class="doc">
+<pre class="source">
+void draw(int vertexCount, int vertexOffset) {
+ ops.add(Ops.Draw);
+ ops.add(vertexCount);
+ ops.add(vertexOffset);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="drawIndexed">
+<button class="show-code">Code</button>
+void <strong>drawIndexed</strong>(int numIndices, int indexOffset) <a class="anchor-link" href="#drawIndexed"
+              title="Permalink to CommandListBuilder.drawIndexed">#</a></h4>
+<div class="doc">
+<pre class="source">
+void drawIndexed(int numIndices, int indexOffset) {
+ ops.add(Ops.DrawIndexed);
+ ops.add(numIndices);
+ ops.add(indexOffset);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="drawIndexedMesh">
+<button class="show-code">Code</button>
+void <strong>drawIndexedMesh</strong>(<a href="../spectre/IndexedMesh.html">IndexedMesh</a> indexedMeshHandle) <a class="anchor-link" href="#drawIndexedMesh"
+              title="Permalink to CommandListBuilder.drawIndexedMesh">#</a></h4>
+<div class="doc">
+<pre class="source">
+void drawIndexedMesh(IndexedMesh indexedMeshHandle) {
+ ops.add(Ops.DrawIndexedMesh);
+ ops.add(indexedMeshHandle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="drawIndirect">
+<button class="show-code">Code</button>
+void <strong>drawIndirect</strong>(int vertexCountHandle, int vertexOffsetHandle) <a class="anchor-link" href="#drawIndirect"
+              title="Permalink to CommandListBuilder.drawIndirect">#</a></h4>
+<div class="doc">
+<pre class="source">
+void drawIndirect(int vertexCountHandle, int vertexOffsetHandle) {
+ ops.add(Ops.DrawIndirect);
+ ops.add(vertexCountHandle);
+ ops.add(vertexOffsetHandle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="linkShaderProgram">
+<button class="show-code">Code</button>
+void <strong>linkShaderProgram</strong>(int shaderProgramHandle, int vertexShaderHandle, int fragmentShaderHandle) <a class="anchor-link" href="#linkShaderProgram"
+              title="Permalink to CommandListBuilder.linkShaderProgram">#</a></h4>
+<div class="doc">
+<pre class="source">
+void linkShaderProgram(int shaderProgramHandle, int vertexShaderHandle, int fragmentShaderHandle) {
+ ops.add(Ops.LinkShaderProgram);
+ ops.add(shaderProgramHandle);
+ ops.add(vertexShaderHandle);
+ ops.add(fragmentShaderHandle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setBlendState">
+<button class="show-code">Code</button>
+void <strong>setBlendState</strong>(<a href="../spectre/BlendState.html">BlendState</a> handle) <a class="anchor-link" href="#setBlendState"
+              title="Permalink to CommandListBuilder.setBlendState">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setBlendState(BlendState handle) {
+ ops.add(Ops.SetBlendState);
+ ops.add(handle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setDepthState">
+<button class="show-code">Code</button>
+void <strong>setDepthState</strong>(<a href="../spectre/DepthState.html">DepthState</a> handle) <a class="anchor-link" href="#setDepthState"
+              title="Permalink to CommandListBuilder.setDepthState">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setDepthState(DepthState handle) {
+ ops.add(Ops.SetDepthState);
+ ops.add(handle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setIndexBuffer">
+<button class="show-code">Code</button>
+void <strong>setIndexBuffer</strong>(<a href="../spectre/IndexBuffer.html">IndexBuffer</a> handle) <a class="anchor-link" href="#setIndexBuffer"
+              title="Permalink to CommandListBuilder.setIndexBuffer">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setIndexBuffer(IndexBuffer handle) {
+ ops.add(Ops.SetIndexBuffer);
+ ops.add(handle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setIndexedMesh">
+<button class="show-code">Code</button>
+void <strong>setIndexedMesh</strong>(<a href="../spectre/IndexedMesh.html">IndexedMesh</a> indexedMeshHandle) <a class="anchor-link" href="#setIndexedMesh"
+              title="Permalink to CommandListBuilder.setIndexedMesh">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setIndexedMesh(IndexedMesh indexedMeshHandle) {
+ ops.add(Ops.SetIndexedMesh);
+ ops.add(indexedMeshHandle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setInputLayout">
+<button class="show-code">Code</button>
+void <strong>setInputLayout</strong>(<a href="../spectre/InputLayout.html">InputLayout</a> handle) <a class="anchor-link" href="#setInputLayout"
+              title="Permalink to CommandListBuilder.setInputLayout">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setInputLayout(InputLayout handle) {
+ ops.add(Ops.SetInputLayout);
+ ops.add(handle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setPrimitiveTopology">
+<button class="show-code">Code</button>
+void <strong>setPrimitiveTopology</strong>(int topology) <a class="anchor-link" href="#setPrimitiveTopology"
+              title="Permalink to CommandListBuilder.setPrimitiveTopology">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setPrimitiveTopology(int topology) {
+ ops.add(Ops.SetPrimitiveTopology);
+ ops.add(topology);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setRasterizerState">
+<button class="show-code">Code</button>
+void <strong>setRasterizerState</strong>(<a href="../spectre/RasterizerState.html">RasterizerState</a> handle) <a class="anchor-link" href="#setRasterizerState"
+              title="Permalink to CommandListBuilder.setRasterizerState">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setRasterizerState(RasterizerState handle) {
+ ops.add(Ops.SetRasterizerState);
+ ops.add(handle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setRegister">
+<button class="show-code">Code</button>
+void <strong>setRegister</strong>(int register, value) <a class="anchor-link" href="#setRegister"
+              title="Permalink to CommandListBuilder.setRegister">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setRegister(int register, dynamic value) {
+ ops.add(Ops.SetRegister);
+ ops.add(register);
+ ops.add(value);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setRegisterFromList">
+<button class="show-code">Code</button>
+void <strong>setRegisterFromList</strong>(int register, List table, int index) <a class="anchor-link" href="#setRegisterFromList"
+              title="Permalink to CommandListBuilder.setRegisterFromList">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setRegisterFromList(int register, List table, int index) {
+ ops.add(Ops.SetRegisterFromList);
+ ops.add(register);
+ ops.add(table);
+ ops.add(index);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setSamplers">
+<button class="show-code">Code</button>
+void <strong>setSamplers</strong>(int textureUnitOffset, List&lt;<a href="../spectre/SamplerState.html">SamplerState</a>&gt; handles) <a class="anchor-link" href="#setSamplers"
+              title="Permalink to CommandListBuilder.setSamplers">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setSamplers(int textureUnitOffset, List&lt;SamplerState&gt; handles) {
+ ops.add(Ops.SetSamplers);
+ ops.add(textureUnitOffset);
+ ops.add(handles);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setShaderProgram">
+<button class="show-code">Code</button>
+void <strong>setShaderProgram</strong>(<a href="../spectre/ShaderProgram.html">ShaderProgram</a> handle) <a class="anchor-link" href="#setShaderProgram"
+              title="Permalink to CommandListBuilder.setShaderProgram">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setShaderProgram(ShaderProgram handle) {
+ ops.add(Ops.SetShaderProgram);
+ ops.add(handle);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setTextures">
+<button class="show-code">Code</button>
+void <strong>setTextures</strong>(int textureUnitOffset, List&lt;<a href="../spectre/Texture.html">Texture</a>&gt; handles) <a class="anchor-link" href="#setTextures"
+              title="Permalink to CommandListBuilder.setTextures">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setTextures(int textureUnitOffset, List&lt;Texture&gt; handles) {
+ ops.add(Ops.SetTextures);
+ ops.add(textureUnitOffset);
+ ops.add(handles);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformInt">
+<button class="show-code">Code</button>
+void <strong>setUniformInt</strong>(String name, int i) <a class="anchor-link" href="#setUniformInt"
+              title="Permalink to CommandListBuilder.setUniformInt">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setUniformInt(String name, int i) {
+ ops.add(Ops.SetUniformInt);
+ ops.add(name);
+ ops.add(i);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformMatrix4">
+<button class="show-code">Code</button>
+void <strong>setUniformMatrix4</strong>(String name, Float32Array buf) <a class="anchor-link" href="#setUniformMatrix4"
+              title="Permalink to CommandListBuilder.setUniformMatrix4">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setUniformMatrix4(String name, Float32Array buf) {
+ ops.add(Ops.SetUniformMatrix4);
+ ops.add(name);
+ ops.add(buf);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformVector2">
+<button class="show-code">Code</button>
+void <strong>setUniformVector2</strong>(String name, Float32Array buf) <a class="anchor-link" href="#setUniformVector2"
+              title="Permalink to CommandListBuilder.setUniformVector2">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setUniformVector2(String name, Float32Array buf) {
+ ops.add(Ops.SetUniformVector2);
+ ops.add(name);
+ ops.add(buf);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformVector3">
+<button class="show-code">Code</button>
+void <strong>setUniformVector3</strong>(String name, Float32Array buf) <a class="anchor-link" href="#setUniformVector3"
+              title="Permalink to CommandListBuilder.setUniformVector3">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setUniformVector3(String name, Float32Array buf) {
+ ops.add(Ops.SetUniformVector3);
+ ops.add(name);
+ ops.add(buf);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformVector4">
+<button class="show-code">Code</button>
+void <strong>setUniformVector4</strong>(String name, Float32Array buf) <a class="anchor-link" href="#setUniformVector4"
+              title="Permalink to CommandListBuilder.setUniformVector4">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setUniformVector4(String name, Float32Array buf) {
+ ops.add(Ops.SetUniformVector4);
+ ops.add(name);
+ ops.add(buf);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setVertexBuffers">
+<button class="show-code">Code</button>
+void <strong>setVertexBuffers</strong>(int offset, List&lt;<a href="../spectre/VertexBuffer.html">VertexBuffer</a>&gt; handles) <a class="anchor-link" href="#setVertexBuffers"
+              title="Permalink to CommandListBuilder.setVertexBuffers">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setVertexBuffers(int offset, List&lt;VertexBuffer&gt; handles) {
+ ops.add(Ops.SetVertexBuffers);
+ ops.add(offset);
+ ops.add(handles);
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.239</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

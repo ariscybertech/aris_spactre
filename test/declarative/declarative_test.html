@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Spectre Declarative Test</title>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat'
+          rel='stylesheet' type='text/css'>
+    <link rel="import" href="packages/spectre/spectre_elements.html">
+</head>
+<body>
+
+<canvas id="backBuffer"></canvas>
+<script type="application/dart" src="declarative_test_main.dart"></script>
+<script type="text/javascript" src="packages/browser/dart.js"></script>
+<script type="text/javascript" src="packages/unittest/test_controller.js"></script>
+
+<s-scene id="scene">
+  <s-vertex-shader id="vertexShaderGood">
+    attribute vec3 POSITION;
+    attribute vec2 TEXCOORD0;
+
+    uniform mat4 cameraProjectionView;
+    uniform mat4 objectTransform;
+
+    varying vec2 texCoord;
+
+    void main() {
+      texCoord = TEXCOORD0;
+      gl_Position = cameraProjectionView * objectTransform * vec4(POSITION, 1.0);
+    }
+  </s-vertex-shader>
+
+  <s-fragment-shader id="fragmentShaderGood">
+    precision mediump float;
+    uniform sampler2D diffuse;
+    varying vec2 texCoord;
+    void main() {
+      gl_FragColor = texture2D(diffuse, texCoord);
+    }
+  </s-fragment-shader>
+
+  <s-vertex-shader id="vertexShaderBad">
+    akljhdsf
+  </s-vertex-shader>
+
+  <s-fragment-shader id="fragmentShaderBad">
+    akdjflkasdf
+  </s-fragment-shader>
+
+  <s-material-program id="materialProgramInnerTags">
+    <s-vertex-shader>
+      attribute vec3 POSITION;
+      attribute vec2 TEXCOORD0;
+
+      uniform mat4 cameraProjectionView;
+      uniform mat4 objectTransform;
+
+      varying vec2 texCoord;
+
+      void main() {
+        texCoord = TEXCOORD0;
+        gl_Position = cameraProjectionView * objectTransform * vec4(POSITION, 1.0);
+      }
+    </s-vertex-shader>
+    <s-fragment-shader>
+      precision mediump float;
+      uniform sampler2D diffuse;
+      varying vec2 texCoord;
+      void main() {
+        gl_FragColor = texture2D(diffuse, texCoord);
+      }
+    </s-fragment-shader>
+  </s-material-program>
+
+  <s-material-program id="materialProgramReference" vertexShader="#vertexShaderGood" fragmentShader="#fragmentShaderGood">
+  </s-material-program>
+
+  <s-material-program id="materialProgramReferenceOne" vertexShader="#vertexShaderGood">
+    <s-fragment-shader>
+      precision mediump float;
+      uniform sampler2D diffuse;
+      varying vec2 texCoord;
+      void main() {
+        gl_FragColor = texture2D(diffuse, texCoord);
+      }
+    </s-fragment-shader>
+  </s-material-program>
+</s-scene>
+</body>
+</html>

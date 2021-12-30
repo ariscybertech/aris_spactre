@@ -1,0 +1,258 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>ProfilerTree class / profiler Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="profiler" data-type="ProfilerTree">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../profiler.html">profiler</a> &rsaquo; <a href="../profiler/ProfilerTree.html">ProfilerTree</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><ul class="icon">
+<li><a href="../profiler/Profiler.html"><div class="icon-class"></div>Profiler</a></li>
+<li><a href="../profiler/ProfilerEvent.html"><div class="icon-class"></div>ProfilerEvent</a></li>
+<li><div class="icon-class"></div><strong>ProfilerTree</strong></li>
+<li><a href="../profiler/ProfilerTreeNode.html"><div class="icon-class"></div>ProfilerTreeNode</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>ProfilerTree</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+class ProfilerTree {
+ int _firstTime;
+ int _lastTime;
+ ProfilerTree() {
+   root = new ProfilerTreeNode(null, 'Root');
+   _firstTime = 0;
+   _lastTime = 0;
+ }
+
+ int get firstTime =&gt; _firstTime;
+ int get lastTime =&gt; _lastTime;
+
+ ProfilerTreeNode root;
+
+ void clear() {
+   root.children.clear();
+ }
+
+ void resetStatistics() {
+   _firstTime = 0;
+   _lastTime = 0;
+   root.resetStatistics();
+ }
+
+ int _processEvent(Queue&lt;ProfilerEvent&gt; events,
+                   ProfilerTreeNode parent, int enterTime) {
+   int timeInChild = 0;
+   while (events.length &gt; 0) {
+     ProfilerEvent event = events.first;
+     events.removeFirst();
+
+     // Keep track of global timestamps
+     if (_firstTime == 0) {
+       _firstTime = event.now;
+     }
+     if (event.now &gt; _lastTime) {
+       _lastTime = event.now;
+     }
+
+     // Push
+     if (event.event == ProfilerEvent.Enter) {
+       ProfilerTreeNode childNode = parent.findOrAddChild(event.name);
+       childNode.enterCount++;
+       int childExitTime = _processEvent(events, childNode, event.now);
+       assert(childExitTime &gt;= event.now);
+       timeInChild += childExitTime - event.now;
+     }
+
+     // Pop
+     if (event.event == ProfilerEvent.Exit) {
+       //assert(enterTime != 0);
+       int totalTime = event.now - enterTime;
+       parent.inclusiveTicks += totalTime;
+       parent.exclusiveTicks += totalTime - timeInChild;
+       return event.now;
+     }
+   }
+   if (enterTime != 0) {
+     print('Warning ran out of events inside node ${parent.name}');
+     print('Look for unmatched enter and exit pairs.');
+   }
+   return enterTime;
+ }
+
+ void processEvents(Queue&lt;ProfilerEvent&gt; events) {
+   _processEvent(events, root, 0);
+   int totalTime = _lastTime - _firstTime;
+   root.inclusiveTicks += totalTime;
+   int timeInChild = 0;
+   for (ProfilerTreeNode childNode in root.children) {
+     timeInChild += childNode.inclusiveTicks;
+   }
+   root.exclusiveTicks += totalTime - timeInChild;
+ }
+
+ void processRemoteEvents(List remoteEvents) {
+   Queue&lt;ProfilerEvent&gt; events = new Queue&lt;ProfilerEvent&gt;();
+   for (Map remoteEvent in remoteEvents) {
+     ProfilerEvent event = new ProfilerEvent(remoteEvent['event'], remoteEvent['name'], remoteEvent['now']);
+     events.add(event);
+   }
+   processEvents(events);
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="ProfilerTree">
+<button class="show-code">Code</button>
+new <strong>ProfilerTree</strong>() <a class="anchor-link" href="#ProfilerTree"
+              title="Permalink to ProfilerTree.ProfilerTree">#</a></h4>
+<div class="doc">
+<pre class="source">
+ProfilerTree() {
+ root = new ProfilerTreeNode(null, 'Root');
+ _firstTime = 0;
+ _lastTime = 0;
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="firstTime">
+<button class="show-code">Code</button>
+final int         <strong>firstTime</strong> <a class="anchor-link"
+            href="#firstTime"
+            title="Permalink to ProfilerTree.firstTime">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int get firstTime =&gt; _firstTime;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="lastTime">
+<button class="show-code">Code</button>
+final int         <strong>lastTime</strong> <a class="anchor-link"
+            href="#lastTime"
+            title="Permalink to ProfilerTree.lastTime">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int get lastTime =&gt; _lastTime;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="root">
+<button class="show-code">Code</button>
+<a href="../profiler/ProfilerTreeNode.html">ProfilerTreeNode</a>         <strong>root</strong> <a class="anchor-link"
+            href="#root"
+            title="Permalink to ProfilerTree.root">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+ProfilerTreeNode root;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="clear">
+<button class="show-code">Code</button>
+void <strong>clear</strong>() <a class="anchor-link" href="#clear"
+              title="Permalink to ProfilerTree.clear">#</a></h4>
+<div class="doc">
+<pre class="source">
+void clear() {
+ root.children.clear();
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="processEvents">
+<button class="show-code">Code</button>
+void <strong>processEvents</strong>(Queue&lt;<a href="../profiler/ProfilerEvent.html">ProfilerEvent</a>&gt; events) <a class="anchor-link" href="#processEvents"
+              title="Permalink to ProfilerTree.processEvents">#</a></h4>
+<div class="doc">
+<pre class="source">
+void processEvents(Queue&lt;ProfilerEvent&gt; events) {
+ _processEvent(events, root, 0);
+ int totalTime = _lastTime - _firstTime;
+ root.inclusiveTicks += totalTime;
+ int timeInChild = 0;
+ for (ProfilerTreeNode childNode in root.children) {
+   timeInChild += childNode.inclusiveTicks;
+ }
+ root.exclusiveTicks += totalTime - timeInChild;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="processRemoteEvents">
+<button class="show-code">Code</button>
+void <strong>processRemoteEvents</strong>(List remoteEvents) <a class="anchor-link" href="#processRemoteEvents"
+              title="Permalink to ProfilerTree.processRemoteEvents">#</a></h4>
+<div class="doc">
+<pre class="source">
+void processRemoteEvents(List remoteEvents) {
+ Queue&lt;ProfilerEvent&gt; events = new Queue&lt;ProfilerEvent&gt;();
+ for (Map remoteEvent in remoteEvents) {
+   ProfilerEvent event = new ProfilerEvent(remoteEvent['event'], remoteEvent['name'], remoteEvent['now']);
+   events.add(event);
+ }
+ processEvents(events);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="resetStatistics">
+<button class="show-code">Code</button>
+void <strong>resetStatistics</strong>() <a class="anchor-link" href="#resetStatistics"
+              title="Permalink to ProfilerTree.resetStatistics">#</a></h4>
+<div class="doc">
+<pre class="source">
+void resetStatistics() {
+ _firstTime = 0;
+ _lastTime = 0;
+ root.resetStatistics();
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.124</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

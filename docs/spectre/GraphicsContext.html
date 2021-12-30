@@ -1,0 +1,1577 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>GraphicsContext class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="GraphicsContext">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/GraphicsContext.html">GraphicsContext</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><div class="icon-class"></div><strong>GraphicsContext</strong></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>GraphicsContext</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<p>The <a class="crossref" href="../spectre/GraphicsContext.html#GraphicsContext">GraphicsContext</a> configures the GPU pipeline and executes draw commands</p>
+<pre class="source">
+class GraphicsContext {
+ static final int PrimitiveTopologyTriangles = WebGLRenderingContext.TRIANGLES;
+ static final int PrimitiveTopologyLines = WebGLRenderingContext.LINES;
+ static final int PrimitiveTopologyPoints = WebGLRenderingContext.POINTS;
+ static final int numVertexBuffers = 2;
+ static final int numTextures = 3;
+
+ GraphicsDevice _device;
+ // Input Assembler
+ int _primitiveTopology;
+ IndexBuffer _indexBufferHandle;
+ List&lt;VertexBuffer&gt; _vertexBufferHandles;
+ List&lt;int&gt; _enabledVertexAttributeArrays;
+ InputLayout _inputLayoutHandle;
+ InputLayout _preparedInputLayoutHandle;
+ // VS and PS stages
+ ShaderProgram _shaderProgramHandle;
+ List&lt;SamplerState&gt; _samplerStateHandles;
+ List&lt;Texture&gt; _textureHandles;
+ // Rasterizer
+ RasterizerState _rasterizerStateHandle;
+ Viewport _viewportHandle;
+ // Output-Merger
+ BlendState _blendStateHandle;
+ DepthState _depthStateHandle;
+ StencilState _stencilStateHandle;
+ RenderTarget _renderTargetHandle;
+
+ void _PrepareTextures() {
+ }
+
+ void _logVertexAttributes(int index) {
+   var enabled = _device.gl.getVertexAttrib(index, WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_ENABLED);
+   var size = _device.gl.getVertexAttrib(index, WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_SIZE);
+   var stride = _device.gl.getVertexAttrib(index, WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_STRIDE);
+   var type = _device.gl.getVertexAttrib(index, WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_TYPE);
+   var normalized = _device.gl.getVertexAttrib(index, WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_NORMALIZED);
+   var binding = _device.gl.getVertexAttrib(index, WebGLRenderingContext.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING);
+   spectreLog.Info('Vertex Attribute $index $enabled $size $stride $type $normalized $binding');
+ }
+
+ void _prepareInputs([bool debug=false]) {
+   if (_inputLayoutHandle == 0) {
+     spectreLog.Error('Prepare for draw no input layout');
+     return;
+   }
+
+   InputLayout inputLayout = _inputLayoutHandle;
+   if (inputLayout == null) {
+     spectreLog.Error('Prepare for draw no input layout.');
+     return;
+   }
+
+   if (_preparedInputLayoutHandle == _inputLayoutHandle) {
+     return;
+   }
+
+   _preparedInputLayoutHandle = _inputLayoutHandle;
+
+   // Disable old arrays
+   for (int index in _enabledVertexAttributeArrays) {
+     if (index == 0) {
+       continue;
+     }
+     _device.gl.disableVertexAttribArray(index);
+   }
+   _enabledVertexAttributeArrays.clear();
+
+   if (inputLayout._elements == null) {
+     return;
+   }
+
+   for (var element in inputLayout._elements) {
+     VertexBuffer vb = _vertexBufferHandles[element._vboSlot];
+     if (vb == null) {
+       spectreLog.Error('Prepare for draw referenced a null vertex buffer object');
+       continue;
+     }
+     _device.gl.enableVertexAttribArray(element._attributeIndex);
+     _device.gl.bindBuffer(vb._target, vb._buffer);
+     _device.gl.vertexAttribPointer(element._attributeIndex,
+       element._attributeFormat.count,
+       element._attributeFormat.type,
+       element._attributeFormat.normalized,
+       element._attributeStride,
+       element._vboOffset);
+     // Remember that this was enabled.
+     _enabledVertexAttributeArrays.add(element._attributeIndex);
+     if (debug) {
+       _logVertexAttributes(element._attributeIndex);
+     }
+     //_device.gl.bindBuffer(vb._target, null);
+
+   }
+   if (_indexBufferHandle != null) {
+     IndexBuffer indexBuffer = _indexBufferHandle;
+     _device.gl.bindBuffer(indexBuffer._target, indexBuffer._buffer);
+     if (debug) {
+       print('Binding index buffer');
+     }
+   } else {
+     _device.gl.bindBuffer(WebGLRenderingContext.ELEMENT_ARRAY_BUFFER, null);
+     if (debug) {
+       print('No index buffer');
+     }
+   }
+ }
+
+ void _prepareTextures() {
+   // TODO: Need to unbind unused texture channels
+   for (int i = 0; i &lt; numTextures; i++) {
+     SamplerState s = _samplerStateHandles[i];
+     Texture t = _textureHandles[i];
+     if (s == null || t == null) {
+       continue;
+     }
+     _device.gl.activeTexture(WebGLRenderingContext.TEXTURE0 + i);
+     _device.gl.bindTexture(t._target, t._buffer);
+     _device.gl.texParameteri(t._target, WebGLRenderingContext.TEXTURE_WRAP_S, s._wrapS);
+     _device.gl.texParameteri(t._target, WebGLRenderingContext.TEXTURE_WRAP_T, s._wrapT);
+     _device.gl.texParameteri(t._target, WebGLRenderingContext.TEXTURE_MIN_FILTER, s._minFilter);
+     _device.gl.texParameteri(t._target, WebGLRenderingContext.TEXTURE_MAG_FILTER, s._magFilter);
+   }
+ }
+
+ GraphicsContext(GraphicsDevice device) {
+   _device = device;
+   _vertexBufferHandles = new List&lt;VertexBuffer&gt;(numVertexBuffers);
+   _samplerStateHandles = new List&lt;SamplerState&gt;(numTextures);
+   _textureHandles = new List&lt;Texture&gt;(numTextures);
+   _enabledVertexAttributeArrays = new List&lt;int&gt;();
+ }
+
+ /// Resets the cached GPU pipeline state
+ void reset() {
+   // TODO: Update GPU state
+   _primitiveTopology = 0;
+   for (int index in _enabledVertexAttributeArrays) {
+     if (index == 0) {
+       continue;
+     }
+     _device.gl.disableVertexAttribArray(index);
+   }
+   _preparedInputLayoutHandle = null;
+   _enabledVertexAttributeArrays.clear();
+   _indexBufferHandle = null;
+   for (int i = 0; i &lt; numVertexBuffers; i++) {
+     _vertexBufferHandles[i] = null;
+   }
+   _inputLayoutHandle = null;
+   _shaderProgramHandle = null;
+   for (int i = 0; i &lt; numTextures; i++) {
+     _samplerStateHandles[i] = null;
+     _textureHandles[i] = null;
+   }
+   _rasterizerStateHandle = null;
+   _viewportHandle = null;
+   _blendStateHandle = null;
+   _depthStateHandle = null;
+   _stencilStateHandle = null;
+   _renderTargetHandle = null;
+ }
+
+ /// Configure the primitive topology
+ void setPrimitiveTopology(int topology) {
+   _primitiveTopology = topology;
+ }
+
+ /// Set the IndexBuffer to [indexBufferHandle]
+ void setIndexBuffer(IndexBuffer indexBufferHandle) {
+   _indexBufferHandle = indexBufferHandle;
+ }
+
+ /// Set multiple VertexBuffers in [vertexBufferHandles] starting at [startSlot]
+ void setVertexBuffers(int startSlot, List&lt;VertexBuffer&gt; vertexBufferHandles) {
+   int limit = vertexBufferHandles.length + startSlot;
+   for (int i = startSlot; i &lt; limit; i++) {
+     _vertexBufferHandles[i] = vertexBufferHandles[i-startSlot];
+   }
+ }
+
+ /// Set InputLayout to [inputLayoutHandle]
+ void setInputLayout(InputLayout inputLayoutHandle) {
+   _inputLayoutHandle = inputLayoutHandle;
+ }
+
+ void setIndexedMesh(IndexedMesh im) {
+   if (im == null) {
+     return;
+   }
+   setIndexBuffer(im.indexArray);
+   setVertexBuffers(0, [im.vertexArray]);
+ }
+
+ /// Set ShaderProgram to [shaderProgramHandle]
+ void setShaderProgram(ShaderProgram shaderProgramHandle) {
+   if (_shaderProgramHandle == shaderProgramHandle) {
+     return;
+   }
+   _shaderProgramHandle = shaderProgramHandle;
+   ShaderProgram sp = shaderProgramHandle;
+   _device.gl.useProgram(sp._program);
+ }
+
+ /// Set RasterizerState to [rasterizerStateHandle]
+ void setRasterizerState(RasterizerState rasterizerStateHandle) {
+   if (_rasterizerStateHandle == rasterizerStateHandle) {
+     return;
+   }
+   _rasterizerStateHandle = rasterizerStateHandle;
+   RasterizerState rs = rasterizerStateHandle;
+   if (rs == null) {
+     return;
+   }
+   _device.gl.lineWidth(rs.lineWidth);
+   if (rs.cullEnabled) {
+     _device.gl.enable(WebGLRenderingContext.CULL_FACE);
+     _device.gl.cullFace(rs.cullMode);
+     _device.gl.frontFace(rs.cullFrontFace);
+   } else {
+     _device.gl.disable(WebGLRenderingContext.CULL_FACE);
+   }
+ }
+
+ /// Set Viewport to [viewportHandle]
+ void setViewport(Viewport vp) {
+   if (_viewportHandle == _viewportHandle) {
+     return;
+   }
+   _viewportHandle = _viewportHandle;
+   if (vp == null) {
+     return;
+   }
+   _device.gl.viewport(vp.x, vp.y, vp.width, vp.height);
+ }
+
+ /// Set BlendState to [blendStateHandle]
+ void setBlendState(BlendState bs) {
+   if (_blendStateHandle == bs) {
+     return;
+   }
+   _blendStateHandle = bs;
+   if (bs == null) {
+     return;
+   }
+   _device.gl.colorMask(bs.writeRenderTargetRed, bs.writeRenderTargetGreen, bs.writeRenderTargetBlue, bs.writeRenderTargetAlpha);
+   if (bs.blendEnable == false) {
+     _device.gl.disable(WebGLRenderingContext.BLEND);
+     return;
+   }
+   _device.gl.enable(WebGLRenderingContext.BLEND);
+   //_device.gl.blendFunc(bs.blendSourceColorFunc, bs.blendDestColorFunc);
+   _device.gl.blendFuncSeparate(bs.blendSourceColorFunc, bs.blendDestColorFunc, bs.blendSourceAlphaFunc, bs.blendDestAlphaFunc);
+   _device.gl.blendEquationSeparate(bs.blendColorOp, bs.blendAlphaOp);
+   _device.gl.blendColor(bs.blendColorRed, bs.blendColorGreen, bs.blendColorBlue, bs.blendColorAlpha);
+ }
+
+ /// Set DepthState to [depthStateHandle]
+ void setDepthState(DepthState ds) {
+   if (_depthStateHandle == ds) {
+     return;
+   }
+   if (ds == null) {
+     return;
+   }
+   _device.gl.depthRange(ds.depthNearVal, ds.depthFarVal);
+   if (ds.depthTestEnabled == false) {
+     _device.gl.disable(WebGLRenderingContext.DEPTH_TEST);
+   } else {
+     _device.gl.enable(WebGLRenderingContext.DEPTH_TEST);
+     _device.gl.depthFunc(ds.depthComparisonOp);
+   }
+
+   _device.gl.depthMask(ds.depthWriteEnabled);
+
+   if (ds.polygonOffsetEnabled == false) {
+     _device.gl.disable(WebGLRenderingContext.POLYGON_OFFSET_FILL);
+   } else {
+     _device.gl.enable(WebGLRenderingContext.POLYGON_OFFSET_FILL);
+     _device.gl.polygonOffset(ds.polygonOffsetFactor, ds.polygonOffsetUnits);
+   }
+ }
+
+ /// Set RenderTarget to [renderTargetHandle]
+ void setRenderTarget(RenderTarget renderTargetHandle) {
+   if (_renderTargetHandle == renderTargetHandle) {
+     return;
+   }
+   _renderTargetHandle = renderTargetHandle;
+   if (_renderTargetHandle == null) {
+     _device.gl.bindFramebuffer(WebGLRenderingContext.FRAMEBUFFER, null);
+   } else {
+     RenderTarget rt = renderTargetHandle;
+     _device.gl.bindFramebuffer(rt._target, rt._buffer);
+   }
+ }
+
+ /// Set Uniform variable [name] in current [ShaderProgram]
+ void setUniform2f(String name, num v0, num v1) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniform2f(index,v0, v1);
+ }
+
+ /// Set Uniform variable [name] in current [ShaderProgram]
+ void setUniform3f(String name, num v0, num v1, num v2) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniform3f(index,v0, v1, v2);
+ }
+
+ /// Set Uniform variable [name] in current [ShaderProgram]
+ void setUniform4f(String name, num v0, num v1, num v2, num v3) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniform4f(index,v0, v1, v2, v3);
+ }
+
+ /// Set Uniform variable [name] in current [ShaderProgram]
+ void setUniformMatrix3(String name, Float32Array matrix, [bool transpose=false]) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniformMatrix3fv(index, transpose, matrix);
+ }
+
+ /// Set Uniform variable [name] in current [ShaderProgram]
+ void setUniformInt(String name, int i) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniform1i(index, i);
+ }
+
+ /// Set Uniform variable [name] in current [ShaderProgram]
+ void setUniformNum(String name, num i) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniform1f(index, i);
+ }
+
+ /// Set Uniform variable [name] in current [ShaderProgram]
+ void setUniformMatrix4(String name, Float32Array matrix, [bool transpose=false]) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniformMatrix4fv(index, transpose, matrix);
+ }
+
+ /// Set Uniform variable [name] in current [ShaderProgram]
+ void setUniformVector4(String name, Float32Array vector) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniform4fv(index, vector);
+ }
+
+ /// Set Uniform variable [name] in current [ShaderProgram]
+ void setUniformVector3(String name, Float32Array vector) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniform3fv(index, vector);
+ }
+
+ /// Set Uniform variable [name] in current [ShaderProgram]
+ void setUniformVector2(String name, Float32Array vector) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniform2fv(index, vector);
+ }
+
+
+ void setUniformFloat4Array(String name, Float32Array array) {
+   ShaderProgram sp = _shaderProgramHandle;
+   if (sp == null) {
+     spectreLog.Error('Attempting to set uniform with invalid program bound.');
+     return;
+   }
+   var index = _device.gl.getUniformLocation(sp._program, name);
+   if (index == -1) {
+     spectreLog.Error('Could not find uniform $name in ${sp.name}');
+     return;
+   }
+   _device.gl.uniform4fv(index, array);
+ }
+
+ /// Update the contents of [bufferHandle] with the contents of [data]
+ void updateBuffer(SpectreBuffer buffer, ArrayBufferView data, [int usage = null]) {
+   if (buffer == null) {
+     return;
+   }
+   var target = buffer._target;
+   var oldBind = _device.gl.getParameter(buffer._param_target);
+   _device.gl.bindBuffer(buffer._target, buffer._buffer);
+   _device.gl.bufferData(buffer._target, data, usage != null ? usage : buffer._usage);
+   _device.gl.bindBuffer(buffer._target, oldBind);
+ }
+
+ /// Update the contents of [bufferHandle] with the contents of [data] starting at [offset]
+ void updateSubBuffer(SpectreBuffer buffer, ArrayBufferView data, num offset) {
+   if (buffer == null) {
+     return;
+   }
+   var target = buffer._target;
+   var oldBind = _device.gl.getParameter(buffer._param_target);
+   _device.gl.bindBuffer(buffer._target, buffer._buffer);
+   _device.gl.bufferSubData(buffer._target, offset, data);
+   _device.gl.bindBuffer(buffer._target, oldBind);
+ }
+
+ /// Update the pixels of [textureHandle] from the [imageResourceHandle]
+ ///
+ /// Only updates the top level mip map
+ void updateTexture2DFromResource(Texture2D tex, ImageResource ir, ResourceManager rm) {
+   if (ir == null) {
+     return;
+   }
+   if (tex == null) {
+     return;
+   }
+   _device.gl.activeTexture(WebGLRenderingContext.TEXTURE0);
+   var oldBind = _device.gl.getParameter(tex._target_param);
+   _device.gl.bindTexture(tex._target, tex._buffer);
+   _device.gl.texImage2D(tex._target, 0, tex._textureFormat, tex._textureFormat, tex._pixelFormat, ir.image);
+   _device.gl.bindTexture(tex._target, oldBind);
+ }
+
+ /// Generate the full mipmap pyramid for [textureHandle]
+ void generateMipmap(Texture2D tex) {
+   if (tex == null) {
+     return;
+   }
+   _device.gl.activeTexture(WebGLRenderingContext.TEXTURE0);
+   var oldBind = _device.gl.getParameter(tex._target_param);
+   _device.gl.bindTexture(tex._target, tex._buffer);
+   _device.gl.generateMipmap(tex._target);
+   _device.gl.bindTexture(tex._target, oldBind);
+   tex.ready = true;
+ }
+
+ void compileShader(Shader shader, String source) {
+   if (shader == null) {
+     return;
+   }
+   shader.source = source;
+   shader.compile();
+   String shaderCompileLog = _device.gl.getShaderInfoLog(shader._shader);
+   spectreLog.Info('Compiled ${shader.name} - $shaderCompileLog');
+ }
+
+ void clearColorBuffer(num r, num g, num b, num a) {
+   _device.gl.clearColor(r, g, b, a);
+   _device.gl.clear(WebGLRenderingContext.COLOR_BUFFER_BIT);
+ }
+
+ void clearDepthBuffer(num depth) {
+   _device.gl.clearDepth(depth);
+   _device.gl.clear(WebGLRenderingContext.DEPTH_BUFFER_BIT);
+ }
+
+ void clearStencilBuffer(int stencil) {
+   _device.gl.clearStencil(stencil);
+   _device.gl.clear(WebGLRenderingContext.STENCIL_BUFFER_BIT);
+ }
+
+ void compileShaderFromResource(Shader shader, ShaderResource sr, ResourceManager rm) {
+   if (sr == null) {
+     return;
+   }
+   compileShader(shader, sr.source);
+ }
+
+ void linkShaderProgram(ShaderProgram sp, VertexShader vs, FragmentShader fs) {
+   _device.gl.attachShader(sp._program, vs._shader);
+   _device.gl.attachShader(sp._program, fs._shader);
+   sp.link();
+ }
+
+ /// Sets a list of [textureHandles] starting at [texUnitOffset]
+ void setTextures(int texUnitOffset, List&lt;Texture&gt; textureHandles) {
+   for (int i = texUnitOffset; i &lt; textureHandles.length; i++) {
+     _textureHandles[i] = textureHandles[i-texUnitOffset];
+   }
+ }
+
+ /// Sets a list of [samplerHandles] starting at [texUnitOffset]
+ void setSamplers(int texUnitOffset, List&lt;SamplerState&gt; samplerHandles) {
+   for (int i = texUnitOffset; i &lt; samplerHandles.length; i++) {
+     _samplerStateHandles[i] = samplerHandles[i-texUnitOffset];
+   }
+ }
+
+ /// Draw an indexed mesh with [numIndices] starting at [indexOffset]
+ void drawIndexed(int numIndices, int indexOffset) {
+   if (numIndices == 0) {
+     return;
+   }
+   _prepareInputs();
+   _prepareTextures();
+   _device.gl.drawElements(_primitiveTopology, numIndices, WebGLRenderingContext.UNSIGNED_SHORT, indexOffset);
+ }
+
+ void drawIndexedMesh(IndexedMesh im) {
+   if (im == null) {
+     return;
+   }
+   drawIndexed(im.numIndices, im.indexOffset);
+ }
+
+ /// Draw a mesh with [numVertices] starting at [vertexOffset]
+ void draw(int numVertices, int vertexOffset) {
+   if (numVertices == 0) {
+     return;
+   }
+   _prepareInputs();
+   _prepareTextures();
+   _device.gl.drawArrays(_primitiveTopology, vertexOffset, numVertices);
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Static Properties</h3>
+<div class="field"><h4 id="numTextures">
+<button class="show-code">Code</button>
+final int         <strong>numTextures</strong> <a class="anchor-link"
+            href="#numTextures"
+            title="Permalink to GraphicsContext.numTextures">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int numTextures = 3;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="numVertexBuffers">
+<button class="show-code">Code</button>
+final int         <strong>numVertexBuffers</strong> <a class="anchor-link"
+            href="#numVertexBuffers"
+            title="Permalink to GraphicsContext.numVertexBuffers">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int numVertexBuffers = 2;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="PrimitiveTopologyLines">
+<button class="show-code">Code</button>
+final int         <strong>PrimitiveTopologyLines</strong> <a class="anchor-link"
+            href="#PrimitiveTopologyLines"
+            title="Permalink to GraphicsContext.PrimitiveTopologyLines">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int PrimitiveTopologyLines = WebGLRenderingContext.LINES;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="PrimitiveTopologyPoints">
+<button class="show-code">Code</button>
+final int         <strong>PrimitiveTopologyPoints</strong> <a class="anchor-link"
+            href="#PrimitiveTopologyPoints"
+            title="Permalink to GraphicsContext.PrimitiveTopologyPoints">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int PrimitiveTopologyPoints = WebGLRenderingContext.POINTS;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="PrimitiveTopologyTriangles">
+<button class="show-code">Code</button>
+final int         <strong>PrimitiveTopologyTriangles</strong> <a class="anchor-link"
+            href="#PrimitiveTopologyTriangles"
+            title="Permalink to GraphicsContext.PrimitiveTopologyTriangles">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int PrimitiveTopologyTriangles = WebGLRenderingContext.TRIANGLES;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="GraphicsContext">
+<button class="show-code">Code</button>
+new <strong>GraphicsContext</strong>(<a href="../spectre/GraphicsDevice.html">GraphicsDevice</a> device) <a class="anchor-link" href="#GraphicsContext"
+              title="Permalink to GraphicsContext.GraphicsContext">#</a></h4>
+<div class="doc">
+<pre class="source">
+GraphicsContext(GraphicsDevice device) {
+ _device = device;
+ _vertexBufferHandles = new List&lt;VertexBuffer&gt;(numVertexBuffers);
+ _samplerStateHandles = new List&lt;SamplerState&gt;(numTextures);
+ _textureHandles = new List&lt;Texture&gt;(numTextures);
+ _enabledVertexAttributeArrays = new List&lt;int&gt;();
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="clearColorBuffer">
+<button class="show-code">Code</button>
+void <strong>clearColorBuffer</strong>(num r, num g, num b, num a) <a class="anchor-link" href="#clearColorBuffer"
+              title="Permalink to GraphicsContext.clearColorBuffer">#</a></h4>
+<div class="doc">
+<pre class="source">
+void clearColorBuffer(num r, num g, num b, num a) {
+ _device.gl.clearColor(r, g, b, a);
+ _device.gl.clear(WebGLRenderingContext.COLOR_BUFFER_BIT);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="clearDepthBuffer">
+<button class="show-code">Code</button>
+void <strong>clearDepthBuffer</strong>(num depth) <a class="anchor-link" href="#clearDepthBuffer"
+              title="Permalink to GraphicsContext.clearDepthBuffer">#</a></h4>
+<div class="doc">
+<pre class="source">
+void clearDepthBuffer(num depth) {
+ _device.gl.clearDepth(depth);
+ _device.gl.clear(WebGLRenderingContext.DEPTH_BUFFER_BIT);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="clearStencilBuffer">
+<button class="show-code">Code</button>
+void <strong>clearStencilBuffer</strong>(int stencil) <a class="anchor-link" href="#clearStencilBuffer"
+              title="Permalink to GraphicsContext.clearStencilBuffer">#</a></h4>
+<div class="doc">
+<pre class="source">
+void clearStencilBuffer(int stencil) {
+ _device.gl.clearStencil(stencil);
+ _device.gl.clear(WebGLRenderingContext.STENCIL_BUFFER_BIT);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="compileShader">
+<button class="show-code">Code</button>
+void <strong>compileShader</strong>(<a href="../spectre/Shader.html">Shader</a> shader, String source) <a class="anchor-link" href="#compileShader"
+              title="Permalink to GraphicsContext.compileShader">#</a></h4>
+<div class="doc">
+<pre class="source">
+void compileShader(Shader shader, String source) {
+ if (shader == null) {
+   return;
+ }
+ shader.source = source;
+ shader.compile();
+ String shaderCompileLog = _device.gl.getShaderInfoLog(shader._shader);
+ spectreLog.Info('Compiled ${shader.name} - $shaderCompileLog');
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="compileShaderFromResource">
+<button class="show-code">Code</button>
+void <strong>compileShaderFromResource</strong>(<a href="../spectre/Shader.html">Shader</a> shader, <a href="../spectre/ShaderResource.html">ShaderResource</a> sr, <a href="../spectre/ResourceManager.html">ResourceManager</a> rm) <a class="anchor-link" href="#compileShaderFromResource"
+              title="Permalink to GraphicsContext.compileShaderFromResource">#</a></h4>
+<div class="doc">
+<pre class="source">
+void compileShaderFromResource(Shader shader, ShaderResource sr, ResourceManager rm) {
+ if (sr == null) {
+   return;
+ }
+ compileShader(shader, sr.source);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="draw">
+<button class="show-code">Code</button>
+void <strong>draw</strong>(int numVertices, int vertexOffset) <a class="anchor-link" href="#draw"
+              title="Permalink to GraphicsContext.draw">#</a></h4>
+<div class="doc">
+<p>Draw a mesh with 
+<span class="param">numVertices</span> starting at 
+<span class="param">vertexOffset</span></p>
+<pre class="source">
+void draw(int numVertices, int vertexOffset) {
+ if (numVertices == 0) {
+   return;
+ }
+ _prepareInputs();
+ _prepareTextures();
+ _device.gl.drawArrays(_primitiveTopology, vertexOffset, numVertices);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="drawIndexed">
+<button class="show-code">Code</button>
+void <strong>drawIndexed</strong>(int numIndices, int indexOffset) <a class="anchor-link" href="#drawIndexed"
+              title="Permalink to GraphicsContext.drawIndexed">#</a></h4>
+<div class="doc">
+<p>Draw an indexed mesh with 
+<span class="param">numIndices</span> starting at 
+<span class="param">indexOffset</span></p>
+<pre class="source">
+void drawIndexed(int numIndices, int indexOffset) {
+ if (numIndices == 0) {
+   return;
+ }
+ _prepareInputs();
+ _prepareTextures();
+ _device.gl.drawElements(_primitiveTopology, numIndices, WebGLRenderingContext.UNSIGNED_SHORT, indexOffset);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="drawIndexedMesh">
+<button class="show-code">Code</button>
+void <strong>drawIndexedMesh</strong>(<a href="../spectre/IndexedMesh.html">IndexedMesh</a> im) <a class="anchor-link" href="#drawIndexedMesh"
+              title="Permalink to GraphicsContext.drawIndexedMesh">#</a></h4>
+<div class="doc">
+<pre class="source">
+void drawIndexedMesh(IndexedMesh im) {
+ if (im == null) {
+   return;
+ }
+ drawIndexed(im.numIndices, im.indexOffset);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="generateMipmap">
+<button class="show-code">Code</button>
+void <strong>generateMipmap</strong>(<a href="../spectre/Texture2D.html">Texture2D</a> tex) <a class="anchor-link" href="#generateMipmap"
+              title="Permalink to GraphicsContext.generateMipmap">#</a></h4>
+<div class="doc">
+<p>Generate the full mipmap pyramid for <code>textureHandle</code></p>
+<pre class="source">
+void generateMipmap(Texture2D tex) {
+ if (tex == null) {
+   return;
+ }
+ _device.gl.activeTexture(WebGLRenderingContext.TEXTURE0);
+ var oldBind = _device.gl.getParameter(tex._target_param);
+ _device.gl.bindTexture(tex._target, tex._buffer);
+ _device.gl.generateMipmap(tex._target);
+ _device.gl.bindTexture(tex._target, oldBind);
+ tex.ready = true;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="linkShaderProgram">
+<button class="show-code">Code</button>
+void <strong>linkShaderProgram</strong>(<a href="../spectre/ShaderProgram.html">ShaderProgram</a> sp, <a href="../spectre/VertexShader.html">VertexShader</a> vs, <a href="../spectre/FragmentShader.html">FragmentShader</a> fs) <a class="anchor-link" href="#linkShaderProgram"
+              title="Permalink to GraphicsContext.linkShaderProgram">#</a></h4>
+<div class="doc">
+<pre class="source">
+void linkShaderProgram(ShaderProgram sp, VertexShader vs, FragmentShader fs) {
+ _device.gl.attachShader(sp._program, vs._shader);
+ _device.gl.attachShader(sp._program, fs._shader);
+ sp.link();
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="reset">
+<button class="show-code">Code</button>
+void <strong>reset</strong>() <a class="anchor-link" href="#reset"
+              title="Permalink to GraphicsContext.reset">#</a></h4>
+<div class="doc">
+<p>Resets the cached GPU pipeline state</p>
+<pre class="source">
+void reset() {
+ // TODO: Update GPU state
+ _primitiveTopology = 0;
+ for (int index in _enabledVertexAttributeArrays) {
+   if (index == 0) {
+     continue;
+   }
+   _device.gl.disableVertexAttribArray(index);
+ }
+ _preparedInputLayoutHandle = null;
+ _enabledVertexAttributeArrays.clear();
+ _indexBufferHandle = null;
+ for (int i = 0; i &lt; numVertexBuffers; i++) {
+   _vertexBufferHandles[i] = null;
+ }
+ _inputLayoutHandle = null;
+ _shaderProgramHandle = null;
+ for (int i = 0; i &lt; numTextures; i++) {
+   _samplerStateHandles[i] = null;
+   _textureHandles[i] = null;
+ }
+ _rasterizerStateHandle = null;
+ _viewportHandle = null;
+ _blendStateHandle = null;
+ _depthStateHandle = null;
+ _stencilStateHandle = null;
+ _renderTargetHandle = null;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setBlendState">
+<button class="show-code">Code</button>
+void <strong>setBlendState</strong>(<a href="../spectre/BlendState.html">BlendState</a> bs) <a class="anchor-link" href="#setBlendState"
+              title="Permalink to GraphicsContext.setBlendState">#</a></h4>
+<div class="doc">
+<p>Set BlendState to <code>blendStateHandle</code></p>
+<pre class="source">
+void setBlendState(BlendState bs) {
+ if (_blendStateHandle == bs) {
+   return;
+ }
+ _blendStateHandle = bs;
+ if (bs == null) {
+   return;
+ }
+ _device.gl.colorMask(bs.writeRenderTargetRed, bs.writeRenderTargetGreen, bs.writeRenderTargetBlue, bs.writeRenderTargetAlpha);
+ if (bs.blendEnable == false) {
+   _device.gl.disable(WebGLRenderingContext.BLEND);
+   return;
+ }
+ _device.gl.enable(WebGLRenderingContext.BLEND);
+ //_device.gl.blendFunc(bs.blendSourceColorFunc, bs.blendDestColorFunc);
+ _device.gl.blendFuncSeparate(bs.blendSourceColorFunc, bs.blendDestColorFunc, bs.blendSourceAlphaFunc, bs.blendDestAlphaFunc);
+ _device.gl.blendEquationSeparate(bs.blendColorOp, bs.blendAlphaOp);
+ _device.gl.blendColor(bs.blendColorRed, bs.blendColorGreen, bs.blendColorBlue, bs.blendColorAlpha);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setDepthState">
+<button class="show-code">Code</button>
+void <strong>setDepthState</strong>(<a href="../spectre/DepthState.html">DepthState</a> ds) <a class="anchor-link" href="#setDepthState"
+              title="Permalink to GraphicsContext.setDepthState">#</a></h4>
+<div class="doc">
+<p>Set DepthState to <code>depthStateHandle</code></p>
+<pre class="source">
+void setDepthState(DepthState ds) {
+ if (_depthStateHandle == ds) {
+   return;
+ }
+ if (ds == null) {
+   return;
+ }
+ _device.gl.depthRange(ds.depthNearVal, ds.depthFarVal);
+ if (ds.depthTestEnabled == false) {
+   _device.gl.disable(WebGLRenderingContext.DEPTH_TEST);
+ } else {
+   _device.gl.enable(WebGLRenderingContext.DEPTH_TEST);
+   _device.gl.depthFunc(ds.depthComparisonOp);
+ }
+
+ _device.gl.depthMask(ds.depthWriteEnabled);
+
+ if (ds.polygonOffsetEnabled == false) {
+   _device.gl.disable(WebGLRenderingContext.POLYGON_OFFSET_FILL);
+ } else {
+   _device.gl.enable(WebGLRenderingContext.POLYGON_OFFSET_FILL);
+   _device.gl.polygonOffset(ds.polygonOffsetFactor, ds.polygonOffsetUnits);
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setIndexBuffer">
+<button class="show-code">Code</button>
+void <strong>setIndexBuffer</strong>(<a href="../spectre/IndexBuffer.html">IndexBuffer</a> indexBufferHandle) <a class="anchor-link" href="#setIndexBuffer"
+              title="Permalink to GraphicsContext.setIndexBuffer">#</a></h4>
+<div class="doc">
+<p>Set the IndexBuffer to 
+<span class="param">indexBufferHandle</span></p>
+<pre class="source">
+void setIndexBuffer(IndexBuffer indexBufferHandle) {
+ _indexBufferHandle = indexBufferHandle;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setIndexedMesh">
+<button class="show-code">Code</button>
+void <strong>setIndexedMesh</strong>(<a href="../spectre/IndexedMesh.html">IndexedMesh</a> im) <a class="anchor-link" href="#setIndexedMesh"
+              title="Permalink to GraphicsContext.setIndexedMesh">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setIndexedMesh(IndexedMesh im) {
+ if (im == null) {
+   return;
+ }
+ setIndexBuffer(im.indexArray);
+ setVertexBuffers(0, [im.vertexArray]);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setInputLayout">
+<button class="show-code">Code</button>
+void <strong>setInputLayout</strong>(<a href="../spectre/InputLayout.html">InputLayout</a> inputLayoutHandle) <a class="anchor-link" href="#setInputLayout"
+              title="Permalink to GraphicsContext.setInputLayout">#</a></h4>
+<div class="doc">
+<p>Set InputLayout to 
+<span class="param">inputLayoutHandle</span></p>
+<pre class="source">
+void setInputLayout(InputLayout inputLayoutHandle) {
+ _inputLayoutHandle = inputLayoutHandle;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setPrimitiveTopology">
+<button class="show-code">Code</button>
+void <strong>setPrimitiveTopology</strong>(int topology) <a class="anchor-link" href="#setPrimitiveTopology"
+              title="Permalink to GraphicsContext.setPrimitiveTopology">#</a></h4>
+<div class="doc">
+<p>Configure the primitive topology</p>
+<pre class="source">
+void setPrimitiveTopology(int topology) {
+ _primitiveTopology = topology;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setRasterizerState">
+<button class="show-code">Code</button>
+void <strong>setRasterizerState</strong>(<a href="../spectre/RasterizerState.html">RasterizerState</a> rasterizerStateHandle) <a class="anchor-link" href="#setRasterizerState"
+              title="Permalink to GraphicsContext.setRasterizerState">#</a></h4>
+<div class="doc">
+<p>Set RasterizerState to 
+<span class="param">rasterizerStateHandle</span></p>
+<pre class="source">
+void setRasterizerState(RasterizerState rasterizerStateHandle) {
+ if (_rasterizerStateHandle == rasterizerStateHandle) {
+   return;
+ }
+ _rasterizerStateHandle = rasterizerStateHandle;
+ RasterizerState rs = rasterizerStateHandle;
+ if (rs == null) {
+   return;
+ }
+ _device.gl.lineWidth(rs.lineWidth);
+ if (rs.cullEnabled) {
+   _device.gl.enable(WebGLRenderingContext.CULL_FACE);
+   _device.gl.cullFace(rs.cullMode);
+   _device.gl.frontFace(rs.cullFrontFace);
+ } else {
+   _device.gl.disable(WebGLRenderingContext.CULL_FACE);
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setRenderTarget">
+<button class="show-code">Code</button>
+void <strong>setRenderTarget</strong>(<a href="../spectre/RenderTarget.html">RenderTarget</a> renderTargetHandle) <a class="anchor-link" href="#setRenderTarget"
+              title="Permalink to GraphicsContext.setRenderTarget">#</a></h4>
+<div class="doc">
+<p>Set RenderTarget to 
+<span class="param">renderTargetHandle</span></p>
+<pre class="source">
+void setRenderTarget(RenderTarget renderTargetHandle) {
+ if (_renderTargetHandle == renderTargetHandle) {
+   return;
+ }
+ _renderTargetHandle = renderTargetHandle;
+ if (_renderTargetHandle == null) {
+   _device.gl.bindFramebuffer(WebGLRenderingContext.FRAMEBUFFER, null);
+ } else {
+   RenderTarget rt = renderTargetHandle;
+   _device.gl.bindFramebuffer(rt._target, rt._buffer);
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setSamplers">
+<button class="show-code">Code</button>
+void <strong>setSamplers</strong>(int texUnitOffset, List&lt;<a href="../spectre/SamplerState.html">SamplerState</a>&gt; samplerHandles) <a class="anchor-link" href="#setSamplers"
+              title="Permalink to GraphicsContext.setSamplers">#</a></h4>
+<div class="doc">
+<p>Sets a list of 
+<span class="param">samplerHandles</span> starting at 
+<span class="param">texUnitOffset</span></p>
+<pre class="source">
+void setSamplers(int texUnitOffset, List&lt;SamplerState&gt; samplerHandles) {
+ for (int i = texUnitOffset; i &lt; samplerHandles.length; i++) {
+   _samplerStateHandles[i] = samplerHandles[i-texUnitOffset];
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setShaderProgram">
+<button class="show-code">Code</button>
+void <strong>setShaderProgram</strong>(<a href="../spectre/ShaderProgram.html">ShaderProgram</a> shaderProgramHandle) <a class="anchor-link" href="#setShaderProgram"
+              title="Permalink to GraphicsContext.setShaderProgram">#</a></h4>
+<div class="doc">
+<p>Set ShaderProgram to 
+<span class="param">shaderProgramHandle</span></p>
+<pre class="source">
+void setShaderProgram(ShaderProgram shaderProgramHandle) {
+ if (_shaderProgramHandle == shaderProgramHandle) {
+   return;
+ }
+ _shaderProgramHandle = shaderProgramHandle;
+ ShaderProgram sp = shaderProgramHandle;
+ _device.gl.useProgram(sp._program);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setTextures">
+<button class="show-code">Code</button>
+void <strong>setTextures</strong>(int texUnitOffset, List&lt;<a href="../spectre/Texture.html">Texture</a>&gt; textureHandles) <a class="anchor-link" href="#setTextures"
+              title="Permalink to GraphicsContext.setTextures">#</a></h4>
+<div class="doc">
+<p>Sets a list of 
+<span class="param">textureHandles</span> starting at 
+<span class="param">texUnitOffset</span></p>
+<pre class="source">
+void setTextures(int texUnitOffset, List&lt;Texture&gt; textureHandles) {
+ for (int i = texUnitOffset; i &lt; textureHandles.length; i++) {
+   _textureHandles[i] = textureHandles[i-texUnitOffset];
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniform2f">
+<button class="show-code">Code</button>
+void <strong>setUniform2f</strong>(String name, num v0, num v1) <a class="anchor-link" href="#setUniform2f"
+              title="Permalink to GraphicsContext.setUniform2f">#</a></h4>
+<div class="doc">
+<p>Set Uniform variable 
+<span class="param">name</span> in current <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a></p>
+<pre class="source">
+void setUniform2f(String name, num v0, num v1) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniform2f(index,v0, v1);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniform3f">
+<button class="show-code">Code</button>
+void <strong>setUniform3f</strong>(String name, num v0, num v1, num v2) <a class="anchor-link" href="#setUniform3f"
+              title="Permalink to GraphicsContext.setUniform3f">#</a></h4>
+<div class="doc">
+<p>Set Uniform variable 
+<span class="param">name</span> in current <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a></p>
+<pre class="source">
+void setUniform3f(String name, num v0, num v1, num v2) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniform3f(index,v0, v1, v2);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniform4f">
+<button class="show-code">Code</button>
+void <strong>setUniform4f</strong>(String name, num v0, num v1, num v2, num v3) <a class="anchor-link" href="#setUniform4f"
+              title="Permalink to GraphicsContext.setUniform4f">#</a></h4>
+<div class="doc">
+<p>Set Uniform variable 
+<span class="param">name</span> in current <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a></p>
+<pre class="source">
+void setUniform4f(String name, num v0, num v1, num v2, num v3) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniform4f(index,v0, v1, v2, v3);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformFloat4Array">
+<button class="show-code">Code</button>
+void <strong>setUniformFloat4Array</strong>(String name, Float32Array array) <a class="anchor-link" href="#setUniformFloat4Array"
+              title="Permalink to GraphicsContext.setUniformFloat4Array">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setUniformFloat4Array(String name, Float32Array array) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniform4fv(index, array);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformInt">
+<button class="show-code">Code</button>
+void <strong>setUniformInt</strong>(String name, int i) <a class="anchor-link" href="#setUniformInt"
+              title="Permalink to GraphicsContext.setUniformInt">#</a></h4>
+<div class="doc">
+<p>Set Uniform variable 
+<span class="param">name</span> in current <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a></p>
+<pre class="source">
+void setUniformInt(String name, int i) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniform1i(index, i);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformMatrix3">
+<button class="show-code">Code</button>
+void <strong>setUniformMatrix3</strong>(String name, Float32Array matrix, [bool transpose = false]) <a class="anchor-link" href="#setUniformMatrix3"
+              title="Permalink to GraphicsContext.setUniformMatrix3">#</a></h4>
+<div class="doc">
+<p>Set Uniform variable 
+<span class="param">name</span> in current <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a></p>
+<pre class="source">
+void setUniformMatrix3(String name, Float32Array matrix, [bool transpose=false]) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniformMatrix3fv(index, transpose, matrix);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformMatrix4">
+<button class="show-code">Code</button>
+void <strong>setUniformMatrix4</strong>(String name, Float32Array matrix, [bool transpose = false]) <a class="anchor-link" href="#setUniformMatrix4"
+              title="Permalink to GraphicsContext.setUniformMatrix4">#</a></h4>
+<div class="doc">
+<p>Set Uniform variable 
+<span class="param">name</span> in current <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a></p>
+<pre class="source">
+void setUniformMatrix4(String name, Float32Array matrix, [bool transpose=false]) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniformMatrix4fv(index, transpose, matrix);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformNum">
+<button class="show-code">Code</button>
+void <strong>setUniformNum</strong>(String name, num i) <a class="anchor-link" href="#setUniformNum"
+              title="Permalink to GraphicsContext.setUniformNum">#</a></h4>
+<div class="doc">
+<p>Set Uniform variable 
+<span class="param">name</span> in current <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a></p>
+<pre class="source">
+void setUniformNum(String name, num i) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniform1f(index, i);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformVector2">
+<button class="show-code">Code</button>
+void <strong>setUniformVector2</strong>(String name, Float32Array vector) <a class="anchor-link" href="#setUniformVector2"
+              title="Permalink to GraphicsContext.setUniformVector2">#</a></h4>
+<div class="doc">
+<p>Set Uniform variable 
+<span class="param">name</span> in current <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a></p>
+<pre class="source">
+void setUniformVector2(String name, Float32Array vector) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniform2fv(index, vector);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformVector3">
+<button class="show-code">Code</button>
+void <strong>setUniformVector3</strong>(String name, Float32Array vector) <a class="anchor-link" href="#setUniformVector3"
+              title="Permalink to GraphicsContext.setUniformVector3">#</a></h4>
+<div class="doc">
+<p>Set Uniform variable 
+<span class="param">name</span> in current <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a></p>
+<pre class="source">
+void setUniformVector3(String name, Float32Array vector) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniform3fv(index, vector);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setUniformVector4">
+<button class="show-code">Code</button>
+void <strong>setUniformVector4</strong>(String name, Float32Array vector) <a class="anchor-link" href="#setUniformVector4"
+              title="Permalink to GraphicsContext.setUniformVector4">#</a></h4>
+<div class="doc">
+<p>Set Uniform variable 
+<span class="param">name</span> in current <a class="crossref" href="../spectre/ShaderProgram.html">ShaderProgram</a></p>
+<pre class="source">
+void setUniformVector4(String name, Float32Array vector) {
+ ShaderProgram sp = _shaderProgramHandle;
+ if (sp == null) {
+   spectreLog.Error('Attempting to set uniform with invalid program bound.');
+   return;
+ }
+ var index = _device.gl.getUniformLocation(sp._program, name);
+ if (index == -1) {
+   spectreLog.Error('Could not find uniform $name in ${sp.name}');
+   return;
+ }
+ _device.gl.uniform4fv(index, vector);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setVertexBuffers">
+<button class="show-code">Code</button>
+void <strong>setVertexBuffers</strong>(int startSlot, List&lt;<a href="../spectre/VertexBuffer.html">VertexBuffer</a>&gt; vertexBufferHandles) <a class="anchor-link" href="#setVertexBuffers"
+              title="Permalink to GraphicsContext.setVertexBuffers">#</a></h4>
+<div class="doc">
+<p>Set multiple VertexBuffers in 
+<span class="param">vertexBufferHandles</span> starting at 
+<span class="param">startSlot</span></p>
+<pre class="source">
+void setVertexBuffers(int startSlot, List&lt;VertexBuffer&gt; vertexBufferHandles) {
+ int limit = vertexBufferHandles.length + startSlot;
+ for (int i = startSlot; i &lt; limit; i++) {
+   _vertexBufferHandles[i] = vertexBufferHandles[i-startSlot];
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setViewport">
+<button class="show-code">Code</button>
+void <strong>setViewport</strong>(<a href="../spectre/Viewport.html">Viewport</a> vp) <a class="anchor-link" href="#setViewport"
+              title="Permalink to GraphicsContext.setViewport">#</a></h4>
+<div class="doc">
+<p>Set Viewport to <code>viewportHandle</code></p>
+<pre class="source">
+void setViewport(Viewport vp) {
+ if (_viewportHandle == _viewportHandle) {
+   return;
+ }
+ _viewportHandle = _viewportHandle;
+ if (vp == null) {
+   return;
+ }
+ _device.gl.viewport(vp.x, vp.y, vp.width, vp.height);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="updateBuffer">
+<button class="show-code">Code</button>
+void <strong>updateBuffer</strong>(<a href="../spectre/SpectreBuffer.html">SpectreBuffer</a> buffer, ArrayBufferView data, [int usage = null]) <a class="anchor-link" href="#updateBuffer"
+              title="Permalink to GraphicsContext.updateBuffer">#</a></h4>
+<div class="doc">
+<p>Update the contents of <code>bufferHandle</code> with the contents of 
+<span class="param">data</span></p>
+<pre class="source">
+void updateBuffer(SpectreBuffer buffer, ArrayBufferView data, [int usage = null]) {
+ if (buffer == null) {
+   return;
+ }
+ var target = buffer._target;
+ var oldBind = _device.gl.getParameter(buffer._param_target);
+ _device.gl.bindBuffer(buffer._target, buffer._buffer);
+ _device.gl.bufferData(buffer._target, data, usage != null ? usage : buffer._usage);
+ _device.gl.bindBuffer(buffer._target, oldBind);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="updateSubBuffer">
+<button class="show-code">Code</button>
+void <strong>updateSubBuffer</strong>(<a href="../spectre/SpectreBuffer.html">SpectreBuffer</a> buffer, ArrayBufferView data, num offset) <a class="anchor-link" href="#updateSubBuffer"
+              title="Permalink to GraphicsContext.updateSubBuffer">#</a></h4>
+<div class="doc">
+<p>Update the contents of <code>bufferHandle</code> with the contents of 
+<span class="param">data</span> starting at 
+<span class="param">offset</span></p>
+<pre class="source">
+void updateSubBuffer(SpectreBuffer buffer, ArrayBufferView data, num offset) {
+ if (buffer == null) {
+   return;
+ }
+ var target = buffer._target;
+ var oldBind = _device.gl.getParameter(buffer._param_target);
+ _device.gl.bindBuffer(buffer._target, buffer._buffer);
+ _device.gl.bufferSubData(buffer._target, offset, data);
+ _device.gl.bindBuffer(buffer._target, oldBind);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="updateTexture2DFromResource">
+<button class="show-code">Code</button>
+void <strong>updateTexture2DFromResource</strong>(<a href="../spectre/Texture2D.html">Texture2D</a> tex, <a href="../spectre/ImageResource.html">ImageResource</a> ir, <a href="../spectre/ResourceManager.html">ResourceManager</a> rm) <a class="anchor-link" href="#updateTexture2DFromResource"
+              title="Permalink to GraphicsContext.updateTexture2DFromResource">#</a></h4>
+<div class="doc">
+<p>Update the pixels of <code>textureHandle</code> from the <code>imageResourceHandle</code></p>
+<p>Only updates the top level mip map</p>
+<pre class="source">
+void updateTexture2DFromResource(Texture2D tex, ImageResource ir, ResourceManager rm) {
+ if (ir == null) {
+   return;
+ }
+ if (tex == null) {
+   return;
+ }
+ _device.gl.activeTexture(WebGLRenderingContext.TEXTURE0);
+ var oldBind = _device.gl.getParameter(tex._target_param);
+ _device.gl.bindTexture(tex._target, tex._buffer);
+ _device.gl.texImage2D(tex._target, 0, tex._textureFormat, tex._textureFormat, tex._pixelFormat, ir.image);
+ _device.gl.bindTexture(tex._target, oldBind);
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.387</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

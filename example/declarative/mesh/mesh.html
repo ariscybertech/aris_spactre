@@ -1,0 +1,4090 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Spectre Declarative Example: Mesh</title>
+  <link rel="stylesheet" href="packages/spectre/src/spectre_declarative/css/bootstrap.min.css">
+  <link rel="stylesheet" href="packages/spectre/src/spectre_declarative/style.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="import" href="packages/spectre/spectre_elements.html">
+  <link rel="import" href="packages/spectre/spectre_declarative_stock.html">
+</head>
+<body>
+<s-spectre id="spectre">
+  <s-material-program id="spectre-material-program-simple">
+    <s-vertex-shader>
+/// The vertex position.
+attribute vec3 POSITION;
+/// The texture coordinate.
+attribute vec2 TEXCOORD0;
+
+uniform mat4 cameraProjectionView;
+uniform mat4 objectTransform;
+
+/// The texture coordinate of the vertex.
+varying vec2 texCoord;
+
+void main() {
+  texCoord = TEXCOORD0;
+  
+  gl_Position = cameraProjectionView * objectTransform * vec4(POSITION, 1.0);
+}
+    </s-vertex-shader>
+    <s-fragment-shader>
+precision mediump float;
+
+//---------------------------------------------------------------------
+// Uniform variables
+//---------------------------------------------------------------------
+
+/// The diffuse sampler.
+uniform sampler2D diffuse;
+
+//---------------------------------------------------------------------
+// Varying variables
+//
+// Allows communication between vertex and fragment stages
+//---------------------------------------------------------------------
+
+/// The texture coodinate of the vertex.
+varying vec2 texCoord;
+
+//---------------------------------------------------------------------
+// Functions
+//---------------------------------------------------------------------
+
+void main()
+{
+  gl_FragColor = texture2D(diffuse, texCoord);
+}
+    </s-fragment-shader>
+  </s-material-program>
+  <s-geometry id="spectre-geometry-unitcube"
+              src="packages/spectre/asset/base/mesh/cube.mesh"></s-geometry>
+  <s-geometry id="spectre-geometry-circle"
+              src="packages/spectre/asset/base/mesh/circle.mesh"></s-geometry>
+  <s-geometry id="spectre-geometry-ring"
+              src="packages/spectre/asset/base/mesh/ring.mesh"></s-geometry>
+  <s-scene>
+    <s-texture id="dirt" src="packages/spectre/asset/base/texture/dirt.png"></s-texture>
+    <s-texture id="gravel" src="packages/spectre/asset/base/texture/gravel.png"></s-texture>
+    <s-texture id="sand" src="packages/spectre/asset/base/texture/sand.png"></s-texture>
+    <s-texture id="stonebrick" src="packages/spectre/asset/base/texture/stonebrick.png"></s-texture>
+    <s-texture id="grass" src="packages/spectre/asset/base/texture/grass.png"></s-texture>
+    <s-texture id="colorGrid" src="packages/spectre/asset/base/texture/colorgrid.jpg"></s-texture>
+    
+    <s-material id="dirtMaterial"
+              materialProgramId="#spectre-material-program-simple">
+      <s-material-sampler name="diffuse" textureId="#dirt">
+      </s-material-sampler>
+    </s-material>
+    <s-material id="gravelMaterial"
+              materialProgramId="#spectre-material-program-simple">
+      <s-material-sampler name="diffuse" textureId="#gravel">
+      </s-material-sampler>
+    </s-material>
+    <s-material id="sandMaterial"
+              materialProgramId="#spectre-material-program-simple">
+      <s-material-sampler name="diffuse" textureId="#sand">
+      </s-material-sampler>
+    </s-material>
+    <s-material id="stonebrickMaterial"
+              materialProgramId="#spectre-material-program-simple">
+      <s-material-sampler name="diffuse" textureId="#stonebrick">
+      </s-material-sampler>
+    </s-material>
+    <s-material id="grassMaterial"
+              materialProgramId="#spectre-material-program-simple">
+      <s-material-sampler name="diffuse" textureId="#grass">
+      </s-material-sampler>
+    </s-material>
+    <s-material id="colorGridMaterial"
+                materialProgramId="#spectre-material-program-simple">
+      <s-material-sampler name="diffuse" textureId="#colorGrid">
+      </s-material-sampler>
+    </s-material>
+    <s-transform origin="[0.0, 25.0, 0.0]">
+      <s-mesh materialId="#colorGridMaterial" geometryId="#spectre-geometry-circle"></s-mesh>
+    </s-transform>
+    <s-transform origin="[0.0, 15.0, 0.0]">
+      <s-mesh materialId="#colorGridMaterial" geometryId="#spectre-geometry-ring"></s-mesh>
+    </s-transform>
+<!-- 
+<s-transform origin="[0.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 2.0, 0.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 3.0, 0.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 2.0, 3.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 3.0, 3.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 4.0, 3.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 2.0, 5.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 3.0, 12.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 3.0, 13.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 2.0, 14.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 3.0, 14.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 4.0, 14.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 3.0, 15.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[0.0, 4.0, 15.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 2.0, 4.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 3.0, 4.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 2.0, 8.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 2.0, 11.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 3.0, 11.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 3.0, 12.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 3.0, 13.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 4.0, 13.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 2.0, 14.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 3.0, 14.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 4.0, 14.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[1.0, 3.0, 15.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 3.0, 1.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 4.0, 1.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 2.0, 7.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 3.0, 7.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 2.0, 8.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 3.0, 9.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 2.0, 11.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 3.0, 11.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 4.0, 11.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 3.0, 12.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 4.0, 12.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[2.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 0.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 3.0, 0.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 4.0, 0.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 3.0, 2.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 4.0, 2.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 3.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 3.0, 3.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 4.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 5.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 7.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 3.0, 7.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 3.0, 10.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 4.0, 10.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 11.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 3.0, 11.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 4.0, 11.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 3.0, 12.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 4.0, 12.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 3.0, 13.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 2.0, 14.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[3.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 3.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 3.0, 3.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 4.0, 3.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 4.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 3.0, 4.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 5.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 3.0, 5.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 6.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 3.0, 6.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 4.0, 6.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 8.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 3.0, 8.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 3.0, 9.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 4.0, 9.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 14.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 3.0, 14.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[4.0, 3.0, 15.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 3.0, 1.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 4.0, 1.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 2.0, 3.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 2.0, 4.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 2.0, 5.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 2.0, 7.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 3.0, 7.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 4.0, 7.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 3.0, 9.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 4.0, 9.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 3.0, 12.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 4.0, 12.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[5.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 2.0, 0.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 3.0, 0.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 3.0, 2.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 2.0, 5.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 2.0, 6.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 3.0, 6.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 3.0, 9.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 4.0, 9.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 3.0, 12.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 3.0, 13.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 4.0, 13.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 2.0, 14.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 3.0, 14.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 4.0, 14.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[6.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 2.0, 5.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 3.0, 5.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 4.0, 5.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 2.0, 6.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 3.0, 6.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 4.0, 6.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 2.0, 8.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 3.0, 9.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 2.0, 14.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 3.0, 14.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[7.0, 3.0, 15.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 3.0, 2.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 3.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 4.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 6.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 3.0, 6.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 8.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 3.0, 8.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 4.0, 8.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 3.0, 9.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 4.0, 9.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 3.0, 10.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 11.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 3.0, 11.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 4.0, 11.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 3.0, 13.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 14.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 3.0, 14.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[8.0, 3.0, 15.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 3.0, 1.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 4.0, 1.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 3.0, 2.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 4.0, 2.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 2.0, 7.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 2.0, 8.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 3.0, 8.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 4.0, 8.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 3.0, 9.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 4.0, 9.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 2.0, 11.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 3.0, 11.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 3.0, 12.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 2.0, 14.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 3.0, 14.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 3.0, 15.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[9.0, 4.0, 15.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 2.0, 4.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 2.0, 5.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 2.0, 8.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 3.0, 8.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 3.0, 10.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 4.0, 10.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 2.0, 11.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 3.0, 11.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 4.0, 11.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 3.0, 12.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[10.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 3.0, 1.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 2.0, 5.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 3.0, 5.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 2.0, 7.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 2.0, 8.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 3.0, 8.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 3.0, 9.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 4.0, 9.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 2.0, 11.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 3.0, 11.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 2.0, 14.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 3.0, 14.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 4.0, 14.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[11.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 3.0, 1.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 3.0, 2.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 4.0, 2.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 2.0, 3.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 2.0, 7.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 3.0, 7.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 4.0, 7.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 2.0, 11.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 3.0, 11.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 3.0, 12.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 3.0, 15.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[12.0, 4.0, 15.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 3.0, 1.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 2.0, 3.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 3.0, 3.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 2.0, 6.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 3.0, 6.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 2.0, 7.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 3.0, 7.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 3.0, 10.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 3.0, 13.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 4.0, 13.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 2.0, 14.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 3.0, 15.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[13.0, 4.0, 15.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 0.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 0.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 1.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 2.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 4.0, 2.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 3.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 3.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 4.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 5.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 5.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 7.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 7.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 4.0, 7.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 8.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 8.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 4.0, 8.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 10.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 4.0, 10.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 11.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 11.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 13.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[14.0, 3.0, 15.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 0.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 0.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 0.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 3.0, 0.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 1.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 1.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 1.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 2.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 2.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 2.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 3.0, 2.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 4.0, 2.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 3.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 3.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 3.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 3.0, 3.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 4.0, 3.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 4.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 4.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 4.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 5.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 5.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 6.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 6.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 6.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 3.0, 6.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 4.0, 6.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 7.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 7.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 7.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 3.0, 7.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 4.0, 7.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 8.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 8.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 9.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 9.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 9.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 3.0, 9.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 10.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 10.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 10.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 3.0, 10.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 4.0, 10.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 11.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 11.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 11.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 3.0, 11.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 4.0, 11.0]">
+<s-mesh materialId="#grassMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 12.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 12.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 12.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 3.0, 12.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 13.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 13.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 13.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 14.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 14.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 0.0, 15.0]">
+<s-mesh materialId="#stonebrickMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 1.0, 15.0]">
+<s-mesh materialId="#gravelMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 2.0, 15.0]">
+<s-mesh materialId="#dirtMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+<s-transform origin="[15.0, 3.0, 15.0]">
+<s-mesh materialId="#sandMaterial"
+geometryId="#spectre-geometry-unitcube">
+</s-mesh>
+</s-transform>
+ -->
+  </s-scene>
+</s-spectre>
+<script type="application/dart" src="mesh_main.dart"></script>
+<script src="packages/browser/dart.js"></script>
+</body>
+</html>

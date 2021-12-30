@@ -1,0 +1,29 @@
+<link rel="import" href="spectre_element.html">
+<link rel="import" href="material_program.html">
+<link rel="import" href="vertex_shader.html">
+<link rel="import" href="geometry.html">
+<link rel="import" href="fragment_shader.html">
+<polymer-element name="s-spectre" extends="s-element">
+  <template>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="https://github.com/johnmccutchan/spectre">
+          <img src="images/logo.png">
+        </a>
+      </div>
+      <button type="button" id="fsbutton" class="btn btn-default navbar-btn">Fullscreen</button>
+    </nav>
+    <div class="row">
+      <span class="col-md-9">
+        <canvas id="backBuffer" width="960" height="544"></canvas>
+      </span>
+      <span class="col-md-3">
+        SIDE BAR
+      </span>
+    </div>
+    <div id="bottombar">
+      <p>BOTTOM</p>
+    </div>
+  </template>
+  <script type="application/dart" src="package:spectre/src/spectre_elements/spectre.dart"></script>
+</polymer-element>

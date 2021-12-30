@@ -1,0 +1,818 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>Ops class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="Ops">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/Ops.html">Ops</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><div class="icon-class"></div><strong>Ops</strong></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>Ops</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+class Ops {
+ /// NO-OP
+ /// No arguments
+ static const int Null = 0x00;
+ /// Set the value of a register
+ /// Arg0 - Register index (0...NumRegisters)
+ /// Arg1 - Value to set
+ static const int SetRegister = 0x01;
+ /// Set the value of a register
+ /// Arg0 - Register index (0...NumRegisters)
+ /// Arg1 - List
+ /// Arg2 - List index
+ static const int SetRegisterFromList = 0x02;
+
+
+ static const int Call = 0x10;
+ static const int Return = 0x11;
+
+
+ /// Create a new blend state
+ /// Arg0 - Name of blend state
+ /// Arg1 - Map of options
+ /// Arg2 - List to store handle in (can be null)
+ static const int CreateBlendState = 0x20;
+ /// Create a new depth state
+ /// Arg0 - Name of depth state
+ /// Arg1 - Map of options
+ /// Arg2 - List to store handle in (can be null)
+ static const int CreateDepthState = 0x21;
+ /// Create a new rasterizer state
+ /// Arg0 - Name of rasterizer state
+ /// Arg1 - Map of options
+ /// Arg2 - List to store handle in (can be null)
+ static const int CreateRasterizerState = 0x22;
+ /// Create a new vertex shader
+ /// Arg0 - Name of vertex shader
+ /// Arg1 - Map of options
+ /// Arg2 - List to store handle in (can be null)
+ static const int CreateVertexShader = 0x23;
+ /// Create a new fragment shader
+ /// Arg0 - Name of fragment shader
+ /// Arg1 - Map of options
+ /// Arg2 - List to store handle in (can be null)
+ static const int CreateFragmentShader = 0x24;
+ /// Create a new shader program
+ /// Arg0 - Name of shader program state
+ /// Arg1 - Map of options
+ /// Arg2 - List to store handle in (can be null)
+ static const int CreateShaderProgram = 0x25;
+ /// Create a new indexed mesh
+ /// Arg0 - Name of indexed mesh
+ /// Arg1 - Map of options
+ /// Arg2 - List to store handle in (can be null)
+ static const int CreateIndexedMesh = 0x26;
+ /// Create a new input layout for a given indexed mesh resource and shader
+ /// Arg0 - Name of input layout
+ /// Arg1 - Handle of mesh resource
+ /// Arg2 - Handle of shader program resource
+ /// Arg3 - List of inputs descriptions (InputLayoutDescription)
+ /// Arg4 - List to store handle in (can be null)
+ static const int CreateInputLayoutForMeshResource = 0x27;
+
+ /// Compile a shader from a shader resource
+ /// Arg0 - Handle to shader
+ /// Arg1 - Handle to resource
+ static const int CompileShaderFromResource = 0x30;
+ /// Link a shader program
+ /// Arg0 - Handle to shader program
+ /// Arg1 - Handle to vertex shader
+ /// Arg2 - Handle to fragment shader
+ static const int LinkShaderProgram = 0x31;
+
+ /// Set the blend state
+ /// Arg0 - Blend State handle
+ static const int SetBlendState = 0xA0;
+ /// Set the rasterizer state
+ /// Arg0 - Rasterizer State handle
+ static const int SetRasterizerState = 0xA1;
+ /// Set the depth state
+ /// Arg0 - Depth State Handle
+ static const int SetDepthState = 0xA2;
+ /// Set the shader program
+ /// ARg0 - Shader Program handle
+ static const int SetShaderProgram = 0xA3;
+ /// Set the primitive topology
+ /// Arg0 - Primitive topology
+ static const int SetPrimitiveTopology = 0xA4;
+ /// Set the vertex buffer
+ /// Arg0 - Offset
+ /// Arg1 - List of vertex buffer handles
+ static const int SetVertexBuffers = 0xA5;
+ /// Set the active index buffer
+ /// Arg0 - Index buffer Handle
+ static const int SetIndexBuffer = 0xA6;
+ /// Set the input layout
+ /// Arg0 - Input Layout handle
+ static const int SetInputLayout = 0xA7;
+ /// Set the texture units
+ /// Arg0 - texture unit offset
+ /// Arg1 - List of texture handles
+ static const int SetTextures = 0xA8;
+ /// Set the sampler state on texture units
+ /// Arg0 - texture unit offset
+ /// Arg1 - List of sampler handles
+ static const int SetSamplers = 0xA9;
+
+ /// Set the index buffer and vertex buffer units
+ /// Arg0 - Handle to indexed mesh
+ static const int SetIndexedMesh = 0xA10;
+
+ /// Set a uniform variable
+ /// Arg0 - Uniform name
+ /// Arg1 - Float32Array
+ static const int SetUniformMatrix4 = 0xB0;
+
+ /// Set a uniform variable
+ /// Arg0 - Uniform name
+ /// Arg1 - Float32Array
+ static const int SetUniformVector4 = 0xB1;
+
+ /// Set a uniform variable
+ /// Arg0 - Uniform name
+ /// Arg1 - Float32Array
+ static const int SetUniformVector3 = 0xB2;
+
+ /// Set a uniform variable
+ /// Arg0 - Uniform name
+ /// Arg1 - Float32Array
+ static const int SetUniformVector2 = 0xB3;
+
+ /// Set a uniform variable
+ /// Arg0 - Uniform name
+ /// Arg1 - Int
+ static const int SetUniformInt = 0xB4;
+
+ /// Draw vertices
+ /// Arg0 - Vertex Count
+ /// Arg1 - Vertex Buffer Offset
+ static const int Draw = 0xC0;
+
+ /// Draw vertices with values from registers
+ /// Arg0 - Vertex Count register
+ /// Arg1 - Vertex Buffer Offset register
+ static const int DrawIndirect = 0xC1;
+
+ /// Draw an indexed primitive stream
+ /// Arg0 - Index count
+ /// Arg1 - Index buffer offset
+ static const int DrawIndexed = 0xC2;
+
+ /// Draw an IndexedMesh
+ /// Arg0 - handle to IndexedMesh
+ static const int DrawIndexedMesh = 0xC3;
+
+ /// Dergister and unload resources
+ /// Arg0 - List of resource handles
+ static const int DeregisterResources = 0xD0;
+
+ /// Delete device children
+ /// Arg0 - List of device handles
+ static const int DeleteDeviceChildren = 0xD1;
+}
+</pre>
+</div>
+<div>
+<h3>Static Properties</h3>
+<div class="field"><h4 id="Call">
+<button class="show-code">Code</button>
+const int         <strong>Call</strong> <a class="anchor-link"
+            href="#Call"
+            title="Permalink to Ops.Call">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int Call = 0x10;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="CompileShaderFromResource">
+<button class="show-code">Code</button>
+const int         <strong>CompileShaderFromResource</strong> <a class="anchor-link"
+            href="#CompileShaderFromResource"
+            title="Permalink to Ops.CompileShaderFromResource">#</a>
+        </h4>
+        <div class="doc">
+<p>Compile a shader from a shader resource
+Arg0 - Handle to shader
+Arg1 - Handle to resource</p>
+<pre class="source">
+static const int CompileShaderFromResource = 0x30;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="CreateBlendState">
+<button class="show-code">Code</button>
+const int         <strong>CreateBlendState</strong> <a class="anchor-link"
+            href="#CreateBlendState"
+            title="Permalink to Ops.CreateBlendState">#</a>
+        </h4>
+        <div class="doc">
+<p>Create a new blend state
+Arg0 - Name of blend state
+Arg1 - Map of options
+Arg2 - List to store handle in (can be null)</p>
+<pre class="source">
+static const int CreateBlendState = 0x20;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="CreateDepthState">
+<button class="show-code">Code</button>
+const int         <strong>CreateDepthState</strong> <a class="anchor-link"
+            href="#CreateDepthState"
+            title="Permalink to Ops.CreateDepthState">#</a>
+        </h4>
+        <div class="doc">
+<p>Create a new depth state
+Arg0 - Name of depth state
+Arg1 - Map of options
+Arg2 - List to store handle in (can be null)</p>
+<pre class="source">
+static const int CreateDepthState = 0x21;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="CreateFragmentShader">
+<button class="show-code">Code</button>
+const int         <strong>CreateFragmentShader</strong> <a class="anchor-link"
+            href="#CreateFragmentShader"
+            title="Permalink to Ops.CreateFragmentShader">#</a>
+        </h4>
+        <div class="doc">
+<p>Create a new fragment shader
+Arg0 - Name of fragment shader
+Arg1 - Map of options
+Arg2 - List to store handle in (can be null)</p>
+<pre class="source">
+static const int CreateFragmentShader = 0x24;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="CreateIndexedMesh">
+<button class="show-code">Code</button>
+const int         <strong>CreateIndexedMesh</strong> <a class="anchor-link"
+            href="#CreateIndexedMesh"
+            title="Permalink to Ops.CreateIndexedMesh">#</a>
+        </h4>
+        <div class="doc">
+<p>Create a new indexed mesh
+Arg0 - Name of indexed mesh
+Arg1 - Map of options
+Arg2 - List to store handle in (can be null)</p>
+<pre class="source">
+static const int CreateIndexedMesh = 0x26;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="CreateInputLayoutForMeshResource">
+<button class="show-code">Code</button>
+const int         <strong>CreateInputLayoutForMeshResource</strong> <a class="anchor-link"
+            href="#CreateInputLayoutForMeshResource"
+            title="Permalink to Ops.CreateInputLayoutForMeshResource">#</a>
+        </h4>
+        <div class="doc">
+<p>Create a new input layout for a given indexed mesh resource and shader
+Arg0 - Name of input layout
+Arg1 - Handle of mesh resource
+Arg2 - Handle of shader program resource
+Arg3 - List of inputs descriptions (InputLayoutDescription)
+Arg4 - List to store handle in (can be null)</p>
+<pre class="source">
+static const int CreateInputLayoutForMeshResource = 0x27;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="CreateRasterizerState">
+<button class="show-code">Code</button>
+const int         <strong>CreateRasterizerState</strong> <a class="anchor-link"
+            href="#CreateRasterizerState"
+            title="Permalink to Ops.CreateRasterizerState">#</a>
+        </h4>
+        <div class="doc">
+<p>Create a new rasterizer state
+Arg0 - Name of rasterizer state
+Arg1 - Map of options
+Arg2 - List to store handle in (can be null)</p>
+<pre class="source">
+static const int CreateRasterizerState = 0x22;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="CreateShaderProgram">
+<button class="show-code">Code</button>
+const int         <strong>CreateShaderProgram</strong> <a class="anchor-link"
+            href="#CreateShaderProgram"
+            title="Permalink to Ops.CreateShaderProgram">#</a>
+        </h4>
+        <div class="doc">
+<p>Create a new shader program
+Arg0 - Name of shader program state
+Arg1 - Map of options
+Arg2 - List to store handle in (can be null)</p>
+<pre class="source">
+static const int CreateShaderProgram = 0x25;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="CreateVertexShader">
+<button class="show-code">Code</button>
+const int         <strong>CreateVertexShader</strong> <a class="anchor-link"
+            href="#CreateVertexShader"
+            title="Permalink to Ops.CreateVertexShader">#</a>
+        </h4>
+        <div class="doc">
+<p>Create a new vertex shader
+Arg0 - Name of vertex shader
+Arg1 - Map of options
+Arg2 - List to store handle in (can be null)</p>
+<pre class="source">
+static const int CreateVertexShader = 0x23;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DeleteDeviceChildren">
+<button class="show-code">Code</button>
+const int         <strong>DeleteDeviceChildren</strong> <a class="anchor-link"
+            href="#DeleteDeviceChildren"
+            title="Permalink to Ops.DeleteDeviceChildren">#</a>
+        </h4>
+        <div class="doc">
+<p>Delete device children
+Arg0 - List of device handles</p>
+<pre class="source">
+static const int DeleteDeviceChildren = 0xD1;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DeregisterResources">
+<button class="show-code">Code</button>
+const int         <strong>DeregisterResources</strong> <a class="anchor-link"
+            href="#DeregisterResources"
+            title="Permalink to Ops.DeregisterResources">#</a>
+        </h4>
+        <div class="doc">
+<p>Dergister and unload resources
+Arg0 - List of resource handles</p>
+<pre class="source">
+static const int DeregisterResources = 0xD0;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="Draw">
+<button class="show-code">Code</button>
+const int         <strong>Draw</strong> <a class="anchor-link"
+            href="#Draw"
+            title="Permalink to Ops.Draw">#</a>
+        </h4>
+        <div class="doc">
+<p>Draw vertices
+Arg0 - Vertex Count
+Arg1 - Vertex Buffer Offset</p>
+<pre class="source">
+static const int Draw = 0xC0;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DrawIndexed">
+<button class="show-code">Code</button>
+const int         <strong>DrawIndexed</strong> <a class="anchor-link"
+            href="#DrawIndexed"
+            title="Permalink to Ops.DrawIndexed">#</a>
+        </h4>
+        <div class="doc">
+<p>Draw an indexed primitive stream
+Arg0 - Index count
+Arg1 - Index buffer offset</p>
+<pre class="source">
+static const int DrawIndexed = 0xC2;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DrawIndexedMesh">
+<button class="show-code">Code</button>
+const int         <strong>DrawIndexedMesh</strong> <a class="anchor-link"
+            href="#DrawIndexedMesh"
+            title="Permalink to Ops.DrawIndexedMesh">#</a>
+        </h4>
+        <div class="doc">
+<p>Draw an IndexedMesh
+Arg0 - handle to IndexedMesh</p>
+<pre class="source">
+static const int DrawIndexedMesh = 0xC3;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DrawIndirect">
+<button class="show-code">Code</button>
+const int         <strong>DrawIndirect</strong> <a class="anchor-link"
+            href="#DrawIndirect"
+            title="Permalink to Ops.DrawIndirect">#</a>
+        </h4>
+        <div class="doc">
+<p>Draw vertices with values from registers
+Arg0 - Vertex Count register
+Arg1 - Vertex Buffer Offset register</p>
+<pre class="source">
+static const int DrawIndirect = 0xC1;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="LinkShaderProgram">
+<button class="show-code">Code</button>
+const int         <strong>LinkShaderProgram</strong> <a class="anchor-link"
+            href="#LinkShaderProgram"
+            title="Permalink to Ops.LinkShaderProgram">#</a>
+        </h4>
+        <div class="doc">
+<p>Link a shader program
+Arg0 - Handle to shader program
+Arg1 - Handle to vertex shader
+Arg2 - Handle to fragment shader</p>
+<pre class="source">
+static const int LinkShaderProgram = 0x31;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="Null">
+<button class="show-code">Code</button>
+const int         <strong>Null</strong> <a class="anchor-link"
+            href="#Null"
+            title="Permalink to Ops.Null">#</a>
+        </h4>
+        <div class="doc">
+<p>NO-OP
+No arguments</p>
+<pre class="source">
+static const int Null = 0x00;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="Return">
+<button class="show-code">Code</button>
+const int         <strong>Return</strong> <a class="anchor-link"
+            href="#Return"
+            title="Permalink to Ops.Return">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static const int Return = 0x11;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetBlendState">
+<button class="show-code">Code</button>
+const int         <strong>SetBlendState</strong> <a class="anchor-link"
+            href="#SetBlendState"
+            title="Permalink to Ops.SetBlendState">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the blend state
+Arg0 - Blend State handle</p>
+<pre class="source">
+static const int SetBlendState = 0xA0;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetDepthState">
+<button class="show-code">Code</button>
+const int         <strong>SetDepthState</strong> <a class="anchor-link"
+            href="#SetDepthState"
+            title="Permalink to Ops.SetDepthState">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the depth state
+Arg0 - Depth State Handle</p>
+<pre class="source">
+static const int SetDepthState = 0xA2;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetIndexBuffer">
+<button class="show-code">Code</button>
+const int         <strong>SetIndexBuffer</strong> <a class="anchor-link"
+            href="#SetIndexBuffer"
+            title="Permalink to Ops.SetIndexBuffer">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the active index buffer
+Arg0 - Index buffer Handle</p>
+<pre class="source">
+static const int SetIndexBuffer = 0xA6;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetIndexedMesh">
+<button class="show-code">Code</button>
+const int         <strong>SetIndexedMesh</strong> <a class="anchor-link"
+            href="#SetIndexedMesh"
+            title="Permalink to Ops.SetIndexedMesh">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the index buffer and vertex buffer units
+Arg0 - Handle to indexed mesh</p>
+<pre class="source">
+static const int SetIndexedMesh = 0xA10;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetInputLayout">
+<button class="show-code">Code</button>
+const int         <strong>SetInputLayout</strong> <a class="anchor-link"
+            href="#SetInputLayout"
+            title="Permalink to Ops.SetInputLayout">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the input layout
+Arg0 - Input Layout handle</p>
+<pre class="source">
+static const int SetInputLayout = 0xA7;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetPrimitiveTopology">
+<button class="show-code">Code</button>
+const int         <strong>SetPrimitiveTopology</strong> <a class="anchor-link"
+            href="#SetPrimitiveTopology"
+            title="Permalink to Ops.SetPrimitiveTopology">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the primitive topology
+Arg0 - Primitive topology</p>
+<pre class="source">
+static const int SetPrimitiveTopology = 0xA4;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetRasterizerState">
+<button class="show-code">Code</button>
+const int         <strong>SetRasterizerState</strong> <a class="anchor-link"
+            href="#SetRasterizerState"
+            title="Permalink to Ops.SetRasterizerState">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the rasterizer state
+Arg0 - Rasterizer State handle</p>
+<pre class="source">
+static const int SetRasterizerState = 0xA1;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetRegister">
+<button class="show-code">Code</button>
+const int         <strong>SetRegister</strong> <a class="anchor-link"
+            href="#SetRegister"
+            title="Permalink to Ops.SetRegister">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the value of a register
+Arg0 - Register index (0...NumRegisters)
+Arg1 - Value to set</p>
+<pre class="source">
+static const int SetRegister = 0x01;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetRegisterFromList">
+<button class="show-code">Code</button>
+const int         <strong>SetRegisterFromList</strong> <a class="anchor-link"
+            href="#SetRegisterFromList"
+            title="Permalink to Ops.SetRegisterFromList">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the value of a register
+Arg0 - Register index (0...NumRegisters)
+Arg1 - List
+Arg2 - List index</p>
+<pre class="source">
+static const int SetRegisterFromList = 0x02;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetSamplers">
+<button class="show-code">Code</button>
+const int         <strong>SetSamplers</strong> <a class="anchor-link"
+            href="#SetSamplers"
+            title="Permalink to Ops.SetSamplers">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the sampler state on texture units
+Arg0 - texture unit offset
+Arg1 - List of sampler handles</p>
+<pre class="source">
+static const int SetSamplers = 0xA9;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetShaderProgram">
+<button class="show-code">Code</button>
+const int         <strong>SetShaderProgram</strong> <a class="anchor-link"
+            href="#SetShaderProgram"
+            title="Permalink to Ops.SetShaderProgram">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the shader program
+ARg0 - Shader Program handle</p>
+<pre class="source">
+static const int SetShaderProgram = 0xA3;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetTextures">
+<button class="show-code">Code</button>
+const int         <strong>SetTextures</strong> <a class="anchor-link"
+            href="#SetTextures"
+            title="Permalink to Ops.SetTextures">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the texture units
+Arg0 - texture unit offset
+Arg1 - List of texture handles</p>
+<pre class="source">
+static const int SetTextures = 0xA8;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetUniformInt">
+<button class="show-code">Code</button>
+const int         <strong>SetUniformInt</strong> <a class="anchor-link"
+            href="#SetUniformInt"
+            title="Permalink to Ops.SetUniformInt">#</a>
+        </h4>
+        <div class="doc">
+<p>Set a uniform variable
+Arg0 - Uniform name
+Arg1 - Int</p>
+<pre class="source">
+static const int SetUniformInt = 0xB4;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetUniformMatrix4">
+<button class="show-code">Code</button>
+const int         <strong>SetUniformMatrix4</strong> <a class="anchor-link"
+            href="#SetUniformMatrix4"
+            title="Permalink to Ops.SetUniformMatrix4">#</a>
+        </h4>
+        <div class="doc">
+<p>Set a uniform variable
+Arg0 - Uniform name
+Arg1 - Float32Array</p>
+<pre class="source">
+static const int SetUniformMatrix4 = 0xB0;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetUniformVector2">
+<button class="show-code">Code</button>
+const int         <strong>SetUniformVector2</strong> <a class="anchor-link"
+            href="#SetUniformVector2"
+            title="Permalink to Ops.SetUniformVector2">#</a>
+        </h4>
+        <div class="doc">
+<p>Set a uniform variable
+Arg0 - Uniform name
+Arg1 - Float32Array</p>
+<pre class="source">
+static const int SetUniformVector2 = 0xB3;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetUniformVector3">
+<button class="show-code">Code</button>
+const int         <strong>SetUniformVector3</strong> <a class="anchor-link"
+            href="#SetUniformVector3"
+            title="Permalink to Ops.SetUniformVector3">#</a>
+        </h4>
+        <div class="doc">
+<p>Set a uniform variable
+Arg0 - Uniform name
+Arg1 - Float32Array</p>
+<pre class="source">
+static const int SetUniformVector3 = 0xB2;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetUniformVector4">
+<button class="show-code">Code</button>
+const int         <strong>SetUniformVector4</strong> <a class="anchor-link"
+            href="#SetUniformVector4"
+            title="Permalink to Ops.SetUniformVector4">#</a>
+        </h4>
+        <div class="doc">
+<p>Set a uniform variable
+Arg0 - Uniform name
+Arg1 - Float32Array</p>
+<pre class="source">
+static const int SetUniformVector4 = 0xB1;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="SetVertexBuffers">
+<button class="show-code">Code</button>
+const int         <strong>SetVertexBuffers</strong> <a class="anchor-link"
+            href="#SetVertexBuffers"
+            title="Permalink to Ops.SetVertexBuffers">#</a>
+        </h4>
+        <div class="doc">
+<p>Set the vertex buffer
+Arg0 - Offset
+Arg1 - List of vertex buffer handles</p>
+<pre class="source">
+static const int SetVertexBuffers = 0xA5;
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.256</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

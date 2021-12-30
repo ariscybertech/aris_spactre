@@ -1,0 +1,274 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>ResourceEvents class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="ResourceEvents">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/ResourceEvents.html">ResourceEvents</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><div class="icon-class"></div><strong>ResourceEvents</strong></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>ResourceEvents</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+class ResourceEvents {
+ static final int TypeUpdate = 0x1;
+ static final int TypeUnloaded = 0x2;
+ Map&lt;int, ResourceEventCallback&gt; update;
+ Map&lt;int, ResourceEventCallback&gt; unloaded;
+ int _idCounter;
+ ResourceEvents() {
+   update = new HashMap();
+   unloaded = new HashMap();
+   _idCounter = 0;
+ }
+
+ int addUpdate(ResourceEventCallback cb) {
+   _idCounter++;
+   if (_idCounter == 0) {
+     _idCounter++;
+   }
+   update[_idCounter] = cb;
+   return _idCounter;
+ }
+
+ void removeUpdate(int id) {
+   update.remove(id);
+ }
+
+ int addUnloaded(ResourceEventCallback cb) {
+   _idCounter++;
+   if (_idCounter == 0) {
+     _idCounter++;
+   }
+   unloaded[_idCounter] = cb;
+   return _idCounter;
+ }
+
+ void removeUnloaded(int id) {
+   unloaded.remove(id);
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Static Properties</h3>
+<div class="field"><h4 id="TypeUnloaded">
+<button class="show-code">Code</button>
+final int         <strong>TypeUnloaded</strong> <a class="anchor-link"
+            href="#TypeUnloaded"
+            title="Permalink to ResourceEvents.TypeUnloaded">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TypeUnloaded = 0x2;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="TypeUpdate">
+<button class="show-code">Code</button>
+final int         <strong>TypeUpdate</strong> <a class="anchor-link"
+            href="#TypeUpdate"
+            title="Permalink to ResourceEvents.TypeUpdate">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int TypeUpdate = 0x1;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="ResourceEvents">
+<button class="show-code">Code</button>
+new <strong>ResourceEvents</strong>() <a class="anchor-link" href="#ResourceEvents"
+              title="Permalink to ResourceEvents.ResourceEvents">#</a></h4>
+<div class="doc">
+<pre class="source">
+ResourceEvents() {
+ update = new HashMap();
+ unloaded = new HashMap();
+ _idCounter = 0;
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="unloaded">
+<button class="show-code">Code</button>
+Map&lt;int, <a href="../spectre/ResourceEventCallback.html">ResourceEventCallback</a>&gt;         <strong>unloaded</strong> <a class="anchor-link"
+            href="#unloaded"
+            title="Permalink to ResourceEvents.unloaded">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+Map&lt;int, ResourceEventCallback&gt; unloaded;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="update">
+<button class="show-code">Code</button>
+Map&lt;int, <a href="../spectre/ResourceEventCallback.html">ResourceEventCallback</a>&gt;         <strong>update</strong> <a class="anchor-link"
+            href="#update"
+            title="Permalink to ResourceEvents.update">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+Map&lt;int, ResourceEventCallback&gt; update;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="addUnloaded">
+<button class="show-code">Code</button>
+int <strong>addUnloaded</strong>(<a href="../spectre/ResourceEventCallback.html">ResourceEventCallback</a> cb) <a class="anchor-link" href="#addUnloaded"
+              title="Permalink to ResourceEvents.addUnloaded">#</a></h4>
+<div class="doc">
+<pre class="source">
+int addUnloaded(ResourceEventCallback cb) {
+ _idCounter++;
+ if (_idCounter == 0) {
+   _idCounter++;
+ }
+ unloaded[_idCounter] = cb;
+ return _idCounter;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="addUpdate">
+<button class="show-code">Code</button>
+int <strong>addUpdate</strong>(<a href="../spectre/ResourceEventCallback.html">ResourceEventCallback</a> cb) <a class="anchor-link" href="#addUpdate"
+              title="Permalink to ResourceEvents.addUpdate">#</a></h4>
+<div class="doc">
+<pre class="source">
+int addUpdate(ResourceEventCallback cb) {
+ _idCounter++;
+ if (_idCounter == 0) {
+   _idCounter++;
+ }
+ update[_idCounter] = cb;
+ return _idCounter;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="removeUnloaded">
+<button class="show-code">Code</button>
+void <strong>removeUnloaded</strong>(int id) <a class="anchor-link" href="#removeUnloaded"
+              title="Permalink to ResourceEvents.removeUnloaded">#</a></h4>
+<div class="doc">
+<pre class="source">
+void removeUnloaded(int id) {
+ unloaded.remove(id);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="removeUpdate">
+<button class="show-code">Code</button>
+void <strong>removeUpdate</strong>(int id) <a class="anchor-link" href="#removeUpdate"
+              title="Permalink to ResourceEvents.removeUpdate">#</a></h4>
+<div class="doc">
+<pre class="source">
+void removeUpdate(int id) {
+ update.remove(id);
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.364</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

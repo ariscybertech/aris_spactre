@@ -1,0 +1,531 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>DepthState class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="DepthState">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/DepthState.html">DepthState</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><div class="icon-class"></div><strong>DepthState</strong></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><a href="../spectre/ResourceManager.html"><div class="icon-class"></div>ResourceManager</a></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>DepthState</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<p>DepthState controls depth testing and writing to a depth buffer
+Create using <code>Device.createDepthState</code>
+Set using <code>ImmediateContext.setDepthState</code></p>
+<pre class="source">
+class DepthState extends DeviceChild {
+ static final int DepthComparisonOpNever = WebGLRenderingContext.NEVER;
+ static final int DepthComparisonOpAlways = WebGLRenderingContext.ALWAYS;
+ static final int DepthComparisonOpEqual = WebGLRenderingContext.EQUAL;
+ static final int DepthComparisonOpNotEqual = WebGLRenderingContext.NOTEQUAL;
+
+ static final int DepthComparisonOpLess = WebGLRenderingContext.LESS;
+ static final int DepthComparisonOpLessEqual = WebGLRenderingContext.LEQUAL;
+ static final int DepthComparisonOpGreaterEqual = WebGLRenderingContext.GEQUAL;
+ static final int DepthComparisonOpGreater = WebGLRenderingContext.GREATER;
+
+ bool depthTestEnabled;
+ bool depthWriteEnabled;
+ bool polygonOffsetEnabled;
+
+ num depthNearVal;
+ num depthFarVal;
+ num polygonOffsetFactor;
+ num polygonOffsetUnits;
+
+ int depthComparisonOp;
+
+ DepthState._internal(String name, GraphicsDevice device) : super._internal(name, device) {
+   depthTestEnabled = false;
+   depthWriteEnabled = false;
+   polygonOffsetEnabled = false;
+
+   depthNearVal = 0.0;
+   depthFarVal = 1.0;
+   polygonOffsetFactor = 0.0;
+   polygonOffsetUnits = 0.0;
+
+   depthComparisonOp = DepthComparisonOpAlways;
+ }
+
+ void _createDeviceState() {
+ }
+
+ dynamic filter(dynamic o) {
+   if (o is String) {
+     Map table = {
+       "DepthComparisonOpNever": WebGLRenderingContext.NEVER,
+       "DepthComparisonOpAlways": WebGLRenderingContext.ALWAYS,
+       "DepthComparisonOpEqual": WebGLRenderingContext.EQUAL,
+       "DepthComparisonOpNotEqual": WebGLRenderingContext.NOTEQUAL,
+       "DepthComparisonOpLess": WebGLRenderingContext.LESS,
+       "DepthComparisonOpLessEqual": WebGLRenderingContext.LEQUAL,
+       "DepthComparisonOpGreaterEqual": WebGLRenderingContext.GEQUAL,
+       "DepthComparisonOpGreater": WebGLRenderingContext.GREATER,
+     };
+     return table[o];
+   }
+   return o;
+ }
+ void _configDeviceState(dynamic props) {
+   if (props != null) {
+     dynamic o;
+
+     o = props['depthTestEnabled'];
+     depthTestEnabled = o != null ? filter(o) : depthTestEnabled;
+     o = props['depthWriteEnabled'];
+     depthWriteEnabled = o != null ? filter(o) : depthWriteEnabled;
+     o = props['polygonOffsetEnabled'];
+     polygonOffsetEnabled = o != null ? filter(o) : polygonOffsetEnabled;
+
+     o = props['depthNearVal'];
+     depthNearVal = o != null ? filter(o) : depthNearVal;
+     o = props['depthFarVal'];
+     depthFarVal = o != null ? filter(o) : depthFarVal;
+     o = props['polygonOffsetFactor'];
+     polygonOffsetFactor = o != null ? filter(o) : polygonOffsetFactor;
+     o = props['polygonOffsetUnits'];
+     polygonOffsetUnits = o != null ? filter(o) : polygonOffsetUnits;
+     o = props['depthComparisonOp'];
+     depthComparisonOp = o != null ? filter(o) : depthComparisonOp;
+   }
+
+ }
+
+ void _destroyDeviceState() {
+
+ }
+}
+</pre>
+</div>
+<h3>Extends</h3>
+<p>
+<span class="type-box"><span class="icon-class"></span><a href="../spectre/DeviceChild.html">DeviceChild</a></span>&nbsp;&gt;&nbsp;<span class="type-box"><span class="icon-class"></span><strong>DepthState</strong></span></p>
+<div>
+<h3>Static Properties</h3>
+<div class="field"><h4 id="DepthComparisonOpAlways">
+<button class="show-code">Code</button>
+final int         <strong>DepthComparisonOpAlways</strong> <a class="anchor-link"
+            href="#DepthComparisonOpAlways"
+            title="Permalink to DepthState.DepthComparisonOpAlways">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int DepthComparisonOpAlways = WebGLRenderingContext.ALWAYS;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DepthComparisonOpEqual">
+<button class="show-code">Code</button>
+final int         <strong>DepthComparisonOpEqual</strong> <a class="anchor-link"
+            href="#DepthComparisonOpEqual"
+            title="Permalink to DepthState.DepthComparisonOpEqual">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int DepthComparisonOpEqual = WebGLRenderingContext.EQUAL;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DepthComparisonOpGreater">
+<button class="show-code">Code</button>
+final int         <strong>DepthComparisonOpGreater</strong> <a class="anchor-link"
+            href="#DepthComparisonOpGreater"
+            title="Permalink to DepthState.DepthComparisonOpGreater">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int DepthComparisonOpGreater = WebGLRenderingContext.GREATER;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DepthComparisonOpGreaterEqual">
+<button class="show-code">Code</button>
+final int         <strong>DepthComparisonOpGreaterEqual</strong> <a class="anchor-link"
+            href="#DepthComparisonOpGreaterEqual"
+            title="Permalink to DepthState.DepthComparisonOpGreaterEqual">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int DepthComparisonOpGreaterEqual = WebGLRenderingContext.GEQUAL;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DepthComparisonOpLess">
+<button class="show-code">Code</button>
+final int         <strong>DepthComparisonOpLess</strong> <a class="anchor-link"
+            href="#DepthComparisonOpLess"
+            title="Permalink to DepthState.DepthComparisonOpLess">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int DepthComparisonOpLess = WebGLRenderingContext.LESS;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DepthComparisonOpLessEqual">
+<button class="show-code">Code</button>
+final int         <strong>DepthComparisonOpLessEqual</strong> <a class="anchor-link"
+            href="#DepthComparisonOpLessEqual"
+            title="Permalink to DepthState.DepthComparisonOpLessEqual">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int DepthComparisonOpLessEqual = WebGLRenderingContext.LEQUAL;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DepthComparisonOpNever">
+<button class="show-code">Code</button>
+final int         <strong>DepthComparisonOpNever</strong> <a class="anchor-link"
+            href="#DepthComparisonOpNever"
+            title="Permalink to DepthState.DepthComparisonOpNever">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int DepthComparisonOpNever = WebGLRenderingContext.NEVER;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="DepthComparisonOpNotEqual">
+<button class="show-code">Code</button>
+final int         <strong>DepthComparisonOpNotEqual</strong> <a class="anchor-link"
+            href="#DepthComparisonOpNotEqual"
+            title="Permalink to DepthState.DepthComparisonOpNotEqual">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+static final int DepthComparisonOpNotEqual = WebGLRenderingContext.NOTEQUAL;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="depthComparisonOp">
+<button class="show-code">Code</button>
+int         <strong>depthComparisonOp</strong> <a class="anchor-link"
+            href="#depthComparisonOp"
+            title="Permalink to DepthState.depthComparisonOp">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int depthComparisonOp;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="depthFarVal">
+<button class="show-code">Code</button>
+num         <strong>depthFarVal</strong> <a class="anchor-link"
+            href="#depthFarVal"
+            title="Permalink to DepthState.depthFarVal">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+num depthFarVal;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="depthNearVal">
+<button class="show-code">Code</button>
+num         <strong>depthNearVal</strong> <a class="anchor-link"
+            href="#depthNearVal"
+            title="Permalink to DepthState.depthNearVal">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+num depthNearVal;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="depthTestEnabled">
+<button class="show-code">Code</button>
+bool         <strong>depthTestEnabled</strong> <a class="anchor-link"
+            href="#depthTestEnabled"
+            title="Permalink to DepthState.depthTestEnabled">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+bool depthTestEnabled;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="depthWriteEnabled">
+<button class="show-code">Code</button>
+bool         <strong>depthWriteEnabled</strong> <a class="anchor-link"
+            href="#depthWriteEnabled"
+            title="Permalink to DepthState.depthWriteEnabled">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+bool depthWriteEnabled;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="device">
+<button class="show-code">Code</button>
+<a href="../spectre/GraphicsDevice.html">GraphicsDevice</a>         <strong>device</strong> <a class="anchor-link"
+            href="#device"
+            title="Permalink to DepthState.device">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+GraphicsDevice device;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="dirty">
+<button class="show-code">Code</button>
+bool         <strong>dirty</strong> <a class="anchor-link"
+            href="#dirty"
+            title="Permalink to DepthState.dirty">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool get dirty =&gt; (_status &amp; StatusDirty) != 0;
+</pre>
+<pre class="source">
+void set dirty(bool r) {
+ if (r) {
+   _status |= StatusDirty;
+ } else {
+   _status &amp;= ~StatusDirty;
+ }
+}
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="fallback">
+<button class="show-code">Code</button>
+<a href="../spectre/DeviceChild.html">DeviceChild</a>         <strong>fallback</strong> <a class="anchor-link"
+            href="#fallback"
+            title="Permalink to DepthState.fallback">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+DeviceChild fallback;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="hashCode">
+<button class="show-code">Code</button>
+final int         <strong>hashCode</strong> <a class="anchor-link"
+            href="#hashCode"
+            title="Permalink to DepthState.hashCode">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<div class="inherited">
+<p>Get a hash code for this object.</p>
+<p>All objects have hash codes. Hash codes are guaranteed to be the
+same for objects that are equal when compared using the equality
+operator <code>==</code>. Other than that there are no guarantees about
+the hash codes. They will not be consistent between runs and
+there are no distribution guarantees.</p>
+<p>If a subclass overrides <code>hashCode</code> it should override the
+equality operator as well to maintain consistency.</p>
+<div class="docs-inherited-from">docs inherited from Object </div></div>
+<pre class="source">
+int get hashCode {
+ return name.hashCode;
+}
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="name">
+<button class="show-code">Code</button>
+String         <strong>name</strong> <a class="anchor-link"
+            href="#name"
+            title="Permalink to DepthState.name">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+String name;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="polygonOffsetEnabled">
+<button class="show-code">Code</button>
+bool         <strong>polygonOffsetEnabled</strong> <a class="anchor-link"
+            href="#polygonOffsetEnabled"
+            title="Permalink to DepthState.polygonOffsetEnabled">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+bool polygonOffsetEnabled;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="polygonOffsetFactor">
+<button class="show-code">Code</button>
+num         <strong>polygonOffsetFactor</strong> <a class="anchor-link"
+            href="#polygonOffsetFactor"
+            title="Permalink to DepthState.polygonOffsetFactor">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+num polygonOffsetFactor;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="polygonOffsetUnits">
+<button class="show-code">Code</button>
+num         <strong>polygonOffsetUnits</strong> <a class="anchor-link"
+            href="#polygonOffsetUnits"
+            title="Permalink to DepthState.polygonOffsetUnits">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+num polygonOffsetUnits;
+</pre>
+</div>
+</div>
+<div class="field inherited"><h4 id="ready">
+<button class="show-code">Code</button>
+bool         <strong>ready</strong> <a class="anchor-link"
+            href="#ready"
+            title="Permalink to DepthState.ready">#</a>
+        </h4>
+        <div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool get ready =&gt; (_status &amp; StatusReady) != 0;
+</pre>
+<pre class="source">
+void set ready(bool r) {
+ if (r) {
+   _status |= StatusReady;
+ } else {
+   _status &amp;= ~StatusReady;
+ }
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method inherited"><h4 id="equals">
+<button class="show-code">Code</button>
+bool <strong>equals</strong>(<a href="../spectre/DeviceChild.html">DeviceChild</a> b) <a class="anchor-link" href="#equals"
+              title="Permalink to DepthState.equals">#</a></h4>
+<div class="inherited-from">inherited from <a href="../spectre/DeviceChild.html">DeviceChild</a> </div><div class="doc">
+<pre class="source">
+bool equals(DeviceChild b) =&gt; name == b.name &amp;&amp; device == b.device;
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="filter">
+<button class="show-code">Code</button>
+<strong>filter</strong>(o) <a class="anchor-link" href="#filter"
+              title="Permalink to DepthState.filter">#</a></h4>
+<div class="doc">
+<pre class="source">
+dynamic filter(dynamic o) {
+ if (o is String) {
+   Map table = {
+     "DepthComparisonOpNever": WebGLRenderingContext.NEVER,
+     "DepthComparisonOpAlways": WebGLRenderingContext.ALWAYS,
+     "DepthComparisonOpEqual": WebGLRenderingContext.EQUAL,
+     "DepthComparisonOpNotEqual": WebGLRenderingContext.NOTEQUAL,
+     "DepthComparisonOpLess": WebGLRenderingContext.LESS,
+     "DepthComparisonOpLessEqual": WebGLRenderingContext.LEQUAL,
+     "DepthComparisonOpGreaterEqual": WebGLRenderingContext.GEQUAL,
+     "DepthComparisonOpGreater": WebGLRenderingContext.GREATER,
+   };
+   return table[o];
+ }
+ return o;
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.593</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

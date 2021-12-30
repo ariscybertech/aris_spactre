@@ -1,0 +1,550 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>ResourceManager class / spectre Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="spectre" data-type="ResourceManager">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../spectre.html">spectre</a> &rsaquo; <a href="../spectre/ResourceManager.html">ResourceManager</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../profiler.html">profiler</a></h2><h2><div class="icon-library"></div><a href="../spectre.html">spectre</a></h2><ul class="icon">
+<li><a href="../spectre/ArrayMesh.html"><div class="icon-class"></div>ArrayMesh</a></li>
+<li><a href="../spectre/BlendState.html"><div class="icon-class"></div>BlendState</a></li>
+<li><a href="../spectre/Camera.html"><div class="icon-class"></div>Camera</a></li>
+<li><a href="../spectre/CameraController.html"><div class="icon-class"></div>CameraController</a></li>
+<li><a href="../spectre/CommandListBuilder.html"><div class="icon-class"></div>CommandListBuilder</a></li>
+<li><a href="../spectre/DebugDrawManager.html"><div class="icon-class"></div>DebugDrawManager</a></li>
+<li><a href="../spectre/DepthState.html"><div class="icon-class"></div>DepthState</a></li>
+<li><a href="../spectre/DeviceChild.html"><div class="icon-class"></div>DeviceChild</a></li>
+<li><a href="../spectre/DeviceFormat.html"><div class="icon-class"></div>DeviceFormat</a></li>
+<li><a href="../spectre/Float32ArrayResource.html"><div class="icon-class"></div>Float32ArrayResource</a></li>
+<li><a href="../spectre/FragmentShader.html"><div class="icon-class"></div>FragmentShader</a></li>
+<li><a href="../spectre/GraphicsContext.html"><div class="icon-class"></div>GraphicsContext</a></li>
+<li><a href="../spectre/GraphicsDevice.html"><div class="icon-class"></div>GraphicsDevice</a></li>
+<li><a href="../spectre/GraphicsDeviceCapabilities.html"><div class="icon-class"></div>GraphicsDeviceCapabilities</a></li>
+<li><a href="../spectre/HtmlLogger.html"><div class="icon-class"></div>HtmlLogger</a></li>
+<li><a href="../spectre/ImageResource.html"><div class="icon-class"></div>ImageResource</a></li>
+<li><a href="../spectre/IndexBuffer.html"><div class="icon-class"></div>IndexBuffer</a></li>
+<li><a href="../spectre/IndexedMesh.html"><div class="icon-class"></div>IndexedMesh</a></li>
+<li><a href="../spectre/InputElementDescription.html"><div class="icon-class"></div>InputElementDescription</a></li>
+<li><a href="../spectre/InputLayout.html"><div class="icon-class"></div>InputLayout</a></li>
+<li><a href="../spectre/InputLayoutDescription.html"><div class="icon-class"></div>InputLayoutDescription</a></li>
+<li><a href="../spectre/InputLayoutHelper.html"><div class="icon-class"></div>InputLayoutHelper</a></li>
+<li><a href="../spectre/Interpreter.html"><div class="icon-class"></div>Interpreter</a></li>
+<li><a href="../spectre/Logger.html"><div class="icon-class"></div>Logger</a></li>
+<li><a href="../spectre/MeshResource.html"><div class="icon-class"></div>MeshResource</a></li>
+<li><a href="../spectre/MouseKeyboardCameraController.html"><div class="icon-class"></div>MouseKeyboardCameraController</a></li>
+<li><a href="../spectre/NullLogger.html"><div class="icon-class"></div>NullLogger</a></li>
+<li><a href="../spectre/Ops.html"><div class="icon-class"></div>Ops</a></li>
+<li><a href="../spectre/PackResource.html"><div class="icon-class"></div>PackResource</a></li>
+<li><a href="../spectre/PrintLogger.html"><div class="icon-class"></div>PrintLogger</a></li>
+<li><a href="../spectre/ProgramResource.html"><div class="icon-class"></div>ProgramResource</a></li>
+<li><a href="../spectre/RasterizerState.html"><div class="icon-class"></div>RasterizerState</a></li>
+<li><a href="../spectre/RenderBuffer.html"><div class="icon-class"></div>RenderBuffer</a></li>
+<li><a href="../spectre/RenderConfigResource.html"><div class="icon-class"></div>RenderConfigResource</a></li>
+<li><a href="../spectre/RenderTarget.html"><div class="icon-class"></div>RenderTarget</a></li>
+<li><a href="../spectre/ResourceBase.html"><div class="icon-class"></div>ResourceBase</a></li>
+<li><a href="../spectre/ResourceEventCallback.html"><div class="icon-interface"></div>ResourceEventCallback</a></li>
+<li><a href="../spectre/ResourceEvents.html"><div class="icon-class"></div>ResourceEvents</a></li>
+<li><a href="../spectre/ResourceLoaders.html"><div class="icon-class"></div>ResourceLoaders</a></li>
+<li><div class="icon-class"></div><strong>ResourceManager</strong></li>
+<li><a href="../spectre/SamplerState.html"><div class="icon-class"></div>SamplerState</a></li>
+<li><a href="../spectre/SceneResource.html"><div class="icon-class"></div>SceneResource</a></li>
+<li><a href="../spectre/Shader.html"><div class="icon-class"></div>Shader</a></li>
+<li><a href="../spectre/ShaderProgram.html"><div class="icon-class"></div>ShaderProgram</a></li>
+<li><a href="../spectre/ShaderProgramResource.html"><div class="icon-class"></div>ShaderProgramResource</a></li>
+<li><a href="../spectre/ShaderResource.html"><div class="icon-class"></div>ShaderResource</a></li>
+<li><a href="../spectre/SpectreBuffer.html"><div class="icon-class"></div>SpectreBuffer</a></li>
+<li><a href="../spectre/StencilState.html"><div class="icon-class"></div>StencilState</a></li>
+<li><a href="../spectre/Texture.html"><div class="icon-class"></div>Texture</a></li>
+<li><a href="../spectre/Texture2D.html"><div class="icon-class"></div>Texture2D</a></li>
+<li><a href="../spectre/Uint16ArrayResource.html"><div class="icon-class"></div>Uint16ArrayResource</a></li>
+<li><a href="../spectre/UniformCallback.html"><div class="icon-interface"></div>UniformCallback</a></li>
+<li><a href="../spectre/VertexBuffer.html"><div class="icon-class"></div>VertexBuffer</a></li>
+<li><a href="../spectre/VertexShader.html"><div class="icon-class"></div>VertexShader</a></li>
+<li><a href="../spectre/Viewport.html"><div class="icon-class"></div>Viewport</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../vector_math_browser.html">vector_math_browser</a></h2></div>
+<div class="content">
+        <h2><strong>ResourceManager</strong>
+          class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+class ResourceManager {
+ ResourceLoaders _loaders;
+
+ Set&lt;ResourceBase&gt; _resources;
+ Map&lt;String, ResourceBase&gt; _urlToHandle;
+
+ String _baseURL;
+
+ ResourceManager()
+   : _loaders = new ResourceLoaders()
+   , _resources = new Set&lt;ResourceBase&gt;()
+   , _baseURL = ''
+   , _urlToHandle = new Map&lt;String, ResourceBase&gt;();
+
+ void setBaseURL(String baseURL) {
+   _baseURL = baseURL;
+ }
+
+ Map&lt;String, ResourceBase&gt; get children =&gt; _urlToHandle;
+
+ ResourceBase getResource(String url) {
+   return _urlToHandle[url];
+ }
+
+ bool registerDynamicResource(ResourceBase resource) {
+   _resources.add(resource);
+   _urlToHandle[resource.url] = resource;
+   return true;
+ }
+
+ ResourceBase registerResource(String url) {
+   {
+     // Resource already exists
+     ResourceBase existingHandle = getResource(url);
+     if (existingHandle != null) {
+       print('RR: $url $existingHandle');
+       return existingHandle;
+     }
+   }
+
+   _ResourceLoader rl = _loaders.findResourceLoader(url);
+   if (rl == null) {
+     spectreLog.Error('Resource Manager cannot load $url.');
+     return null;
+   }
+
+   ResourceBase rb = rl.createResource(url, this);
+
+   _resources.add(rb);
+   _urlToHandle[url] = rb;
+   //print('RR: $url $handle');
+   return rb;
+ }
+
+ bool deregisterResource(ResourceBase rb) {
+   if (rb != null) {
+     _urlToHandle.remove(rb.url);
+     print('Removing ${rb.url}');
+     rb.unload();
+     rb.deregister();
+     _resources.remove(rb);
+     return true;
+   }
+   return false;
+ }
+
+ void updateResource(ResourceBase rb, dynamic state) {
+   if (state is String) {
+     state = JSON.parse(state);
+   }
+   if (state is Map == false) {
+     spectreLog.Warning('updateResource - state is not a Map or a JSON string.');
+     return;
+   }
+   if (rb != null) {
+     rb.update(state);
+   }
+ }
+
+ /// Load the resource [rb]. Can be called again to reload.
+ Future&lt;ResourceBase&gt; loadResource(ResourceBase rb, [bool force=true]) {
+   if (rb == null) {
+     return null;
+   }
+   _ResourceLoader rl = _loaders.findResourceLoader(rb.url);
+   if (rl == null) {
+     return null;
+   }
+   Completer&lt;ResourceBase&gt; completer = new Completer&lt;ResourceBase&gt;();
+   if (rb.isLoaded &amp;&amp; force == false) {
+     // Skip load
+     completer.complete(rb);
+   } else {
+     // Start the load...
+     rl.load('$_baseURL${rb.url}').then((result) {
+       // The raw resource data has been loaded.
+       // Set the resource handle
+       // The resource class is responsible for completing the load
+       //
+       result.handle = rb;
+       result.completer = completer;
+       rb.load(result);
+     });
+   }
+   return completer.future;
+ }
+
+ Future&lt;bool&gt; loadResources(Collection&lt;ResourceBase&gt; handles, [bool force=true]) {
+   List&lt;Future&lt;int&gt;&gt; futures = new List&lt;Future&lt;int&gt;&gt;();
+   handles.forEach((handle) {
+     var r = loadResource(handle, force);
+     futures.add(r);
+   });
+   Future&lt;List&gt; allFutures = Futures.wait(futures);
+   Completer&lt;bool&gt; completer = new Completer&lt;bool&gt;();
+   allFutures.then((result) {
+     completer.complete(true);
+   });
+   return completer.future;
+ }
+
+ /// Unload the resource [handle]. [handle] remains registered and can be reloaded.
+ void unloadResource(ResourceBase rb) {
+   rb.unload();
+ }
+
+ void batchUnload(List&lt;ResourceBase&gt; handles) {
+   for (ResourceBase h in handles) {
+     unloadResource(h);
+   }
+ }
+
+ void batchDeregister(List&lt;ResourceBase&gt; handles) {
+   for (ResourceBase h in handles) {
+     deregisterResource(h);
+   }
+ }
+
+ int addEventCallback(ResourceBase rb, int eventType, ResourceEventCallback callback) {
+   if (rb == null) {
+     return 0;
+   }
+   if (eventType == ResourceEvents.TypeUpdate) {
+     return rb.on.addUpdate(callback);
+   } else if (eventType == ResourceEvents.TypeUnloaded) {
+     return rb.on.addUnloaded(callback);
+   }
+   return 0;
+ }
+
+ void removeEventCallback(ResourceBase rb, int eventType, int id) {
+   if (rb == null) {
+     return;
+   }
+   if (eventType == ResourceEvents.TypeUpdate) {
+     rb.on.removeUpdate(id);
+   } else if (eventType == ResourceEvents.TypeUnloaded) {
+     rb.on.removeUnloaded(id);
+   }
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="ResourceManager">
+<button class="show-code">Code</button>
+new <strong>ResourceManager</strong>() <a class="anchor-link" href="#ResourceManager"
+              title="Permalink to ResourceManager.ResourceManager">#</a></h4>
+<div class="doc">
+<pre class="source">
+ResourceManager()
+ : _loaders = new ResourceLoaders()
+ , _resources = new Set&lt;ResourceBase&gt;()
+ , _baseURL = ''
+ , _urlToHandle = new Map&lt;String, ResourceBase&gt;();
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="children">
+<button class="show-code">Code</button>
+final Map&lt;String, <a href="../spectre/ResourceBase.html">ResourceBase</a>&gt;         <strong>children</strong> <a class="anchor-link"
+            href="#children"
+            title="Permalink to ResourceManager.children">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+Map&lt;String, ResourceBase&gt; get children =&gt; _urlToHandle;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="addEventCallback">
+<button class="show-code">Code</button>
+int <strong>addEventCallback</strong>(<a href="../spectre/ResourceBase.html">ResourceBase</a> rb, int eventType, <a href="../spectre/ResourceEventCallback.html">ResourceEventCallback</a> callback) <a class="anchor-link" href="#addEventCallback"
+              title="Permalink to ResourceManager.addEventCallback">#</a></h4>
+<div class="doc">
+<pre class="source">
+int addEventCallback(ResourceBase rb, int eventType, ResourceEventCallback callback) {
+ if (rb == null) {
+   return 0;
+ }
+ if (eventType == ResourceEvents.TypeUpdate) {
+   return rb.on.addUpdate(callback);
+ } else if (eventType == ResourceEvents.TypeUnloaded) {
+   return rb.on.addUnloaded(callback);
+ }
+ return 0;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="batchDeregister">
+<button class="show-code">Code</button>
+void <strong>batchDeregister</strong>(List&lt;<a href="../spectre/ResourceBase.html">ResourceBase</a>&gt; handles) <a class="anchor-link" href="#batchDeregister"
+              title="Permalink to ResourceManager.batchDeregister">#</a></h4>
+<div class="doc">
+<pre class="source">
+void batchDeregister(List&lt;ResourceBase&gt; handles) {
+ for (ResourceBase h in handles) {
+   deregisterResource(h);
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="batchUnload">
+<button class="show-code">Code</button>
+void <strong>batchUnload</strong>(List&lt;<a href="../spectre/ResourceBase.html">ResourceBase</a>&gt; handles) <a class="anchor-link" href="#batchUnload"
+              title="Permalink to ResourceManager.batchUnload">#</a></h4>
+<div class="doc">
+<pre class="source">
+void batchUnload(List&lt;ResourceBase&gt; handles) {
+ for (ResourceBase h in handles) {
+   unloadResource(h);
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="deregisterResource">
+<button class="show-code">Code</button>
+bool <strong>deregisterResource</strong>(<a href="../spectre/ResourceBase.html">ResourceBase</a> rb) <a class="anchor-link" href="#deregisterResource"
+              title="Permalink to ResourceManager.deregisterResource">#</a></h4>
+<div class="doc">
+<pre class="source">
+bool deregisterResource(ResourceBase rb) {
+ if (rb != null) {
+   _urlToHandle.remove(rb.url);
+   print('Removing ${rb.url}');
+   rb.unload();
+   rb.deregister();
+   _resources.remove(rb);
+   return true;
+ }
+ return false;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="getResource">
+<button class="show-code">Code</button>
+<a href="../spectre/ResourceBase.html">ResourceBase</a> <strong>getResource</strong>(String url) <a class="anchor-link" href="#getResource"
+              title="Permalink to ResourceManager.getResource">#</a></h4>
+<div class="doc">
+<pre class="source">
+ResourceBase getResource(String url) {
+ return _urlToHandle[url];
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="loadResource">
+<button class="show-code">Code</button>
+Future&lt;<a href="../spectre/ResourceBase.html">ResourceBase</a>&gt; <strong>loadResource</strong>(<a href="../spectre/ResourceBase.html">ResourceBase</a> rb, [bool force = true]) <a class="anchor-link" href="#loadResource"
+              title="Permalink to ResourceManager.loadResource">#</a></h4>
+<div class="doc">
+<p>Load the resource 
+<span class="param">rb</span>. Can be called again to reload.</p>
+<pre class="source">
+Future&lt;ResourceBase&gt; loadResource(ResourceBase rb, [bool force=true]) {
+ if (rb == null) {
+   return null;
+ }
+ _ResourceLoader rl = _loaders.findResourceLoader(rb.url);
+ if (rl == null) {
+   return null;
+ }
+ Completer&lt;ResourceBase&gt; completer = new Completer&lt;ResourceBase&gt;();
+ if (rb.isLoaded &amp;&amp; force == false) {
+   // Skip load
+   completer.complete(rb);
+ } else {
+   // Start the load...
+   rl.load('$_baseURL${rb.url}').then((result) {
+     // The raw resource data has been loaded.
+     // Set the resource handle
+     // The resource class is responsible for completing the load
+     //
+     result.handle = rb;
+     result.completer = completer;
+     rb.load(result);
+   });
+ }
+ return completer.future;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="loadResources">
+<button class="show-code">Code</button>
+Future&lt;bool&gt; <strong>loadResources</strong>(Collection&lt;<a href="../spectre/ResourceBase.html">ResourceBase</a>&gt; handles, [bool force = true]) <a class="anchor-link" href="#loadResources"
+              title="Permalink to ResourceManager.loadResources">#</a></h4>
+<div class="doc">
+<pre class="source">
+Future&lt;bool&gt; loadResources(Collection&lt;ResourceBase&gt; handles, [bool force=true]) {
+ List&lt;Future&lt;int&gt;&gt; futures = new List&lt;Future&lt;int&gt;&gt;();
+ handles.forEach((handle) {
+   var r = loadResource(handle, force);
+   futures.add(r);
+ });
+ Future&lt;List&gt; allFutures = Futures.wait(futures);
+ Completer&lt;bool&gt; completer = new Completer&lt;bool&gt;();
+ allFutures.then((result) {
+   completer.complete(true);
+ });
+ return completer.future;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="registerDynamicResource">
+<button class="show-code">Code</button>
+bool <strong>registerDynamicResource</strong>(<a href="../spectre/ResourceBase.html">ResourceBase</a> resource) <a class="anchor-link" href="#registerDynamicResource"
+              title="Permalink to ResourceManager.registerDynamicResource">#</a></h4>
+<div class="doc">
+<pre class="source">
+bool registerDynamicResource(ResourceBase resource) {
+ _resources.add(resource);
+ _urlToHandle[resource.url] = resource;
+ return true;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="registerResource">
+<button class="show-code">Code</button>
+<a href="../spectre/ResourceBase.html">ResourceBase</a> <strong>registerResource</strong>(String url) <a class="anchor-link" href="#registerResource"
+              title="Permalink to ResourceManager.registerResource">#</a></h4>
+<div class="doc">
+<pre class="source">
+ResourceBase registerResource(String url) {
+ {
+   // Resource already exists
+   ResourceBase existingHandle = getResource(url);
+   if (existingHandle != null) {
+     print('RR: $url $existingHandle');
+     return existingHandle;
+   }
+ }
+
+ _ResourceLoader rl = _loaders.findResourceLoader(url);
+ if (rl == null) {
+   spectreLog.Error('Resource Manager cannot load $url.');
+   return null;
+ }
+
+ ResourceBase rb = rl.createResource(url, this);
+
+ _resources.add(rb);
+ _urlToHandle[url] = rb;
+ //print('RR: $url $handle');
+ return rb;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="removeEventCallback">
+<button class="show-code">Code</button>
+void <strong>removeEventCallback</strong>(<a href="../spectre/ResourceBase.html">ResourceBase</a> rb, int eventType, int id) <a class="anchor-link" href="#removeEventCallback"
+              title="Permalink to ResourceManager.removeEventCallback">#</a></h4>
+<div class="doc">
+<pre class="source">
+void removeEventCallback(ResourceBase rb, int eventType, int id) {
+ if (rb == null) {
+   return;
+ }
+ if (eventType == ResourceEvents.TypeUpdate) {
+   rb.on.removeUpdate(id);
+ } else if (eventType == ResourceEvents.TypeUnloaded) {
+   rb.on.removeUnloaded(id);
+ }
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="setBaseURL">
+<button class="show-code">Code</button>
+void <strong>setBaseURL</strong>(String baseURL) <a class="anchor-link" href="#setBaseURL"
+              title="Permalink to ResourceManager.setBaseURL">#</a></h4>
+<div class="doc">
+<pre class="source">
+void setBaseURL(String baseURL) {
+ _baseURL = baseURL;
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="unloadResource">
+<button class="show-code">Code</button>
+void <strong>unloadResource</strong>(<a href="../spectre/ResourceBase.html">ResourceBase</a> rb) <a class="anchor-link" href="#unloadResource"
+              title="Permalink to ResourceManager.unloadResource">#</a></h4>
+<div class="doc">
+<p>Unload the resource <code>handle</code>. <code>handle</code> remains registered and can be reloaded.</p>
+<pre class="source">
+void unloadResource(ResourceBase rb) {
+ rb.unload();
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="updateResource">
+<button class="show-code">Code</button>
+void <strong>updateResource</strong>(<a href="../spectre/ResourceBase.html">ResourceBase</a> rb, state) <a class="anchor-link" href="#updateResource"
+              title="Permalink to ResourceManager.updateResource">#</a></h4>
+<div class="doc">
+<pre class="source">
+void updateResource(ResourceBase rb, dynamic state) {
+ if (state is String) {
+   state = JSON.parse(state);
+ }
+ if (state is Map == false) {
+   spectreLog.Warning('updateResource - state is not a Map or a JSON string.');
+   return;
+ }
+ if (rb != null) {
+   rb.update(state);
+ }
+}
+</pre>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-01 11:00:56.288</div>
+        </div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

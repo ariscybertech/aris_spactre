@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Spectre Declarative Example: Line Primitive</title>
+  <link rel="stylesheet" href="packages/spectre/src/spectre_declarative/css/bootstrap.min.css">
+  <link rel="stylesheet" href="packages/spectre/src/spectre_declarative/style.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="import" href="packages/spectre/spectre_elements.html">
+</head>
+<body>
+<s-spectre id="spectre">
+  <s-scene id="scene">
+    <s-transform id="masterT" origin="[10.0, 10.0, 10.0]">
+      <s-line-aabb color="[0.0, 0.0, 1.0, 1.0]"></s-line-aabb>
+      <s-line-arc id="arc" radius="4.0" color="[0.0, 1.0, 0.0, 1.0]"
+                  normal="[1.0, 0.0, 0.0]" origin="[5.0, 5.0, 5.0]"></s-line-arc>
+      <s-line-circle radius="2.0" normal="[0.0, 0.0, 1.0]"
+                     origin="[5.0, 5.0, 5.0]"></s-line-circle>
+      <s-line-aabb min="[6.0, 6.0, 6.0]" max="[10.0, 10.0, 10.0]"></s-line-aabb>
+      <s-line-cone apex="[-4.0, 0.0, -4.0]" direction="[-1.0, 0.0, 0.0]"
+                   height="5.0"></s-line-cone>
+      <s-line-cross radius="2" origin="[5.0, 5.0, 5.0]"></s-line-cross>
+      <s-line-line start="[1.0, 1.0, 1.0]" end="[10.0, 10.0, 1.0]" 
+                   color="[0.0, 0.0, 1.0, 1.0]"></s-line-line>
+      <s-line-sphere radius="4.0"></s-line-sphere>
+      <s-line-sphere color="[0.0, 1.0, 0.0, 1.0]" origin="[0.0, 4.0, 3.0]">
+      </s-line-sphere>
+      <s-line-triangle color="[1.0, 0.7, 0.7, 1.0]"></s-line-triangle>
+      <s-line-plane id="plane" size="10" origin="[0.0, -10.0, 0.0]"
+                    color="[1.0, 0.0, 0.0, 1.0]"></s-line-plane>
+      <s-line-plane size="4" normal="[0.33, 0.33, 0.33]"
+                    origin="[0.0, -10.0, 0.0]"></s-line-plane>
+    </s-transform>
+  </s-scene>
+</s-spectre>
+<script type="application/dart" src="line_primitive_main.dart"></script>
+<script src="packages/browser/dart.js"></script>
+</body>
+</html>
